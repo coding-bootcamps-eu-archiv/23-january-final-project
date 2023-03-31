@@ -11,12 +11,20 @@ export default {
     };
   },
   created() {
-    localStorage.setItem("existingDocumentId", this.$route.params.id);
     fetch(
       "https://23-januar.api.cbe.uber.space/documents/" + this.$route.params.id
     )
-      .then((response) => response.json())
-      .then((cvDocumentData) => (this.cvData = cvDocumentData));
+      .then((response) => {
+        if (response.ok) {
+          return response.json();
+        } else {
+          throw new Error("Something went wrong");
+        }
+      })
+      .then((cvDocumentData) => {
+        this.cvData = cvDocumentData;
+        localStorage.setItem("existingDocumentId", cvDocumentData.id);
+      });
   },
 };
 </script>
