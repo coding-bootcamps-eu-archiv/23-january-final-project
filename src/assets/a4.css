@@ -1,0 +1,23 @@
+:root {
+  --a4-size: 600px;
+}
+
+/* just for presentation purpose, delete later */
+body {
+  background-color: lightgray;
+}
+
+.a4-container {
+  position: relative;
+  width: var(--a4-size);
+  height: calc(var(--a4-size) * 1.414);
+
+  background-color: #fff;
+  box-shadow: 9px 10px 14px -9px rgba(0, 0, 0, 0.58);
+  overflow: hidden;
+}
+.a4-content {
+  position: absolute;
+  padding: 2.438rem 4.313rem;
+  width: 100%;
+}
