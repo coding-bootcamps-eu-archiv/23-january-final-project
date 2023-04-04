@@ -1,4 +1,6 @@
-export const store = {
+import { createStore } from "vuex";
+
+const store = createStore({
   state: {
     userData: {
       firstname: "John",
@@ -15,10 +17,11 @@ export const store = {
       marriage: "ledig",
     },
   },
-  setUserData(userData) {
-    this.state.userData = userData;
+  mutations: {
+    setUserData(state, userData) {
+      state.userData = userData;
+    },
   },
-  getUserData() {
-    return this.state.userData;
-  },
-};
+});
+
+export default store;
