@@ -3,7 +3,7 @@
   <div class="a4-container">
     <div class="a4-content">
       <header>
-        <h1>{{ userData.name }}</h1>
+        <h1>{{ userData.firstname }} {{ userData.lastname }}</h1>
         <div class="adress">
           <p>{{ userData.street }}</p>
           <span>|</span>
