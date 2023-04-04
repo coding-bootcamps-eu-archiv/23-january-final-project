@@ -307,21 +307,6 @@
   text-decoration: none;
 }
 
-:root {
-  --background-color: #e8eff9;
-  --bs-primary: #00b0ff;
-  --bs-succes: #00c7c5;
-  --bs-text-light: #787878;
-  --bs-info-gradient: linear-gradient(
-    91.9deg,
-    rgba(0, 199, 197, 0.5) 27.8%,
-    rgb(0, 176, 255) 67%
-  );
-  --bs-log: #233143;
-  --text-color: black;
-  --text-colot-btn: white;
-}
-
 /* ----- Scroll Bar CSS ----- */
 ::-webkit-scrollbar {
   width: 20px;
