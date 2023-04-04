@@ -1,16 +1,19 @@
 <template>
+  <h1>{{ userData.counter }}</h1>
   <div class="a4-container">
     <div class="a4-content">
       <header>
-        <h1>Maria Mustermann</h1>
+        <h1>{{ userData.name }}</h1>
         <div class="adress">
-          <p id="user-street">Musterstraße 12</p>
+          <p>{{ userData.street }}</p>
           <span>|</span>
-          <p id="user-city">12345 Musterdorf</p>
+          <p>{{ userData.city }}</p>
           <span>|</span>
-          <p id="user-mail">maria.mustermann@email.de</p>
+          <p>{{ userData.email }}</p>
           <span>|</span>
-          <p id="user-phone">01234 - 5678900f</p>
+          <p>{{ userData.phone }}</p>
+          <span>|</span>
+          <p>{{ userData.jobtitle }}</p>
         </div>
       </header>
       <main>
@@ -21,11 +24,11 @@
             <div>
               <div class="personal-data">
                 <p>Geburtsdatum/-ort</p>
-                <p id="user-birth">10.01.1999 in Musterstadt</p>
+                <p>{{ userData.birthdate }} in {{ userData.birthcity }}</p>
                 <p>Staatsangehörigkeit</p>
-                <p id="user-nationality">deutsch</p>
+                <p>{{ userData.nationality }}</p>
                 <p>Familienstand</p>
-                <p id="user-marriagestatus">ledig</p>
+                <p>{{ userData.marriage }}</p>
               </div>
             </div>
             <div class="picture">
@@ -124,6 +127,18 @@
     </div>
   </div>
 </template>
+
+<script>
+export default {
+  name: "CVClassic",
+  props: {
+    userData: {
+      type: Object,
+      required: false,
+    },
+  },
+};
+</script>
 
 <style scoped>
 * {

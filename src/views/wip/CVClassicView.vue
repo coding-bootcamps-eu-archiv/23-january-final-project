@@ -1,15 +1,20 @@
 <template>
-  <CVClassic />
+  <CVClassic :user-data="userData" />
 </template>
 
 <script>
+import { store } from "@/store/store.js";
 import CVClassic from "@/components/templates/CVClassic.vue";
 export default {
   name: "CVClassicView",
   components: {
     CVClassic,
   },
-  // your script code goes here
+  computed: {
+    userData() {
+      return store.getUserData();
+    },
+  },
 };
 </script>
 
