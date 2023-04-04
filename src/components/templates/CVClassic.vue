@@ -1,19 +1,21 @@
 <template>
-  <h1>{{ userData.counter }}</h1>
   <div class="a4-container">
     <div class="a4-content">
       <header>
-        <h1>{{ userData.firstname }} {{ userData.lastname }}</h1>
+        <h1>
+          {{ this.$store.state.userData.firstname }}
+          {{ this.$store.state.userData.lastname }}
+        </h1>
         <div class="adress">
-          <p>{{ userData.street }}</p>
+          <p>{{ this.$store.state.userData.street }}</p>
           <span>|</span>
-          <p>{{ userData.city }}</p>
+          <p>{{ this.$store.state.userData.city }}</p>
           <span>|</span>
-          <p>{{ userData.email }}</p>
+          <p>{{ this.$store.state.userData.email }}</p>
           <span>|</span>
-          <p>{{ userData.phone }}</p>
+          <p>{{ this.$store.state.userData.phone }}</p>
           <span>|</span>
-          <p>{{ userData.jobtitle }}</p>
+          <p>{{ this.$store.state.userData.jobtitle }}</p>
         </div>
       </header>
       <main>
@@ -24,11 +26,14 @@
             <div>
               <div class="personal-data">
                 <p>Geburtsdatum/-ort</p>
-                <p>{{ userData.birthdate }} in {{ userData.birthcity }}</p>
+                <p>
+                  {{ this.$store.state.userData.birthdate }} in
+                  {{ this.$store.state.userData.birthcity }}
+                </p>
                 <p>Staatsangehörigkeit</p>
-                <p>{{ userData.nationality }}</p>
+                <p>{{ this.$store.state.userData.nationality }}</p>
                 <p>Familienstand</p>
-                <p>{{ userData.marriage }}</p>
+                <p>{{ this.$store.state.userData.marriage }}</p>
               </div>
             </div>
             <div class="picture">

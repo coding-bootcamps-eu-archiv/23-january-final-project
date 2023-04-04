@@ -4,13 +4,17 @@
       <div class="a4-content">
         <header>
           <div class="cv-username">
-            <h1>{{ userData.firstname }}</h1>
-            <p class="first-name-decoration">{{ userData.firstname }}</p>
-            <p class="last-name">{{ userData.lastname }}</p>
+            <h1>{{ this.$store.state.userData.firstname }}</h1>
+            <p class="first-name-decoration">
+              {{ this.$store.state.userData.firstname }}
+            </p>
+            <p class="last-name">{{ this.$store.state.userData.lastname }}</p>
           </div>
           <div class="adress">
-            <p id="user-street">{{ userData.street }},&nbsp;</p>
-            <p id="user-city">{{ userData.city }}</p>
+            <p id="user-street">
+              {{ this.$store.state.userData.street }},&nbsp;
+            </p>
+            <p id="user-city">{{ this.$store.state.userData.city }}</p>
           </div>
           <div class="bar-container">
             <div class="bar-element">
@@ -26,7 +30,7 @@
                   fill="currentColor"
                 />
               </svg>
-              <p>{{ userData.profileurl }}</p>
+              <p>{{ this.$store.state.userData.profileurl }}</p>
             </div>
             <div class="bar-element">
               <svg
@@ -43,7 +47,7 @@
                   fill="currentColor"
                 />
               </svg>
-              <p>{{ userData.phone }}</p>
+              <p>{{ this.$store.state.userData.phone }}</p>
             </div>
             <div class="bar-element">
               <svg
@@ -59,7 +63,7 @@
                 />
               </svg>
 
-              <p>{{ userData.email }}</p>
+              <p>{{ this.$store.state.userData.email }}</p>
             </div>
             <div class="picture">
               <img
