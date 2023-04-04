@@ -4,7 +4,8 @@
       <div class="a4-content">
         <header>
           <div class="cv-username">
-            <h1>{{ userData.firstname }}</h1>
+            <!-- <h1>{{ userData.firstname }}</h1> -->
+            <h1>{{ this.$store.state.firstName }}</h1>
             <p class="first-name-decoration">{{ userData.firstname }}</p>
             <p class="last-name">{{ userData.lastname }}</p>
           </div>
