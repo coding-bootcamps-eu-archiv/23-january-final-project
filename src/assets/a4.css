@@ -1,9 +1,3 @@
-:root {
-  --a4-size: 600px;
-}
-
-/* just for presentation purpose, delete later */
-
 .a4-container {
   position: relative;
   width: var(--a4-size);
