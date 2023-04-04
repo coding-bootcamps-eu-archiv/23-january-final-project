@@ -1,7 +1,8 @@
 export const store = {
   state: {
     userData: {
-      name: "John Doe",
+      firstname: "John",
+      lastname: "Doe",
       email: "johndoe@example.com",
       phone: "555-5555",
       street: "Example Street 12",
@@ -9,6 +10,7 @@ export const store = {
       jobtitle: "Frontend Developer",
       birthdate: "03.03.1993",
       birthcity: "Othercity",
+      profileurl: "www.portfolio.com",
       nationality: "deutsch",
       marriage: "ledig",
     },
