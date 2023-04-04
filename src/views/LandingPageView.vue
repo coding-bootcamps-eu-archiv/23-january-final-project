@@ -167,7 +167,7 @@
             src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/074/878/original/Resume_folder-bro.png?1680473012"
           />
           <div class="circle">
-            <p>1</p>
+            <span>1</span>
           </div>
           <div class="text">
             <p>Wählen Sie Ihr Design</p>
@@ -178,7 +178,7 @@
             src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/074/887/original/Untitled-1.png?1680478282"
           />
           <div class="circle">
-            <p>2</p>
+            <span>2</span>
           </div>
           <div class="text">
             <p>Erstelle deinen CV <br />im Lebenslauf-Editor</p>
@@ -189,7 +189,7 @@
             src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/074/880/original/Resume-bro.png?1680473042"
           />
           <div class="circle">
-            <p>3</p>
+            <span>3</span>
           </div>
           <div class="text">
             <p>Passe das Design an</p>
@@ -200,7 +200,7 @@
             src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/074/881/original/Add_files-amico.png?1680473050"
           />
           <div class="circle">
-            <p>4</p>
+            <span>4</span>
           </div>
           <div class="text">
             <p>Laden den CV als PDF-Print-Datei herunter</p>
@@ -267,7 +267,7 @@
         <span clas="demo-version">Demo-Version</span> nützlich ist und wir
         planen, die Website weiter zu verbessern.
       </p>
-      <button>Jetzt starten</button>
+      <button class="start-button">Jetzt starten</button>
     </section>
     <div class="quote-section">
       <blockquote class="quote">
@@ -278,21 +278,45 @@
 
     <section class="footer-social">
       <div class="n-icon n-icon-bootcamp">
-        <img
-          src="https://lh6.googleusercontent.com/-9VkRY4tLC7M/AAAAAAAAAAI/AAAAAAAAAAA/v-ZroSVGQPA/s39-p-k-no-ns-nd/photo.jpg"
-          alt="logo"
-        />
+        <a href="https://www.coding-bootcamps.eu/ " target="_blank">
+          <img
+            src="https://lh6.googleusercontent.com/-9VkRY4tLC7M/AAAAAAAAAAI/AAAAAAAAAAA/v-ZroSVGQPA/s39-p-k-no-ns-nd/photo.jpg"
+            alt="logo"
+        /></a>
       </div>
       <div class="n-icon n-icon-github">
-        <img
-          src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/075/165/original/kindpng_1280233.png?1680588854"
-          alt="Free Files Github - Github White Logo Png, Transparent Png@kindpng.com"
-        />
+        <a
+          href="https://github.com/coding-bootcamps-eu/23-january-final-project"
+          target="_blank"
+        >
+          <img
+            src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/075/165/original/kindpng_1280233.png?1680588854"
+            alt="Free Files Github - Github White Logo Png, Transparent Png@kindpng.com"
+        /></a>
       </div>
     </section>
     <div class="line-footer"></div>
     <footer>
-      <a class="footer-section" href="https://storyset.com/online"
+      <p>
+        Coded by:
+
+        <a
+          class="footer-section"
+          href="https://github.com/ephan95"
+          target="_blank"
+          >Katherina Ephan</a
+        >
+        <a
+          class="footer-section"
+          href="https://github.com/Murielcibra"
+          target="_blank"
+          >Muriel Cishek</a
+        >
+      </p>
+      <a
+        class="footer-section"
+        href="https://storyset.com/online"
+        target="_blank"
         >Online illustrations by Storyset</a
       >
     </footer>
@@ -517,6 +541,10 @@ p > strong {
   padding: 0 15%;
   padding-top: 6rem;
 }
+.function-number {
+  color: var(--bs-succes);
+  font-size: 3rem;
+}
 
 .container {
   display: grid;
@@ -547,10 +575,11 @@ p > strong {
   margin-top: 1.5rem;
 }
 
-.circle p {
+.circle span {
   margin: 0 auto;
   font-size: 1.2rem;
   color: #fff;
+  text-align: center;
 }
 
 .text {
@@ -578,7 +607,7 @@ p > strong {
 .faq-section {
   min-height: 100vh;
   padding: 0 15%;
-  padding-top: 4rem;
+  padding-top: 8rem;
 }
 
 .faq-container {
@@ -613,7 +642,7 @@ p > strong {
 .about-section {
   min-height: 100vh;
   padding: 0 31%;
-  padding-top: 4rem;
+  padding-top: 8rem;
 }
 
 .about-section > p {
@@ -640,6 +669,13 @@ p > span {
   cursor: pointer;
   transition: all 0.3s linear;
   margin-top: 80px;
+}
+
+.start-button:hover {
+  background-color: rgba(35, 49, 67, 0.8);
+  border: transparent;
+  transform: scale(1.1);
+  color: white;
 }
 
 /*quote section*/
@@ -699,5 +735,15 @@ footer {
   padding-top: 4rem;
   padding-bottom: 4rem;
   background: var(--bs-log);
+}
+footer > p {
+  text-align: center;
+  color: #fff;
+  font-size: 0.8rem;
+}
+
+footer > a {
+  margin-top: 10px;
+  font-size: 0.8rem;
 }
 </style>
