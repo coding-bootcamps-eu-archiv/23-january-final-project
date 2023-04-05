@@ -3,16 +3,20 @@
   --bs-primary: #00b0ff;
   --bs-succes: #00c7c5;
   --bs-text-light: #787878;
-  --bs-info-gradient: linear-gradient(
-    91.9deg,
-    rgba(0, 199, 197, 0.5) 27.8%,
-    rgb(0, 176, 255) 67%
-  );
+
+  --bs-info-gradient: linear-gradient(91.9deg,
+      rgba(0, 199, 197, 0.5) 27.8%,
+      rgb(0, 176, 255) 67%);
+  --bs-cvgenerator-gradient: linear-gradient(91.9deg, rgb(0, 176, 255) 27.8%, rgba(0, 199, 197, 0.5) 67%);
   --bs-log: #233143;
   --text-color: black;
   --text-colot-btn: white;
   --a4-size: 600px;
   --cv-color: #cb6161;
   --cv-elements: #f5e0e0;
+<<<<<<< HEAD
+}
+=======
   --cv-modern-color: black;
 }
+>>>>>>> ab0cb552ff24ff5065b712281564567517cb8b35
