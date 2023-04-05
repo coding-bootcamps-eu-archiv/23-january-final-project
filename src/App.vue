@@ -7,6 +7,12 @@
     href="https://fonts.googleapis.com/css?family=Baloo Thambi 2"
     rel="stylesheet"
   />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Pontano+Sans:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
   <nav>
     <router-link to="/"></router-link>
   </nav>
