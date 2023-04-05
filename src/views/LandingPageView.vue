@@ -97,7 +97,9 @@
           Standards entspricht und perfekt auf deine beruflichen Bedürfnisse
           abgestimmt ist.
         </p>
-        <button class="hero__button">LEBENSLAUF ERSTELLEN</button>
+        <router-link to="/cv-generator">
+          <button class="hero__button">LEBENSLAUF ERSTELLEN</button>
+        </router-link>
       </div>
       <div class="hero-image">
         <img
