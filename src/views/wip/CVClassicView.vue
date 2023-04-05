@@ -9,7 +9,6 @@ export default {
   components: {
     CVClassic,
   },
-  // your script code goes here
 };
 </script>
 
