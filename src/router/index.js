@@ -3,6 +3,7 @@ import LandingPageView from "../views/LandingPageView.vue";
 import CVClassicView from "../views/wip/CVClassicView.vue";
 import CVCreativeView from "../views/wip/CVCreativeView.vue";
 import CVGeneratorView from "../views/CVGeneratorView";
+import CVModernView from "../views/wip/CVModernView";
 
 const routes = [
   {
@@ -22,8 +23,13 @@ const routes = [
   },
   {
     path: "/cv-generator",
-    name: "cv Generator",
+    name: "cv generator",
     component: CVGeneratorView,
+  },
+  {
+    path: "/cv-modern",
+    name: "cv modern",
+    component: CVModernView,
   },
 ];
 

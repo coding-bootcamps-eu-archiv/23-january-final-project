@@ -153,15 +153,15 @@ export default {
 }
 
 p {
-  font-size: 0.625rem;
+  font-size: 0.525rem;
 }
 
 li {
-  font-size: 0.563rem;
+  font-size: 0.525rem;
 }
 
 h1 {
-  font-size: 0.8rem;
+  font-size: 0.6rem;
   font-weight: bold;
 }
 
@@ -176,12 +176,12 @@ h1 {
 }
 
 h2 {
-  font-size: 1.25rem;
+  font-size: 1.4rem;
   margin-bottom: 1rem;
 }
 
 h3 {
-  font-size: 0.875rem;
+  font-size: 0.775rem;
   text-decoration: underline;
   margin-block: 1.625rem;
 }
@@ -205,11 +205,11 @@ h3 {
 .content-grid {
   display: grid;
   grid-template-columns: 9.75rem auto;
-  row-gap: 1.625rem;
+  row-gap: 1.425rem;
 }
 
 h4 {
   margin-bottom: 0.625rem;
-  font-size: 0.625rem;
+  font-size: 0.54rem;
 }
 </style>
