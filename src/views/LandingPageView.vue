@@ -269,7 +269,9 @@
         <span clas="demo-version">Demo-Version</span> nützlich ist und wir
         planen, die Website weiter zu verbessern.
       </p>
-      <button class="start-button">Jetzt starten</button>
+      <router-link to="/cv-generator">
+        <button class="start-button">Jetzt starten</button>
+      </router-link>
     </section>
     <div class="quote-section">
       <blockquote class="quote">
@@ -659,7 +661,7 @@ p > span {
   color: var(--bs-primary);
 }
 
-.about-section > button {
+.start-button {
   display: block;
   margin: auto;
   font-size: 1.2rem;

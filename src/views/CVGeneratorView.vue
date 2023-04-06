@@ -2,77 +2,79 @@
   <body>
     <div class="container">
       <div class="header">
-        <a href="#" class="logo"
-          ><span
-            ><svg
-              width="39"
-              height="24"
-              viewBox="0 0 39 24"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M14.456 21.24C13.24 21.24 12.112 21.024 11.072 20.592C10.048 20.144 9.152 19.528 8.384 18.744C7.616 17.944 7.024 17.024 6.608 15.984C6.192 14.928 5.984 13.8 5.984 12.6C5.984 11.4 6.192 10.28 6.608 9.24C7.024 8.184 7.616 7.264 8.384 6.48C9.152 5.696 10.048 5.08 11.072 4.632C12.112 4.184 13.24 3.96 14.456 3.96C15.816 3.96 16.992 4.184 17.984 4.632C18.976 5.08 19.856 5.688 20.624 6.456L18.752 8.328C18.256 7.784 17.648 7.36 16.928 7.056C16.224 6.752 15.4 6.6 14.456 6.6C13.624 6.6 12.864 6.744 12.176 7.032C11.488 7.32 10.888 7.736 10.376 8.28C9.88 8.808 9.496 9.44 9.224 10.176C8.952 10.912 8.816 11.72 8.816 12.6C8.816 13.48 8.952 14.288 9.224 15.024C9.496 15.76 9.88 16.4 10.376 16.944C10.888 17.472 11.488 17.88 12.176 18.168C12.864 18.456 13.624 18.6 14.456 18.6C15.48 18.6 16.344 18.448 17.048 18.144C17.768 17.824 18.376 17.392 18.872 16.848L20.744 18.72C19.976 19.504 19.072 20.12 18.032 20.568C16.992 21.016 15.8 21.24 14.456 21.24Z"
-                fill="white"
-              />
-              <path
-                d="M13.97 17L11.2 9.97H12.67L14.81 15.66H14.24L16.4 9.97H17.85L15.05 17H13.97Z"
-                fill="white"
-              />
-              <path
-                d="M22 22V4H25.0531V22H22ZM24.0973 14.2857V11.5857H33.5487V14.2857H24.0973ZM24.0973 6.7V4H34V6.7H24.0973Z"
-                fill="white"
-              />
-              <line
-                x1="20"
-                y1="8"
-                x2="20"
-                y2="3.27835e-08"
-                stroke="white"
-                stroke-width="2"
-              />
-              <line
-                x1="20"
-                y1="1"
-                x2="39"
-                y2="1"
-                stroke="white"
-                stroke-width="2"
-              />
-              <line y1="23" x2="25" y2="23" stroke="white" stroke-width="2" />
-              <line y1="23" x2="25" y2="23" stroke="white" stroke-width="2" />
-              <line y1="23" x2="25" y2="23" stroke="white" stroke-width="2" />
-              <line y1="1" x2="17" y2="1" stroke="white" stroke-width="2" />
-              <line y1="1" x2="17" y2="1" stroke="white" stroke-width="2" />
-              <line y1="1" x2="17" y2="1" stroke="white" stroke-width="2" />
-              <line
-                x1="27"
-                y1="23"
-                x2="39"
-                y2="23"
-                stroke="white"
-                stroke-width="2"
-              />
-              <line
-                x1="38"
-                y1="23"
-                x2="38"
-                y2="4.37114e-08"
-                stroke="white"
-                stroke-width="2"
-              />
-              <path d="M1 23L0.999999 0" stroke="white" stroke-width="2" />
-              <rect
-                x="20.0634"
-                y="6.97937"
-                width="1.38526"
-                height="1.88033"
-                transform="rotate(47.4577 20.0634 6.97937)"
-                fill="white"
-              />
-            </svg>
-          </span>
-          <p>CV FABRIK</p></a
+        <router-link to="/">
+          <a href="#" class="logo"
+            ><span
+              ><svg
+                width="39"
+                height="24"
+                viewBox="0 0 39 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M14.456 21.24C13.24 21.24 12.112 21.024 11.072 20.592C10.048 20.144 9.152 19.528 8.384 18.744C7.616 17.944 7.024 17.024 6.608 15.984C6.192 14.928 5.984 13.8 5.984 12.6C5.984 11.4 6.192 10.28 6.608 9.24C7.024 8.184 7.616 7.264 8.384 6.48C9.152 5.696 10.048 5.08 11.072 4.632C12.112 4.184 13.24 3.96 14.456 3.96C15.816 3.96 16.992 4.184 17.984 4.632C18.976 5.08 19.856 5.688 20.624 6.456L18.752 8.328C18.256 7.784 17.648 7.36 16.928 7.056C16.224 6.752 15.4 6.6 14.456 6.6C13.624 6.6 12.864 6.744 12.176 7.032C11.488 7.32 10.888 7.736 10.376 8.28C9.88 8.808 9.496 9.44 9.224 10.176C8.952 10.912 8.816 11.72 8.816 12.6C8.816 13.48 8.952 14.288 9.224 15.024C9.496 15.76 9.88 16.4 10.376 16.944C10.888 17.472 11.488 17.88 12.176 18.168C12.864 18.456 13.624 18.6 14.456 18.6C15.48 18.6 16.344 18.448 17.048 18.144C17.768 17.824 18.376 17.392 18.872 16.848L20.744 18.72C19.976 19.504 19.072 20.12 18.032 20.568C16.992 21.016 15.8 21.24 14.456 21.24Z"
+                  fill="white"
+                />
+                <path
+                  d="M13.97 17L11.2 9.97H12.67L14.81 15.66H14.24L16.4 9.97H17.85L15.05 17H13.97Z"
+                  fill="white"
+                />
+                <path
+                  d="M22 22V4H25.0531V22H22ZM24.0973 14.2857V11.5857H33.5487V14.2857H24.0973ZM24.0973 6.7V4H34V6.7H24.0973Z"
+                  fill="white"
+                />
+                <line
+                  x1="20"
+                  y1="8"
+                  x2="20"
+                  y2="3.27835e-08"
+                  stroke="white"
+                  stroke-width="2"
+                />
+                <line
+                  x1="20"
+                  y1="1"
+                  x2="39"
+                  y2="1"
+                  stroke="white"
+                  stroke-width="2"
+                />
+                <line y1="23" x2="25" y2="23" stroke="white" stroke-width="2" />
+                <line y1="23" x2="25" y2="23" stroke="white" stroke-width="2" />
+                <line y1="23" x2="25" y2="23" stroke="white" stroke-width="2" />
+                <line y1="1" x2="17" y2="1" stroke="white" stroke-width="2" />
+                <line y1="1" x2="17" y2="1" stroke="white" stroke-width="2" />
+                <line y1="1" x2="17" y2="1" stroke="white" stroke-width="2" />
+                <line
+                  x1="27"
+                  y1="23"
+                  x2="39"
+                  y2="23"
+                  stroke="white"
+                  stroke-width="2"
+                />
+                <line
+                  x1="38"
+                  y1="23"
+                  x2="38"
+                  y2="4.37114e-08"
+                  stroke="white"
+                  stroke-width="2"
+                />
+                <path d="M1 23L0.999999 0" stroke="white" stroke-width="2" />
+                <rect
+                  x="20.0634"
+                  y="6.97937"
+                  width="1.38526"
+                  height="1.88033"
+                  transform="rotate(47.4577 20.0634 6.97937)"
+                  fill="white"
+                />
+              </svg>
+            </span>
+            <p>CV FABRIK</p></a
+          ></router-link
         >
       </div>
       <div class="sidebar">
@@ -188,43 +190,49 @@
           <span>Prüfen &<br />Herunterladen</span>
         </a>
       </div>
-      <section class="menu-sidebar">
-        <div class="left">
-          <h2>Left Content</h2>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-        </div>
-      </section>
-      <section class="cv-layout">
-        <div class="right">
-          <div class="top">
-            <h2>My Resume- Seite 1/2</h2>
-            <button>
-              <i class="fas fa-sign-out-print"
-                ><svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="16"
-                  height="16"
-                  fill="currentColor"
-                  class="bi bi-bookmark"
-                  viewBox="0 0 16 16"
-                >
-                  <path
-                    d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.777.416L8 13.101l-5.223 2.815A.5.5 0 0 1 2 15.5V2zm2-1a1 1 0 0 0-1 1v12.566l4.723-2.482a.5.5 0 0 1 .554 0L13 14.566V2a1 1 0 0 0-1-1H4z"
-                  /></svg></i
-              >Speichern
-            </button>
+      <div class="main">
+        <section class="menu-sidebar">
+          <div class="left">
+            <h2>Left Content</h2>
+            <MenuProfile />
           </div>
-          <div class="image">
-            <img src="image.jpg" alt="Image" />
+        </section>
+        <section class="cv-layout">
+          <div class="right">
+            <div class="top">
+              <h2>My Resume- Seite 1/2</h2>
+              <button>
+                <i class="fas fa-sign-out-print"
+                  ><svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    fill="currentColor"
+                    class="bi bi-bookmark"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.777.416L8 13.101l-5.223 2.815A.5.5 0 0 1 2 15.5V2zm2-1a1 1 0 0 0-1 1v12.566l4.723-2.482a.5.5 0 0 1 .554 0L13 14.566V2a1 1 0 0 0-1-1H4z"
+                    /></svg></i
+                >Speichern
+              </button>
+            </div>
+            <div class="resume">Here link CV</div>
           </div>
-        </div>
-      </section>
+        </section>
+      </div>
     </div>
   </body>
 </template>
 
 <script>
-export default {};
+import MenuProfile from "@/components/menu/MenuProfile.vue";
+export default {
+  name: "MenuProfileView",
+  components: {
+    MenuProfile,
+  },
+};
 </script>
 
 <style scoped>
@@ -312,7 +320,7 @@ body {
   font-weight: 300;
 }
 .bi {
-  width: 1.5rem;
+  width: 1.2rem;
   height: auto;
 }
 .profile-menu {
@@ -328,19 +336,19 @@ section {
 }
 .main {
   display: grid;
-  grid-template-columns: 1fr 2fr;
+  grid-template-columns: 1fr 3fr;
 }
 
 .left {
-  background-color: lightblue;
   height: 200px;
+  width: 220%;
 }
 
 .right {
   background-color: lightgreen;
   height: 200px;
-  grid-column-start: 2;
-  grid-column-end: 3;
+  margin-left: 50%;
+  width: 200%;
 }
 
 .top {
@@ -369,10 +377,5 @@ button {
   cursor: pointer;
   transition: all 0.3s linear;
   text-align: center;
-}
-
-img {
-  max-width: 100%;
-  height: auto;
 }
 </style>
