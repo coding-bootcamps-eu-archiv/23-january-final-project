@@ -1,5 +1,5 @@
 <template>
-  <body>
+  <div class="body">
     <div class="container">
       <div class="header">
         <router-link to="/">
@@ -217,20 +217,22 @@
                 >Speichern
               </button>
             </div>
-            <div class="resume">Here link CV</div>
+            <div class="resume"><CVModern /></div>
           </div>
         </section>
       </div>
     </div>
-  </body>
+  </div>
 </template>
 
 <script>
 import MenuProfile from "@/components/menu/MenuProfile.vue";
+import CVModern from "@/components/templates/CVModern.vue";
 export default {
   name: "MenuProfileView",
   components: {
     MenuProfile,
+    CVModern,
   },
 };
 </script>
@@ -242,7 +244,7 @@ export default {
   list-style: none;
   text-decoration: none;
 }
-body {
+.body {
   background: var(--background-color);
 }
 .container {
@@ -292,6 +294,7 @@ body {
   color: #fff;
   text-align: center;
   margin-top: 53px;
+  position: sticky;
 }
 
 .sidebar a {
@@ -377,5 +380,13 @@ button {
   cursor: pointer;
   transition: all 0.3s linear;
   text-align: center;
+}
+
+.resume {
+  height: 100vh;
+}
+
+.cv-layout {
+  display: flex;
 }
 </style>
