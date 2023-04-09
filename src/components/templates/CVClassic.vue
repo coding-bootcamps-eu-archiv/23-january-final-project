@@ -9,7 +9,11 @@
         <div class="adress">
           <p>{{ this.$store.state.userData.street }}</p>
           <span>|</span>
-          <p>{{ this.$store.state.userData.city }}</p>
+          <p>
+            {{ this.$store.state.userData.zipcode }}&nbsp;{{
+              this.$store.state.userData.city
+            }}
+          </p>
           <span>|</span>
           <p>{{ this.$store.state.userData.email }}</p>
           <span>|</span>

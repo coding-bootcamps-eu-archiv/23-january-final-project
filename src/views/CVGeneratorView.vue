@@ -224,11 +224,27 @@
 <script>
 import MenuProfile from "@/components/menu/MenuProfile.vue";
 import CVModern from "@/components/templates/CVModern.vue";
+import { updateFormData } from "@/components/formUtils.js";
+
 export default {
   name: "MenuProfileView",
   components: {
     MenuProfile,
     CVModern,
+  },
+  created() {
+    window.addEventListener("input", this.handleInput);
+  },
+  unmounted() {
+    window.removeEventListener("input", this.handleInput);
+  },
+  methods: {
+    handleInput(event) {
+      console.log(event.target.name);
+      const name = event.target.name;
+      const value = event.target.value;
+      updateFormData({ [name]: value }); // update the Vuex store with the input value
+    },
   },
 };
 </script>

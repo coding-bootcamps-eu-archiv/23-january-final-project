@@ -18,7 +18,7 @@
         <form action="">
           <p>
             <label for="">Vorname</label>
-            <input type="text" placeholder="Maria" />
+            <input type="text" placeholder="Maria" name="firstname" />
           </p>
           <div class="avatar-upload">
             <input type="file" id="avatar-input" />
@@ -32,42 +32,54 @@
 
           <p>
             <label for="">Nachname</label>
-            <input type="text" placeholder="Mustermann" />
+            <input type="text" placeholder="Mustermann" name="lastname" />
           </p>
           <p class="menu-full-width">
             <label for="">Berufsbezeichnung</label>
-            <input type="text" placeholder="Geberic Job Title" />
+            <input
+              type="text"
+              placeholder="Frontend Developer"
+              name="jobtitle"
+            />
           </p>
 
           <p class="menu-full-width">
             <label for="">E-mail-Address</label>
-            <input type="email" placeholder="mariamustermann@email.de" />
+            <input
+              type="email"
+              placeholder="mariamustermann@email.de"
+              name="email"
+            />
           </p>
 
           <p class="menu-full-width">
             <label for="">URL</label>
-            <input type="text" placeholder="www.meinportfolio.de" />
+            <input
+              type="text"
+              placeholder="www.meinportfolio.de"
+              name="profileurl"
+            />
           </p>
 
           <p class="menu-full-width">
             Adresse
             <label for="">Straße</label>
-            <input type="text" placeholder="Musterstraße" />
+            <input type="text" placeholder="Musterstraße" name="street" />
           </p>
 
           <p class="">
             <label for="">PLZ</label>
-            <input type="text" placeholder="12345" />
+            <input type="text" placeholder="12345" name="zipcode" />
           </p>
 
           <p class="">
             <label for="">Ort</label>
-            <input type="text" placeholder="Musterstadt" />
+            <input type="text" placeholder="Musterstadt" name="city" />
           </p>
 
           <p class="menu-full-width">
             <label for="">Telefon</label>
-            <input type="text" placeholder="01234-5678900" />
+            <input type="text" placeholder="01234-5678900" name="phone" />
           </p>
           <router-link to="/menu-experience">
             <p class="menu-full-width">
