@@ -1,5 +1,5 @@
 <template>
-  <body>
+  <div class="body">
     <div class="a4-container">
       <div class="a4-content">
         <header>
@@ -147,7 +147,7 @@
         </main>
       </div>
     </div>
-  </body>
+  </div>
 </template>
 
 <script>
