@@ -1,153 +1,149 @@
 <template>
-  <body>
-    <div class="a4-container">
-      <div class="a4-content">
-        <header>
-          <div class="header">
+  <div class="a4-container">
+    <div class="a4-content">
+      <header>
+        <div class="header">
+          <div>
+            <div class="cv-username">
+              <h1>{{ this.$store.state.userData.firstname }}</h1>
+              <p class="last-name">
+                {{ this.$store.state.userData.lastname }}
+              </p>
+            </div>
             <div>
-              <div class="cv-username">
-                <h1>{{ this.$store.state.userData.firstname }}</h1>
-                <p class="last-name">
-                  {{ this.$store.state.userData.lastname }}
-                </p>
-              </div>
-              <div>
-                <p class="jobtitle">
-                  {{ this.$store.state.userData.jobtitle }}
-                </p>
-              </div>
-            </div>
-
-            <div class="header-container">
-              <div class="picture">
-                <img
-                  src="https://mobimg.b-cdn.net/v3/fetch/67/674d9f64c8a3c0110654ebdd1e037503.jpeg"
-                  alt="user-picture"
-                />
-              </div>
-              <div class="bar-element">
-                <p>{{ this.$store.state.userData.phone }}</p>
-                <p>{{ this.$store.state.userData.email }}</p>
-                <p>{{ this.$store.state.userData.profileurl }}</p>
-                <p class="bold">
-                  {{ this.$store.state.userData.street }},&nbsp;
-                </p>
-                <p class="bold">{{ this.$store.state.userData.city }}</p>
-              </div>
+              <p class="jobtitle">
+                {{ this.$store.state.userData.jobtitle }}
+              </p>
             </div>
           </div>
-        </header>
-        <main>
-          <div class="column-left">
-            <section>
-              <h3>Sprachen</h3>
-              <div>
-                <ul class="languages">
-                  <div class="language-element">
-                    <li>Deutsch</li>
-                    <p>Muttersprache</p>
-                  </div>
-                  <div class="language-element">
-                    <li>Englisch</li>
-                    <p>B4</p>
-                  </div>
-                  <div class="language-element">
-                    <li>Französisch</li>
-                    <p>Grundkenntnisse</p>
-                  </div>
-                </ul>
-              </div>
-            </section>
-            <section>
-              <h3>Programme</h3>
-              <div>
-                <ul class="programs">
-                  <li>Beispiel</li>
-                  <li>Beispiel</li>
-                  <li>Beispiel</li>
-                  <li>Beispiel</li>
-                  <li>Beispiel</li>
-                  <li>Beispiel</li>
-                </ul>
-              </div>
-            </section>
-          </div>
-          <div class="column-right">
-            <section>
-              <h3>Erfahrung</h3>
-              <p class="content-date">00-2000 - 01.2000</p>
-              <div>
-                <h4 class="header-title">Job Titel : Unternehmen</h4>
-                <p>Vorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                <ul>
-                  <li>
-                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
-                  </li>
-                  <li>
-                    Class aptent taciti sociosqu ad litora torquent per conubia
-                    nostra, per inceptos himenaeos.
-                  </li>
-                </ul>
-              </div>
 
-              <p class="content-date">00-2000 - 01.2000</p>
-              <div>
-                <h4 class="header-title">Job Titel : Unternehmen</h4>
-                <p>Vorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                <ul>
-                  <li>
-                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
-                  </li>
-                  <li>
-                    Class aptent taciti sociosqu ad litora torquent per conubia
-                    nostra, per inceptos himenaeos.
-                  </li>
-                </ul>
-              </div>
-              <p class="content-date">00-2000 - 01.2000</p>
-              <div>
-                <h4 class="header-title">Job Titel : Unternehmen</h4>
-                <p>Vorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                <ul>
-                  <li>
-                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
-                  </li>
-                  <li>
-                    Class aptent taciti sociosqu ad litora torquent per conubia
-                    nostra, per inceptos himenaeos.
-                  </li>
-                </ul>
-              </div>
-            </section>
-            <section>
-              <h3>Ausbildung</h3>
-              <p class="content-date">00-2000 - 01.2000</p>
-              <div>
-                <h4 class="header-title education">Abschluss : Ort</h4>
-                <ul>
-                  <li>Nunc dignissim risus id metus.</li>
-                </ul>
-              </div>
-              <p class="content-date">00-2000 - 01.2000</p>
-              <div>
-                <h4 class="header-title education">Abschluss : Ort</h4>
-                <ul>
-                  <li>Nunc dignissim risus id metus.</li>
-                </ul>
-              </div>
-              <p class="content-date">00-2000 - 01.2000</p>
-              <div>
-                <h4 class="header-title education">Abschluss : Ort</h4>
-                <ul>
-                  <li>Nunc dignissim risus id metus.</li>
-                </ul>
-              </div>
-            </section>
+          <div class="header-container">
+            <div class="picture">
+              <img
+                src="https://mobimg.b-cdn.net/v3/fetch/67/674d9f64c8a3c0110654ebdd1e037503.jpeg"
+                alt="user-picture"
+              />
+            </div>
+            <div class="bar-element">
+              <p>{{ this.$store.state.userData.phone }}</p>
+              <p>{{ this.$store.state.userData.email }}</p>
+              <p>{{ this.$store.state.userData.profileurl }}</p>
+              <p class="bold">{{ this.$store.state.userData.street }},&nbsp;</p>
+              <p class="bold">{{ this.$store.state.userData.city }}</p>
+            </div>
           </div>
-        </main>
-      </div>
+        </div>
+      </header>
+      <main>
+        <div class="column-left">
+          <section>
+            <h3>Sprachen</h3>
+            <div>
+              <ul class="languages">
+                <div class="language-element">
+                  <li>Deutsch</li>
+                  <p>Muttersprache</p>
+                </div>
+                <div class="language-element">
+                  <li>Englisch</li>
+                  <p>B4</p>
+                </div>
+                <div class="language-element">
+                  <li>Französisch</li>
+                  <p>Grundkenntnisse</p>
+                </div>
+              </ul>
+            </div>
+          </section>
+          <section>
+            <h3>Programme</h3>
+            <div>
+              <ul class="programs">
+                <li>Beispiel</li>
+                <li>Beispiel</li>
+                <li>Beispiel</li>
+                <li>Beispiel</li>
+                <li>Beispiel</li>
+                <li>Beispiel</li>
+              </ul>
+            </div>
+          </section>
+        </div>
+        <div class="column-right">
+          <section>
+            <h3>Erfahrung</h3>
+            <p class="content-date">00-2000 - 01.2000</p>
+            <div>
+              <h4 class="header-title">Job Titel : Unternehmen</h4>
+              <p>Vorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+              <ul>
+                <li>
+                  Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+                </li>
+                <li>
+                  Class aptent taciti sociosqu ad litora torquent per conubia
+                  nostra, per inceptos himenaeos.
+                </li>
+              </ul>
+            </div>
+
+            <p class="content-date">00-2000 - 01.2000</p>
+            <div>
+              <h4 class="header-title">Job Titel : Unternehmen</h4>
+              <p>Vorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+              <ul>
+                <li>
+                  Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+                </li>
+                <li>
+                  Class aptent taciti sociosqu ad litora torquent per conubia
+                  nostra, per inceptos himenaeos.
+                </li>
+              </ul>
+            </div>
+            <p class="content-date">00-2000 - 01.2000</p>
+            <div>
+              <h4 class="header-title">Job Titel : Unternehmen</h4>
+              <p>Vorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+              <ul>
+                <li>
+                  Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+                </li>
+                <li>
+                  Class aptent taciti sociosqu ad litora torquent per conubia
+                  nostra, per inceptos himenaeos.
+                </li>
+              </ul>
+            </div>
+          </section>
+          <section>
+            <h3>Ausbildung</h3>
+            <p class="content-date">00-2000 - 01.2000</p>
+            <div>
+              <h4 class="header-title education">Abschluss : Ort</h4>
+              <ul>
+                <li>Nunc dignissim risus id metus.</li>
+              </ul>
+            </div>
+            <p class="content-date">00-2000 - 01.2000</p>
+            <div>
+              <h4 class="header-title education">Abschluss : Ort</h4>
+              <ul>
+                <li>Nunc dignissim risus id metus.</li>
+              </ul>
+            </div>
+            <p class="content-date">00-2000 - 01.2000</p>
+            <div>
+              <h4 class="header-title education">Abschluss : Ort</h4>
+              <ul>
+                <li>Nunc dignissim risus id metus.</li>
+              </ul>
+            </div>
+          </section>
+        </div>
+      </main>
     </div>
-  </body>
+  </div>
 </template>
 
 <script>
