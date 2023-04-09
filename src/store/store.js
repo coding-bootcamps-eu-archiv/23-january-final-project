@@ -18,8 +18,8 @@ const store = createStore({
     },
   },
   mutations: {
-    setUserData(state, userData) {
-      state.userData = userData;
+    updateFormData(state, payload) {
+      state.formData = { ...state.formData, ...payload };
     },
   },
 });

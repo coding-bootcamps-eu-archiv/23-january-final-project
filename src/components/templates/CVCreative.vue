@@ -1,5 +1,5 @@
 <template>
-  <body>
+  <div class="body">
     <div class="a4-container">
       <div class="a4-content">
         <header>
@@ -74,150 +74,158 @@
           </div>
         </header>
         <main>
-          <section>
-            <div class="section-element">
+          <div class="column-left">
+            <section>
+              <div class="section-element">
+                <div class="white-box-headline-container">
+                  <h3 class="white-box-headline">Erfahrung</h3>
+                </div>
+                <div class="white-box">
+                  <p id="jobtitle-01" class="content-date">00-2000 - 01.2000</p>
+                  <div>
+                    <h4 id="jobtitle-01" class="header-job">
+                      Job Titel : Unternehmen
+                    </h4>
+                    <p>
+                      Vorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    </p>
+                    <ul id="jobtitle-01">
+                      <li>
+                        Lorem ipsum dolor sit amet, consectetuer adipiscing
+                        elit.
+                      </li>
+                      <li>
+                        Class aptent taciti sociosqu ad litora torquent per
+                        conubia nostra, per inceptos himenaeos.
+                      </li>
+                    </ul>
+                  </div>
+
+                  <p id="jobtitle-02" class="content-date">00-2000 - 01.2000</p>
+                  <div>
+                    <h4 id="jobtitle-02" class="header-job">
+                      Job Titel : Unternehmen
+                    </h4>
+                    <p>
+                      Vorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    </p>
+                    <ul id="jobtitle-02">
+                      <li>
+                        Lorem ipsum dolor sit amet, consectetuer adipiscing
+                        elit.
+                      </li>
+                      <li>
+                        Class aptent taciti sociosqu ad litora torquent per
+                        conubia nostra, per inceptos himenaeos.
+                      </li>
+                    </ul>
+                  </div>
+                  <p id="jobtitle-03" class="content-date">00-2000 - 01.2000</p>
+                  <div>
+                    <h4 id="jobtitle-03" class="header-job">
+                      Job Titel : Unternehmen
+                    </h4>
+                    <p>
+                      Vorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    </p>
+                    <ul id="jobtitle-03">
+                      <li>
+                        Lorem ipsum dolor sit amet, consectetuer adipiscing
+                        elit.
+                      </li>
+                      <li>
+                        Class aptent taciti sociosqu ad litora torquent per
+                        conubia nostra, per inceptos himenaeos.
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </section>
+            <section>
               <div class="white-box-headline-container">
-                <h3 class="white-box-headline">Erfahrung</h3>
+                <h3 class="white-box-headline">Sprachen</h3>
               </div>
-              <div class="white-box">
-                <p id="jobtitle-01" class="content-date">00-2000 - 01.2000</p>
+              <div class="content-grid white-box">
+                <ul class="languages">
+                  <li>Deutsch</li>
+                  <p>Muttersprache</p>
+                  <li>Englisch</li>
+                  <p>B4</p>
+                  <li>Französisch</li>
+                  <p>Grundkenntnisse</p>
+                </ul>
+              </div>
+            </section>
+          </div>
+          <div class="column-right">
+            <section>
+              <div class="white-box-headline-container">
+                <h3 class="white-box-headline">Ausbildung</h3>
+              </div>
+              <div class="content-grid white-box">
+                <p id="education-01" class="content-date">00-2000 - 01.2000</p>
                 <div>
-                  <h4 id="jobtitle-01" class="header-job">
-                    Job Titel : Unternehmen
-                  </h4>
-                  <p>
-                    Vorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  </p>
-                  <ul id="jobtitle-01">
-                    <li>
-                      Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
-                    </li>
-                    <li>
-                      Class aptent taciti sociosqu ad litora torquent per
-                      conubia nostra, per inceptos himenaeos.
-                    </li>
+                  <h4 id="education-01">Abschluss : Ort</h4>
+                  <ul id="education-01">
+                    <li>Nunc dignissim risus id metus.</li>
                   </ul>
                 </div>
 
-                <p id="jobtitle-02" class="content-date">00-2000 - 01.2000</p>
+                <p id="education-02" class="content-date education-date">
+                  00-2000 - 01.2000
+                </p>
                 <div>
-                  <h4 id="jobtitle-02" class="header-job">
-                    Job Titel : Unternehmen
-                  </h4>
-                  <p>
-                    Vorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  </p>
-                  <ul id="jobtitle-02">
-                    <li>
-                      Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
-                    </li>
-                    <li>
-                      Class aptent taciti sociosqu ad litora torquent per
-                      conubia nostra, per inceptos himenaeos.
-                    </li>
+                  <h4 id="education-02">Abschluss : Ort</h4>
+                  <ul id="education-02">
+                    <li>Nunc dignissim risus id metus.</li>
                   </ul>
                 </div>
-                <p id="jobtitle-03" class="content-date">00-2000 - 01.2000</p>
+
+                <p id="education-03" class="content-date education-date">
+                  00-2000 - 01.2000
+                </p>
                 <div>
-                  <h4 id="jobtitle-03" class="header-job">
-                    Job Titel : Unternehmen
-                  </h4>
-                  <p>
-                    Vorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  </p>
-                  <ul id="jobtitle-03">
-                    <li>
-                      Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
-                    </li>
-                    <li>
-                      Class aptent taciti sociosqu ad litora torquent per
-                      conubia nostra, per inceptos himenaeos.
-                    </li>
+                  <h4 id="education-03">Abschluss : Ort</h4>
+                  <ul id="education-03">
+                    <li>Nunc dignissim risus id metus.</li>
+                  </ul>
+                </div>
+
+                <p id="education-03" class="content-date education-date">
+                  00-2000 - 01.2000
+                </p>
+                <div>
+                  <h4 id="education-03">Abschluss : Ort</h4>
+                  <ul id="education-03">
+                    <li>Nunc dignissim risus id metus.</li>
                   </ul>
                 </div>
               </div>
-            </div>
-          </section>
-          <section>
-            <div class="white-box-headline-container">
-              <h3 class="white-box-headline">Ausbildung</h3>
-            </div>
-            <div class="content-grid white-box">
-              <p id="education-01" class="content-date">00-2000 - 01.2000</p>
-              <div>
-                <h4 id="education-01">Abschluss : Ort</h4>
-                <ul id="education-01">
-                  <li>Nunc dignissim risus id metus.</li>
-                </ul>
-              </div>
+            </section>
 
-              <p id="education-02" class="content-date education-date">
-                00-2000 - 01.2000
-              </p>
-              <div>
-                <h4 id="education-02">Abschluss : Ort</h4>
-                <ul id="education-02">
-                  <li>Nunc dignissim risus id metus.</li>
+            <section>
+              <div class="color-box-headline-container">
+                <div class="color-box-headline">
+                  <h3>Programme</h3>
+                </div>
+              </div>
+              <div class="color-box">
+                <ul class="programs">
+                  <li>Beispiel</li>
+                  <li>Beispiel</li>
+                  <li>Beispiel</li>
+                  <li>Beispiel</li>
+                  <li>Beispiel</li>
+                  <li>Beispiel</li>
                 </ul>
               </div>
-
-              <p id="education-03" class="content-date education-date">
-                00-2000 - 01.2000
-              </p>
-              <div>
-                <h4 id="education-03">Abschluss : Ort</h4>
-                <ul id="education-03">
-                  <li>Nunc dignissim risus id metus.</li>
-                </ul>
-              </div>
-
-              <p id="education-03" class="content-date education-date">
-                00-2000 - 01.2000
-              </p>
-              <div>
-                <h4 id="education-03">Abschluss : Ort</h4>
-                <ul id="education-03">
-                  <li>Nunc dignissim risus id metus.</li>
-                </ul>
-              </div>
-            </div>
-          </section>
-          <section>
-            <div class="white-box-headline-container">
-              <h3 class="white-box-headline">Sprachen</h3>
-            </div>
-            <div class="content-grid white-box">
-              <ul class="languages">
-                <li>Deutsch</li>
-                <p>Muttersprache</p>
-                <li>Englisch</li>
-                <p>B4</p>
-                <li>Französisch</li>
-                <p>Grundkenntnisse</p>
-              </ul>
-            </div>
-          </section>
-          <section>
-            <div class="color-box-headline-container">
-              <div class="color-box-headline">
-                <h3>Programme</h3>
-              </div>
-            </div>
-            <div class="color-box">
-              <ul class="programs">
-                <li>Beispiel</li>
-                <li>Beispiel</li>
-                <li>Beispiel</li>
-                <li>Beispiel</li>
-                <li>Beispiel</li>
-                <li>Beispiel</li>
-              </ul>
-            </div>
-          </section>
+            </section>
+          </div>
         </main>
       </div>
     </div>
-  </body>
+  </div>
 </template>
 
 <script>
