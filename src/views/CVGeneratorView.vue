@@ -192,7 +192,6 @@
 
     <section class="menu-sidebar">
       <div class="left">
-        <h2>Left Content</h2>
         <MenuProfile />
       </div>
     </section>
@@ -263,7 +262,7 @@ export default {
   width: 100%;
   background: var(--bs-cvgenerator-gradient);
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.02);
-  padding: 0.8rem 2%;
+  padding: 0.6rem 2%;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -289,7 +288,7 @@ export default {
   background-color: var(--bs-log);
   color: #fff;
   text-align: center;
-  margin-top: 53px;
+  margin-top: 42px;
   position: sticky;
 }
 
@@ -331,7 +330,7 @@ export default {
 section {
   min-height: 100vh;
   padding: 0 5%;
-  padding-top: 6rem;
+  padding-top: 1.5rem;
 }
 
 .menu-sidebar {
@@ -347,6 +346,7 @@ section {
 .left {
   _height: 200px;
   _width: 220%;
+  padding-top: 2rem;
 }
 
 .right {

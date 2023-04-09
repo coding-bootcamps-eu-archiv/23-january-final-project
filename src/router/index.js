@@ -4,6 +4,9 @@ import CVClassicView from "../views/wip/CVClassicView.vue";
 import CVCreativeView from "../views/wip/CVCreativeView.vue";
 import CVGeneratorView from "../views/CVGeneratorView";
 import CVModernView from "../views/wip/CVModernView";
+import MenuExperience from "@/components/menu/MenuExperience";
+import MenuProfile from "@/components/menu/MenuProfile";
+import MenuEducation from "@/components/menu/MenuEducation";
 
 const routes = [
   {
@@ -30,6 +33,21 @@ const routes = [
     path: "/cv-modern",
     name: "cv modern",
     component: CVModernView,
+  },
+  {
+    path: "/menu-experience",
+    name: "menu-experience",
+    component: MenuExperience,
+  },
+  {
+    path: "/menu-profile",
+    name: "menu-profile",
+    component: MenuProfile,
+  },
+  {
+    path: "/menu-education",
+    name: "menu-education",
+    component: MenuEducation,
   },
 ];
 
