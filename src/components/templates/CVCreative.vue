@@ -11,7 +11,11 @@
         </div>
         <div class="adress">
           <p id="user-street">{{ this.$store.state.userData.street }},&nbsp;</p>
-          <p id="user-city">{{ this.$store.state.userData.city }}</p>
+          <p id="user-city">
+            {{ this.$store.state.userData.zipcode }}&nbsp;{{
+              this.$store.state.userData.city
+            }}
+          </p>
         </div>
         <div class="bar-container">
           <div class="bar-element">

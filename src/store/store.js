@@ -3,11 +3,12 @@ import { createStore } from "vuex";
 const store = createStore({
   state: {
     userData: {
-      firstname: "John",
-      lastname: "Doe",
-      email: "johndoe@example.com",
+      firstname: "Maria",
+      lastname: "Mustermann",
+      email: "mariamustermann@email.de",
       phone: "555-5555",
       street: "Example Street 12",
+      zipcode: "12345",
       city: "12345 City",
       jobtitle: "Frontend Developer",
       birthdate: "03.03.1993",
@@ -18,8 +19,8 @@ const store = createStore({
     },
   },
   mutations: {
-    setUserData(state, userData) {
-      state.userData = userData;
+    updateFormData(state, payload) {
+      state.userData = { ...state.userData, ...payload };
     },
   },
 });

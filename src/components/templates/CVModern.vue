@@ -29,7 +29,11 @@
               <p>{{ this.$store.state.userData.email }}</p>
               <p>{{ this.$store.state.userData.profileurl }}</p>
               <p class="bold">{{ this.$store.state.userData.street }},&nbsp;</p>
-              <p class="bold">{{ this.$store.state.userData.city }}</p>
+              <p class="bold">
+                {{ this.$store.state.userData.zipcode }}&nbsp;{{
+                  this.$store.state.userData.city
+                }}
+              </p>
             </div>
           </div>
         </div>
