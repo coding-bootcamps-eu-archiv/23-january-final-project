@@ -1,4 +1,5 @@
 <template>
+<<<<<<< HEAD
   <div class="menu-contain">
     <div class="menu-wrapper">
       <div class="menu-form">
@@ -76,6 +77,57 @@
           >
         </form>
       </div>
+=======
+  <div class="cvmenu-background">
+    <div class="cvmenu-container">
+      <div class="cvmenu-formtitle"><h1>Profil</h1></div>
+      <form>
+        <div class="main-user-info">
+          <div class="user-input-box">
+            <label for="">Vorname</label
+            ><input type="text" placeholder="Maria" />
+          </div>
+          <div class="user-input-box">
+            <label for="Nachname">Nachname</label
+            ><input type="text" placeholder="Mustermann" />
+          </div>
+          <div class="user-input-box">
+            <label for="">Berufsbezeichung</label
+            ><input type="text" placeholder="Generic Job Title" />
+          </div>
+          <div class="user-input-box">
+            <label for="">E-mail-Adresse</label
+            ><input type="text" placeholder="mariamustermann@email.de" />
+          </div>
+          <div class="user-input-box">
+            <label for="">Url</label
+            ><input type="text" placeholder="mariamustermann@email.de" />
+          </div>
+          <div class="user-input-box">
+            <label for="street">Straße</label
+            ><input type="text" placeholder="Musterstraße" />
+          </div>
+          <div class="user-input-box">
+            <label for="nr">Nr.</label><input type="text" placeholder="10." />
+          </div>
+          <div class="user-input-box">
+            <label for="plz">PLZ</label
+            ><input type="text" placeholder="12345" />
+          </div>
+          <div class="user-input-box">
+            <label for="ort">Ort</label
+            ><input type="text" placeholder="Musterstadt" />
+          </div>
+          <div class="user-input-box">
+            <label for="telefon">Telefon</label
+            ><input type="text" placeholder="01234-5678900" />
+          </div>
+          <div class="form-submit-btn">
+            <input class="menu-next-button" type="submit" value="Weiter" />
+          </div>
+        </div>
+      </form>
+>>>>>>> 17ecfb87c2f0e0fac62eb2344da9049e41d5b8c0
     </div>
   </div>
 </template>
@@ -87,6 +139,15 @@ export default {};
 <style scoped>
 * {
   font-family: "roboto";
+<<<<<<< HEAD
+=======
+}
+.cvmenu-background {
+  background-color: var(--bs-log);
+  opacity: 0.8;
+  color: var(--bs-log);
+  border-radius: 15px;
+>>>>>>> 17ecfb87c2f0e0fac62eb2344da9049e41d5b8c0
 }
 * {
   box-sizing: border-box;
@@ -117,93 +178,13 @@ label {
   color: white;
   font-weight: 400;
 }
-
-input:focus,
-textarea:focus {
-  outline: 1px solid var(--bs-primary);
-}
-
-input,
-textarea,
-button {
+.cvmenu-container {
   width: 100%;
-  border: 1px solid var(--bs-log);
+  padding: 30px;
+  max-width: 250px;
 }
 
-form {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 20px;
-  align-items: center; /* Align menu-form items vertically center */
-}
-
-form label {
-  display: block;
-  margin-bottom: 0.5rem; /* Add margin to bottom to separate labels from inputs */
-}
-form input {
-  background: #d9d9d9;
-  border: 2px solid var(--bs-log);
-  border-radius: 5px;
-  padding: 0.5rem; /* Add padding to inputs */
-}
-::placeholder {
-  color: var(--bs-log);
-  opacity: 0.8;
-}
-
-form {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 20px;
-}
-form label {
-  display: block;
-}
-
-form input {
-  background: #d9d9d9;
-  border: 2px solid var(--bs-log);
-  border-radius: 5px;
-}
-::placeholder {
-  color: var(--bs-log);
-  opacity: 0.8;
-}
-form p {
-  margin: 0;
-  color: #fff;
-}
-
-.avatar-upload {
-  border-radius: 50%;
-  overflow: hidden;
-  grid-row: 1 / span 2;
-}
-
-.avatar-upload input[type="file"] {
-  position: absolute;
-  z-index: -1;
-  opacity: 0;
-}
-
-.avatar-upload label {
-  cursor: pointer;
-}
-
-.avatar-upload img {
-  width: 100%;
-  height: auto;
-  object-fit: cover;
-}
-button,
-input,
-textarea {
-  padding: 0.5em;
-  font-size: 0.8rem;
-}
-
-button {
+.menu-next-button {
   font-size: 1rem;
   padding: 1rem 1rem;
   background-color: var(--bs-succes);
@@ -212,10 +193,5 @@ button {
   border-radius: 10px;
   cursor: pointer;
   transition: all 0.3s linear;
-}
-button:hover,
-button:focus {
-  background: var(--bs-primary);
-  outline: 0;
 }
 </style>
