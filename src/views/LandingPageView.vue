@@ -1,5 +1,5 @@
 <template>
-  <div class="body-landing">
+  <body>
     <!--Navigation-->
     <header>
       <a href="#" class="logo"
@@ -324,7 +324,7 @@
         >Online illustrations by Storyset</a
       >
     </footer>
-  </div>
+  </body>
 </template>
 
 <style scoped>
@@ -364,7 +364,7 @@ html {
   scroll-behavior: smooth;
 }
 
-.body-landing {
+body {
   background: var(--background-color);
 }
 
