@@ -7,6 +7,7 @@ import CVModernView from "../views/wip/CVModernView";
 import MenuExperience from "@/components/menu/MenuExperience";
 import MenuProfile from "@/components/menu/MenuProfile";
 import MenuEducation from "@/components/menu/MenuEducation";
+import MenuLanguages from "@/components/menu/MenuLanguages";
 
 const routes = [
   {
@@ -48,6 +49,11 @@ const routes = [
     path: "/menu-education",
     name: "menu-education",
     component: MenuEducation,
+  },
+  {
+    path: "/menu-languages",
+    name: "menu-languages",
+    component: MenuLanguages,
   },
 ];
 
