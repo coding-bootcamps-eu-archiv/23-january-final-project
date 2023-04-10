@@ -84,11 +84,10 @@
             <label for="">Telefon</label>
             <input type="text" placeholder="01234-5678900" name="phone" />
           </p>
-          <router-link to="/menu-experience" class="menu-full-width">
-            <p>
-              <button>WEITER</button>
-            </p></router-link
-          >
+
+          <p class="menu-full-width">
+            <button @click="$emit('next')">WEITER</button>
+          </p>
         </form>
       </div>
     </div>
