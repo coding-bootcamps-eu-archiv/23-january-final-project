@@ -192,7 +192,39 @@
 
     <section class="menu-sidebar">
       <div class="left">
-        <MenuProfile />
+        <MenuProfile
+          v-if="isProfileMenu"
+          @next="showComponent('MenuExperience')"
+        />
+        <MenuExperience
+          v-if="isExperienceMenu"
+          @back="showComponent('MenuProfile')"
+          @next="showComponent('MenuEducation')"
+        />
+        <MenuEducation
+          v-if="isEducationMenu"
+          @back="showComponent('MenuExperience')"
+          @next="showComponent('MenuLanguages')"
+        />
+        <MenuLanguages
+          v-if="isLanguagesMenu"
+          @back="showComponent('MenuEducation')"
+          @next="showComponent('MenuPrograms')"
+        />
+        <MenuPrograms
+          v-if="isProgramsMenu"
+          @back="showComponent('MenuLanguages')"
+          @next="showComponent('MenuTemplate')"
+        />
+        <MenuTemplate
+          v-if="isTemplateMenu"
+          @back="showComponent('MenuPrograms')"
+          @next="showComponent('MenuCheckDL')"
+        />
+        <MenuCheckDL
+          v-if="isCheckDLMenu"
+          @back="showComponent('MenuTemplate')"
+        />
       </div>
     </section>
     <section class="cv-layout">
@@ -223,6 +255,12 @@
 
 <script>
 import MenuProfile from "@/components/menu/MenuProfile.vue";
+import MenuExperience from "@/components/menu/MenuExperience.vue";
+import MenuEducation from "@/components/menu/MenuEducation.vue";
+import MenuLanguages from "@/components/menu/MenuLanguages";
+import MenuPrograms from "@/components/menu/MenuPrograms";
+import MenuTemplate from "@/components/menu/MenuTemplate";
+import MenuCheckDL from "@/components/menu/MenuCheckDL";
 import CVModern from "@/components/templates/CVModern.vue";
 import { updateFormData } from "@/components/formUtils.js";
 
@@ -230,6 +268,12 @@ export default {
   name: "MenuProfileView",
   components: {
     MenuProfile,
+    MenuExperience,
+    MenuEducation,
+    MenuLanguages,
+    MenuPrograms,
+    MenuTemplate,
+    MenuCheckDL,
     CVModern,
   },
   created() {
@@ -238,12 +282,56 @@ export default {
   unmounted() {
     window.removeEventListener("input", this.handleInput);
   },
+  data() {
+    return {
+      isProfileMenu: true,
+      isExperienceMenu: false,
+      isEducationMenu: false,
+      isLanguagesMenu: false,
+      isProgramsMenu: false,
+      isTemplateMenu: false,
+      isCheckDLMenu: false,
+    };
+  },
   methods: {
     handleInput(event) {
       console.log(event.target.name);
       const name = event.target.name;
       const value = event.target.value;
       updateFormData({ [name]: value }); // update the Vuex store with the input value
+    },
+    showComponent(componentName) {
+      this.isProfileMenu = false;
+      this.isExperienceMenu = false;
+      this.isEducationMenu = false;
+      this.isLanguagesMenu = false;
+      this.isProgramsMenu = false;
+      this.isTemplateMenu = false;
+      this.isCheckDLMenu = false;
+
+      switch (componentName) {
+        case "MenuProfile":
+          this.isProfileMenu = true;
+          break;
+        case "MenuExperience":
+          this.isExperienceMenu = true;
+          break;
+        case "MenuEducation":
+          this.isEducationMenu = true;
+          break;
+        case "MenuLanguages":
+          this.isLanguagesMenu = true;
+          break;
+        case "MenuPrograms":
+          this.isProgramsMenu = true;
+          break;
+        case "MenuTemplate":
+          this.isTemplateMenu = true;
+          break;
+        case "MenuCheckDL":
+          this.isCheckDLMenu = true;
+          break;
+      }
     },
   },
 };

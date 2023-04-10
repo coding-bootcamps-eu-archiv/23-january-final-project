@@ -30,12 +30,11 @@
         </div>
 
         <form action="">
-          <router-link to="/menu-template">
-            <p class="">
-              <button class="menu-back-button">ZURÜCK</button>
-            </p></router-link
-          >
-
+          <p class="">
+            <button @click="$emit('back')" class="menu-back-button">
+              ZURÜCK
+            </button>
+          </p>
           <p class="">
             <button class="menu-print-button">
               Zum Download
