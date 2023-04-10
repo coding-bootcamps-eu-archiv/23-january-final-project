@@ -10,6 +10,7 @@ import MenuEducation from "@/components/menu/MenuEducation";
 import MenuLanguages from "@/components/menu/MenuLanguages";
 import MenuPrograms from "@/components/menu/MenuPrograms";
 import MenuTemplate from "@/components/menu/MenuTemplate";
+import MenuCheckDL from "@/components/menu/MenuCheckDL";
 
 const routes = [
   {
@@ -66,6 +67,11 @@ const routes = [
     path: "/menu-template",
     name: "menu-template",
     component: MenuTemplate,
+  },
+  {
+    path: "/menu-checkdl",
+    name: "menu-checkdl",
+    component: MenuCheckDL,
   },
 ];
 
