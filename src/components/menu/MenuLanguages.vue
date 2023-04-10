@@ -244,8 +244,7 @@ p {
 }
 
 button,
-input,
-textarea {
+input {
   padding: 0.5em;
   font-size: 0.8rem;
 }
