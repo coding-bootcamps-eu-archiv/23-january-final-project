@@ -8,6 +8,7 @@ import MenuExperience from "@/components/menu/MenuExperience";
 import MenuProfile from "@/components/menu/MenuProfile";
 import MenuEducation from "@/components/menu/MenuEducation";
 import MenuLanguages from "@/components/menu/MenuLanguages";
+import MenuPrograms from "@/components/menu/MenuPrograms";
 
 const routes = [
   {
@@ -54,6 +55,11 @@ const routes = [
     path: "/menu-languages",
     name: "menu-languages",
     component: MenuLanguages,
+  },
+  {
+    path: "/menu-programs",
+    name: "menu-programs",
+    component: MenuPrograms,
   },
 ];
 

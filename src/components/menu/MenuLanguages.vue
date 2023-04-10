@@ -16,7 +16,7 @@
           <span>Sprachen</span>
           <br />
         </h1>
-        <p class="menu-full-width">Die beliebtesten Sprachen</p>
+        <p class="menu-full-width text-language">Die beliebtesten Sprachen</p>
         <p class="sub-text"></p>
 
         <div class="container-languages">
@@ -122,8 +122,8 @@
             <button class="menu-add-new">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                width="16"
-                height="16"
+                width="12"
+                height="12"
                 fill="currentColor"
                 class="bi bi-plus-lg"
                 viewBox="0 0 16 16"
@@ -144,7 +144,7 @@
               <button class="menu-back-button">ZURÜCK</button>
             </p></router-link
           >
-          <router-link to="/menu-programm">
+          <router-link to="/menu-programs">
             <p class="">
               <button class="menu-next-button">WEITER</button>
             </p></router-link
@@ -357,5 +357,7 @@ textarea {
   position: relative;
   float: right;
   margin-right: 10px;
+  width: 20px;
+  height: 20px;
 }
 </style>
