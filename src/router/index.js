@@ -9,6 +9,7 @@ import MenuProfile from "@/components/menu/MenuProfile";
 import MenuEducation from "@/components/menu/MenuEducation";
 import MenuLanguages from "@/components/menu/MenuLanguages";
 import MenuPrograms from "@/components/menu/MenuPrograms";
+import MenuTemplate from "@/components/menu/MenuTemplate";
 
 const routes = [
   {
@@ -60,6 +61,11 @@ const routes = [
     path: "/menu-programs",
     name: "menu-programs",
     component: MenuPrograms,
+  },
+  {
+    path: "/menu-template",
+    name: "menu-template",
+    component: MenuTemplate,
   },
 ];
 

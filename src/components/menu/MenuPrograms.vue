@@ -326,7 +326,7 @@
               <button class="menu-back-button">ZURÜCK</button>
             </p></router-link
           >
-          <router-link to="/menu-templates">
+          <router-link to="/menu-template">
             <p class="">
               <button class="menu-next-button">WEITER</button>
             </p></router-link
