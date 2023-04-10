@@ -7,6 +7,10 @@ import CVModernView from "../views/wip/CVModernView";
 import MenuExperience from "@/components/menu/MenuExperience";
 import MenuProfile from "@/components/menu/MenuProfile";
 import MenuEducation from "@/components/menu/MenuEducation";
+import MenuLanguages from "@/components/menu/MenuLanguages";
+import MenuPrograms from "@/components/menu/MenuPrograms";
+import MenuTemplate from "@/components/menu/MenuTemplate";
+import MenuCheckDL from "@/components/menu/MenuCheckDL";
 
 const routes = [
   {
@@ -48,6 +52,26 @@ const routes = [
     path: "/menu-education",
     name: "menu-education",
     component: MenuEducation,
+  },
+  {
+    path: "/menu-languages",
+    name: "menu-languages",
+    component: MenuLanguages,
+  },
+  {
+    path: "/menu-programs",
+    name: "menu-programs",
+    component: MenuPrograms,
+  },
+  {
+    path: "/menu-template",
+    name: "menu-template",
+    component: MenuTemplate,
+  },
+  {
+    path: "/menu-checkdl",
+    name: "menu-checkdl",
+    component: MenuCheckDL,
   },
 ];
 

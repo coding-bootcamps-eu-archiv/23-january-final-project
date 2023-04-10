@@ -60,11 +60,14 @@
               name="profileurl"
             />
           </p>
-
-          <p class="menu-full-width">
-            Adresse
+          <p class="menu-full-width">Adresse</p>
+          <p class="">
             <label for="">Straße</label>
             <input type="text" placeholder="Musterstraße" name="street" />
+          </p>
+          <p class="">
+            <label for="">Nr.</label>
+            <input type="text" placeholder="12" name="nr" />
           </p>
 
           <p class="">
@@ -81,9 +84,9 @@
             <label for="">Telefon</label>
             <input type="text" placeholder="01234-5678900" name="phone" />
           </p>
-          <router-link to="/menu-experience">
-            <p class="menu-full-width">
-              <button>Weiter</button>
+          <router-link to="/menu-experience" class="menu-full-width">
+            <p>
+              <button>WEITER</button>
             </p></router-link
           >
         </form>
@@ -138,13 +141,6 @@ button {
   border: 1px solid var(--bs-log);
 }
 
-form {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 20px;
-  align-items: center; /* Align menu-form items vertically center */
-}
-
 form label {
   display: block;
   margin-bottom: 0.5rem; /* Add margin to bottom to separate labels from inputs */
@@ -163,7 +159,7 @@ form input {
 form {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-gap: 20px;
+  grid-gap: 10px;
 }
 form label {
   display: block;
@@ -205,13 +201,13 @@ form p {
   object-fit: cover;
 }
 button,
-input,
-textarea {
+input {
   padding: 0.5em;
   font-size: 0.8rem;
 }
 
 button {
+  margin-top: 1em;
   font-size: 1rem;
   padding: 1rem 1rem;
   background-color: var(--bs-succes);
