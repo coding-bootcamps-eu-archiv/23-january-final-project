@@ -61,7 +61,20 @@ const store = createStore({
 
       const savedState = localStorage.getItem("CVFabrik-Store");
       if (savedState) {
-        store.replaceState(JSON.parse(savedState));
+        const parsedState = JSON.parse(savedState);
+        store.replaceState(parsedState);
+        document.documentElement.style.setProperty(
+          "--cv-color",
+          parsedState.userTemplate.CVColor // Use parsedState instead of state
+        );
+        document.documentElement.style.setProperty(
+          "--cv-elements",
+          parsedState.userTemplate.CVElements
+        );
+        document.documentElement.style.setProperty(
+          "--cv-modern-color",
+          parsedState.userTemplate.CVColorModern
+        );
       }
     },
   ],
