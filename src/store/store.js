@@ -53,6 +53,18 @@ const store = createStore({
       commit("setModernColor", color);
     },
   },
+  plugins: [
+    (store) => {
+      store.subscribe((mutation, state) => {
+        localStorage.setItem("CVFabrik-Store", JSON.stringify(state));
+      });
+
+      const savedState = localStorage.getItem("CVFabrik-Store");
+      if (savedState) {
+        store.replaceState(JSON.parse(savedState));
+      }
+    },
+  ],
 });
 
 export default store;
