@@ -159,7 +159,7 @@
     <!--Function section-->
     <section class="function-section" id="function">
       <h2>
-        So kansst du deinen Lebenslauf online erstellen- <br />in nur
+        So kanst du deinen Lebenslauf online erstellen- <br />in nur
         <span class="function-number">4</span> einfachen Schritten:
       </h2>
       <hr />

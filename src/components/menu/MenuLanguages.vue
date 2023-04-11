@@ -1,15 +1,12 @@
 <template>
   <div class="menu-contain">
     <div class="menu-wrapper">
-      <div class="menu-form">
-        <h1>
-          Sprachen
-          <br />
-        </h1>
+      <div class="scroll menu-form">
+        <h1>Sprachen</h1>
         <p class="menu-full-width text-language">Die beliebtesten Sprachen</p>
         <p class="sub-text"></p>
 
-        <div class="container-languages">
+        <div class="l container-languages">
           <div class="input-box">
             <label for="input1">
               <input
@@ -107,7 +104,7 @@
                   d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z"
                 />
               </svg>
-              Weiteren Sprache hinzüfugen
+              neue Sprache hinzufügen
             </button>
           </div>
         </div>
@@ -141,6 +138,7 @@
                 class="box bigger"
                 type="text"
                 v-model="language.name"
+                style="color: var(--bs-log)"
                 readonly="true" />
               <input class="box" type="button" value="A1" placeholder="A1" />
               <input class="box" type="button" value="A2" placeholder="A2" />
@@ -237,7 +235,9 @@ form {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 5px;
-  align-items: center; /* Align menu-form items vertically center */
+  align-items: center;
+  margin-top: 10rem;
+  gap: 10px;
 }
 
 .menu-add-task-wrapper {
@@ -362,14 +362,13 @@ input {
   border-radius: 10px;
   cursor: pointer;
   transition: all 0.3s linear;
-  margin-bottom: 12rem;
+  margin-bottom: 2rem;
 }
 .container-languages {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
   padding: 10px;
-
   border-radius: 5px;
 }
 
@@ -394,5 +393,23 @@ input {
   margin-right: 10px;
   width: 20px;
   height: 20px;
+}
+.scroll {
+  height: 600px;
+  overflow-y: scroll;
+}
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #090c0f;
+  padding: 8rem;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
 }
 </style>

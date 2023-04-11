@@ -27,12 +27,24 @@
                   d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1ZM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118ZM2.5 3h11V2h-11v1Z"
                 />
               </svg>
-
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="currentColor"
+                class="bi bi-chevron-down"
+                viewBox="0 0 16 16"
+                v-show="!properties.collapsed"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"
+                />
+              </svg>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="currentColor"
                 class="bi bi-chevron-up"
                 viewBox="0 0 16 16"
+                v-show="properties.collapsed"
               >
                 <path
                   fill-rule="evenodd"
@@ -91,7 +103,7 @@
             </p>
             <p class="menu-full-width">
               <label for="">Was warem Deine Aufgaben?</label>
-              <textarea name="" id="" cols="42" rows="3">-</textarea>
+              <textarea name="" id="" cols="40" rows="3">-</textarea>
             </p>
           </div>
         </div>
@@ -161,6 +173,10 @@ export default {
     deleteJob(id) {
       if (this.entriesJob.length > 1)
         this.entriesJob = this.entriesJob.filter((entry) => entry.id != id);
+      else {
+        // if this is the only entry left, set collapsed to false to prevent it from collapsing
+        this.entriesJob[0].collapsed = false;
+      }
     },
   },
 };
@@ -192,6 +208,7 @@ h1 {
 label {
   color: white;
   font-weight: 400;
+  font-size: 0.8rem;
 }
 
 input:focus,
@@ -208,13 +225,14 @@ button {
 form {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-gap: 20px;
+  grid-gap: 10px;
   align-items: center;
 }
 
 .menu-time {
   display: flex;
   grid-column: 1 / span 2;
+  grid-gap: 8px;
 }
 .menu-checkbox {
   display: flex;
@@ -233,8 +251,6 @@ form {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: 1fr;
-  grid-column-gap: 0px;
-  grid-row-gap: 0px;
 }
 .menu-add-task {
   grid-area: 2 / 3;
@@ -245,7 +261,6 @@ textarea {
   background: #d9d9d9;
   border: 2px solid var(--bs-log);
   border-radius: 5px;
-  padding: 0.5rem; /* Add padding to inputs */
 }
 
 .text-input::v-deep .v-input__control {
@@ -316,14 +331,40 @@ textarea {
   border-radius: 10px;
   cursor: pointer;
   transition: all 0.3s linear;
-  margin-bottom: 10rem;
+  margin-bottom: 3rem;
 }
 .bi-chevron-up {
   position: relative;
-  left: 12rem;
+  left: 11rem;
   float: right;
   margin-right: 10px;
   width: 20px;
   height: 20px;
+}
+.bi-chevron-down {
+  position: relative;
+  left: 11rem;
+  float: right;
+  margin-right: 10px;
+  width: 20px;
+  height: 20px;
+}
+.scroll {
+  height: 600px;
+  overflow-y: scroll;
+}
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #090c0f;
+  padding: 8rem;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
 }
 </style>

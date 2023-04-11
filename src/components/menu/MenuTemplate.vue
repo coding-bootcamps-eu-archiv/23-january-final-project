@@ -129,7 +129,6 @@
             sind gerne gesehen in den Bereichen Tech, Design oder in Startups.
           </p>
         </div>
-
         <form action="">
           <p class="">
             <button @click="$emit('back')" class="menu-back-button">
