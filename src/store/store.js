@@ -17,10 +17,22 @@ const store = createStore({
       nationality: "deutsch",
       marriage: "ledig",
     },
+    userTemplate: {
+      CVTemplate: "CVClassic",
+    },
   },
   mutations: {
     updateFormData(state, payload) {
       state.userData = { ...state.userData, ...payload };
+    },
+    setTemplateComponent(state, CVType) {
+      state.userTemplate.CVTemplate = CVType;
+      console.log(state.userTemplate);
+    },
+  },
+  actions: {
+    mountTemplate({ commit }, CVType) {
+      commit("setTemplateComponent", CVType);
     },
   },
 });

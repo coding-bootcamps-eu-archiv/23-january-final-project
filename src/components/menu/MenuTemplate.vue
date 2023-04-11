@@ -15,6 +15,7 @@
               <img
                 src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/074/869/original/Classic.png?1680470742"
                 alt="Image 1"
+                @click="mountTemplate('CVClassic')"
               />
               <p class="text-cvs">„Classic“</p>
             </div>
@@ -22,6 +23,7 @@
               <img
                 src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/074/871/original/Modern.png?1680470774"
                 alt="Image 2"
+                @click="mountTemplate('CVModern')"
               />
               <p class="text-cvs">„Modern“</p>
             </div>
@@ -29,6 +31,7 @@
               <img
                 src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/074/870/original/Creativ.png?1680470756"
                 alt="Image 3"
+                @click="mountTemplate('CVCreative')"
               />
               <p class="text-cvs">„Kreativ“</p>
             </div>
@@ -73,9 +76,17 @@
     </div>
   </div>
 </template>
+
 <script>
-export default {};
+export default {
+  methods: {
+    mountTemplate(CVType) {
+      this.$store.dispatch("mountTemplate", CVType);
+    },
+  },
+};
 </script>
+
 <style scoped>
 * {
   font-family: "roboto";
