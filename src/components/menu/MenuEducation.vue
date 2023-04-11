@@ -13,8 +13,9 @@
               @click="selectedPanel = selectedPanel === index ? null : index"
             >
               <p class="menu-full-width title-inside text-subtitle">
-                Eintrag<span @click="deleteEducation(panel)">
+                Eintrag<span>
                   <svg
+                    @click="deleteEducation(panel)"
                     xmlns="http://www.w3.org/2000/svg"
                     fill="currentColor"
                     class="bi bi-trash"
