@@ -3,158 +3,98 @@
     <div class="menu-wrapper">
       <div class="scroll menu-form">
         <h1>Beruflicher Werdegang</h1>
-
-        <v-expansion-panels>
-          <v-expansion-panel
-            class="border-around"
-            v-for="(panel, index) in panels"
-            :key="index"
+        <div
+          class="border-around"
+          v-for="properties in entriesJob"
+          v-bind:key="properties.id"
+        >
+          <p
+            class="menu-full-width title-inside"
+            @click="groupCollapsed(properties.id)"
           >
-            <v-expansion-panel-header
-              @click="selectedPanel = selectedPanel === index ? null : index"
-            >
-              <p class="menu-full-width title-inside text-subtitle">
-                Eintrag<span>
-                  <svg
-                    @click="deleteJob(panel)"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="currentColor"
-                    class="bi bi-trash"
-                    viewBox="0 0 16 16"
-                  >
-                    <path
-                      d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6Z"
-                    />
-                    <path
-                      d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1ZM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118ZM2.5 3h11V2h-11v1Z"
-                    />
-                  </svg>
-
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="currentColor"
-                    class="bi bi-chevron-up"
-                    viewBox="0 0 16 16"
-                  >
-                    <path
-                      fill-rule="evenodd"
-                      d="M7.646 4.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1-.708.708L8 5.707l-5.646 5.647a.5.5 0 0 1-.708-.708l6-6z"
-                    />
-                  </svg>
-                </span>
-              </p>
-            </v-expansion-panel-header>
-            <v-expansion-panel-content
-              v-if="selectedPanel === index"
-              class="menu-full-width"
-            >
-              <label for="">Berufsbezeichnung</label>
-              <v-text-field
-                variant="filled"
-                v-model="panel.job"
-                placeholder="Front-End Developer"
-                class="text-input"
-                dense
-              />
-              <v-row dense>
-                <v-col>
-                  <p class="">
-                    <label for="">Arbeitgeber</label>
-                    <v-text-field
-                      variant="filled"
-                      v-model="panel.company"
-                      placeholder="Google"
-                      class="text-input"
-                      dense
-                    />
-                  </p>
-                </v-col>
-                <v-col cols="5">
-                  <p class="">
-                    <label for="">Ort</label>
-
-                    <v-text-field
-                      variant="filled"
-                      v-model="panel.place"
-                      placeholder="Berlin"
-                      class="text-input"
-                      dense
-                    /></p></v-col
-              ></v-row>
-              <v-row dense>
-                <v-col>
-                  <p class="">
-                    <label for="">Jahr</label>
-                    <v-text-field
-                      variant="filled"
-                      v-model="panel.yearStart"
-                      placeholder="2023"
-                      class="text-input"
-                    /></p
-                ></v-col>
-                <v-col>
-                  <p class="">
-                    <label for="">Monat</label>
-                    <v-text-field
-                      variant="filled"
-                      v-model="panel.monthStart"
-                      type="text"
-                      placeholder="Januar"
-                      class="text-input"
-                    /></p
-                ></v-col>
-                <v-col>
-                  <p class="">
-                    <label for="">Jahr</label>
-                    <v-text-field
-                      variant="filled"
-                      v-model="panel.yearEnd"
-                      type="text"
-                      placeholder="2023"
-                      class="text-input"
-                    />
-                  </p>
-                </v-col>
-                <v-col>
-                  <p class="">
-                    <label for="">Monat</label>
-                    <v-text-field
-                      variant="filled"
-                      v-model="panel.monthEnd"
-                      type="text"
-                      placeholder="Juni"
-                      class="text-input"
-                    />
-                  </p>
-                </v-col>
-              </v-row>
-              <v-row no-gutters>
-                <v-col> </v-col>
-
-                <v-col cols="5">
-                  <p class="mb-4 menu-full-width">
-                    <label class="menu-checkbox">
-                      <input type="checkbox" placeholder="" />
-                      <span class="menu-today-checkbox"
-                        >Ich arbeite derzeit hier</span
-                      ></label
-                    >
-                  </p>
-                </v-col></v-row
+            Eintrag<span>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="currentColor"
+                class="bi bi-trash"
+                viewBox="0 0 16 16"
+                @click="deleteJob(properties.id)"
               >
+                <path
+                  d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6Z"
+                />
+                <path
+                  d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1ZM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118ZM2.5 3h11V2h-11v1Z"
+                />
+              </svg>
 
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="currentColor"
+                class="bi bi-chevron-up"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M7.646 4.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1-.708.708L8 5.707l-5.646 5.647a.5.5 0 0 1-.708-.708l6-6z"
+                />
+              </svg>
+            </span>
+          </p>
+          <div
+            class="collaped-menu menu-full-width"
+            v-show="!properties.collapsed"
+          >
+            <p class="menu-full-width">
+              <label for="">Berufsbezeichnung</label>
+              <input type="text" placeholder="Front-End Developer" />
+            </p>
+            <div class="menu-time">
+              <p class="">
+                <label for="">Arbeitgeber</label>
+                <input type="text" placeholder="Google" />
+              </p>
+
+              <p class="">
+                <label for="">Ort</label>
+                <input type="text" placeholder="Berlin" />
+              </p>
+            </div>
+            <div class="menu-time">
+              <p class="">
+                <label for="">Jahr</label>
+                <input type="text" placeholder="2023" />
+              </p>
+
+              <p class="">
+                <label for="">Monat</label>
+                <input type="text" placeholder="Januar" />
+              </p>
+
+              <p class="">
+                <label for="">Jahr</label>
+                <input type="text" placeholder="2023" />
+              </p>
+
+              <p class="">
+                <label for="">Monat</label>
+                <input type="text" placeholder="Juni" />
+              </p>
+            </div>
+            <p class="menu-full-width">
+              <label class="menu-checkbox">
+                <input type="checkbox" placeholder="" />
+                <span class="menu-today-checkbox"
+                  >Ich arbeite derzeit hier</span
+                ></label
+              >
+            </p>
+            <p class="menu-full-width">
               <label for="">Was warem Deine Aufgaben?</label>
-              <v-textarea
-                variant="filled"
-                v-model="panel.description"
-                placeholder="-"
-                class="text-input"
-                rows="2"
-              />
-            </v-expansion-panel-content>
-          </v-expansion-panel>
-        </v-expansion-panels>
-
+              <textarea name="" id="" cols="42" rows="3">-</textarea>
+            </p>
+          </div>
+        </div>
         <div class="menu-add-task-wrapper">
           <div class="menu-add-task">
             <button class="menu-add-new" @click="addNewJob">
@@ -175,6 +115,7 @@
             </button>
           </div>
         </div>
+
         <form action="">
           <p class="">
             <button class="menu-back-button" @click="$emit('back')">
@@ -196,42 +137,30 @@
 export default {
   data() {
     return {
-      panels: [
-        {
-          id: +new Date(),
-          job: "",
-          company: "",
-          place: "",
-          yearStart: "",
-          monthStart: "",
-          yearEnd: "",
-          monthEnd: "",
-          description: "",
-        },
-      ],
-      selectedPanel: null,
+      entriesJob: [{ id: +new Date(), collapsed: false }],
     };
   },
   methods: {
-    addNewJob() {
-      if (this.panels.length == 3) {
-        alert("This demo version only allows a max of 3 jobs.");
-      } else {
-        this.panels.push({
-          id: +new Date(),
-          job: "",
-          company: "",
-          place: "",
-          monthStart: "",
-          yearStart: "",
-          yearEnd: "",
-          monthEnd: "",
-          description: "",
-        });
+    groupCollapsed(id) {
+      this.entriesJob.forEach((entry) => (entry.collapsed = true));
+      let entry = this.entriesJob.find(
+        (currentEntry) => currentEntry.id === id
+      );
+      if (entry != null) {
+        entry.collapsed = !entry.collapsed;
       }
     },
-    deleteJob(panel) {
-      this.panels = this.panels.filter((item) => item.id !== panel.id);
+    addNewJob() {
+      if (this.entriesJob.length == 3) {
+        alert("You can only add a maximum of 3 jobs");
+      } else {
+        this.entriesJob.forEach((entry) => (entry.collapsed = true));
+        this.entriesJob.push({ id: +new Date(), collapsed: false });
+      }
+    },
+    deleteJob(id) {
+      if (this.entriesJob.length > 1)
+        this.entriesJob = this.entriesJob.filter((entry) => entry.id != id);
     },
   },
 };
@@ -242,31 +171,11 @@ export default {
   box-sizing: border-box;
 }
 
-.scroll {
-  height: 600px;
-  overflow-y: scroll;
-}
-::-webkit-scrollbar {
-  width: 10px;
-}
-
-::-webkit-scrollbar-track {
-  background: #090c0f;
-  padding: 8rem;
-  border-radius: 10px;
-}
-
-::-webkit-scrollbar-thumb {
-  background: #888;
-  border-radius: 10px;
-}
-
 h1 {
   display: flex;
   color: white;
   padding-bottom: 20px;
   align-items: center;
-
   font-weight: 400;
   font-size: 1.2rem;
 }
@@ -274,17 +183,20 @@ h1 {
 .title-inside {
   display: flex;
   align-items: center;
-  color: #fff;
 }
 
 .title-inside > span {
-  padding-left: 0.8rem;
+  padding-left: 0.6rem;
 }
 
 label {
   color: white;
   font-weight: 400;
-  font-size: 0.8rem;
+}
+
+input:focus,
+textarea:focus {
+  outline: 1px solid var(--bs-primary);
 }
 
 input,
@@ -297,9 +209,13 @@ form {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 20px;
-  align-items: center; /* Align menu-form items vertically center */
+  align-items: center;
 }
 
+.menu-time {
+  display: flex;
+  grid-column: 1 / span 2;
+}
 .menu-checkbox {
   display: flex;
   align-items: center;
@@ -324,6 +240,14 @@ form {
   grid-area: 2 / 3;
 }
 
+form input,
+textarea {
+  background: #d9d9d9;
+  border: 2px solid var(--bs-log);
+  border-radius: 5px;
+  padding: 0.5rem; /* Add padding to inputs */
+}
+
 .text-input::v-deep .v-input__control {
   background: #d9d9d9;
   border: 2px solid var(--bs-log);
@@ -335,9 +259,14 @@ form {
   font-size: 0.8rem;
 }
 
+input {
+  background: #d9d9d9;
+  border: 2px solid var(--bs-log);
+  border-radius: 5px;
+}
+
 p {
-  color: var(--bs-log);
-  font-size: 0.8rem;
+  color: #fff;
 }
 
 button,
@@ -387,17 +316,14 @@ textarea {
   border-radius: 10px;
   cursor: pointer;
   transition: all 0.3s linear;
-  margin-bottom: 22rem;
+  margin-bottom: 10rem;
 }
 .bi-chevron-up {
   position: relative;
-  left: 11rem;
+  left: 12rem;
   float: right;
   margin-right: 10px;
   width: 20px;
   height: 20px;
-}
-.v-expansion-panel {
-  background: none;
 }
 </style>

@@ -16,8 +16,9 @@
                 type="submit"
                 id="input1"
                 name="input1"
-                value="+ English"
-                placeholder="+ English"
+                value="+ Englisch"
+                placeholder="+ Englisch"
+                @click="addNewLanguage('Englisch')"
             /></label>
           </div>
 
@@ -29,6 +30,7 @@
                 value="+ Deutsch"
                 name="input2"
                 placeholder="+ Deutsch"
+                @click="addNewLanguage('Deutsch')"
             /></label>
           </div>
 
@@ -40,6 +42,7 @@
                 name="input3"
                 value="+ Spanisch"
                 placeholder="+ Spanisch"
+                @click="addNewLanguage('Spanisch')"
             /></label>
           </div>
 
@@ -49,8 +52,9 @@
                 type="submit"
                 id="input4"
                 name="input4"
-                value="+ Französich"
-                placeholder="+ Französich"
+                value="+ Französisch"
+                placeholder="+ Französisch"
+                @click="addNewLanguage('Französisch')"
             /></label>
           </div>
 
@@ -62,6 +66,7 @@
                 name="input5"
                 value="+ Italienisch"
                 placeholder="+ Italienisch"
+                @click="addNewLanguage('Italienisch')"
             /></label>
           </div>
 
@@ -73,43 +78,22 @@
                 name="input6"
                 value="+ Schwedisch"
                 placeholder="+ Schwedisch"
+                @click="addNewLanguage('Schwedisch')"
             /></label>
           </div>
         </div>
         <div class="border-around">
           <p class="menu-full-width text-language">
-            Sprache<span class="text-language">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="currentColor"
-                class="bi bi-trash"
-                viewBox="0 0 16 16"
-              >
-                <path
-                  d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6Z"
-                />
-                <path
-                  d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1ZM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118ZM2.5 3h11V2h-11v1Z"
-                />
-              </svg>
-              <br />Name der Sprache
+            Sprache<span class="text-language"> <br />Name der Sprache </span
+            ><span class="menu-full-width">
+              <input type="text" v-model="sonstiges" placeholder="Sonstiges" />
             </span>
-            <label class="container-language-add" for="">
-              <input class="box bigger" type="text" placeholder="Chinesische" />
-              <input class="box" type="submit" value="A1" placeholder="A1" />
-              <input class="box" type="submit" value="A2" placeholder="A2" />
-
-              <input class="box" type="submit" value="B1" placeholder="B1" />
-              <input class="box" type="submit" value="B2" placeholder="B2" />
-              <input class="box" type="submit" value="C1" placeholder="C1" />
-              <input class="box" type="submit" value="C2" placeholder="C2"
-            /></label>
           </p>
         </div>
 
         <div class="menu-add-task-wrapper">
           <div class="menu-add-task">
-            <button class="menu-add-new">
+            <button class="menu-add-new" @click="addNewLanguage(sonstiges)">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="12"
@@ -126,6 +110,46 @@
               Weiteren Sprache hinzüfugen
             </button>
           </div>
+        </div>
+        <!--This will only appear when the user click 
+  the languages or add a new language to the array, only the this will render on the screen-->
+        <div
+          class="border-around"
+          v-for="language in languages"
+          v-bind:key="language.name"
+        >
+          <p class="menu-full-width text-language">
+            Sprache<span class="text-language">
+              <svg
+                @click="deleteLanguage(language.name)"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="currentColor"
+                class="bi bi-trash"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6Z"
+                />
+                <path
+                  d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1ZM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118ZM2.5 3h11V2h-11v1Z"
+                />
+              </svg>
+              <br />Name der Sprache
+            </span>
+            <label class="container-language-add" for="">
+              <input
+                class="box bigger"
+                type="text"
+                v-model="language.name"
+                readonly="true" />
+              <input class="box" type="button" value="A1" placeholder="A1" />
+              <input class="box" type="button" value="A2" placeholder="A2" />
+              <input class="box" type="button" value="B1" placeholder="B1" />
+              <input class="box" type="button" value="B2" placeholder="B2" />
+              <input class="box" type="button" value="C1" placeholder="C1" />
+              <input class="box" type="button" value="C2" placeholder="C2"
+            /></label>
+          </p>
         </div>
 
         <form action="">
@@ -146,7 +170,30 @@
 </template>
 <script>
 export default {
-  setup() {},
+  data() {
+    return {
+      languages: [],
+      sonstiges: "",
+    };
+  },
+  methods: {
+    addNewLanguage(language) {
+      let existingLanguage = this.languages.find(
+        (lang) => lang.name === language
+      );
+      console.log("existingLanguage:", existingLanguage);
+      if (existingLanguage == null) {
+        this.languages.push({ name: language });
+      }
+      console.log(this.languages);
+    },
+
+    deleteLanguage(language) {
+      this.languages = this.languages.filter(
+        (langEntry) => langEntry.name != language
+      );
+    },
+  },
 };
 </script>
 <style scoped>
@@ -247,6 +294,7 @@ button,
 input {
   padding: 0.5em;
   font-size: 0.8rem;
+  color: var(--bs-log);
 }
 .text-language {
   font-size: 0.8rem;
