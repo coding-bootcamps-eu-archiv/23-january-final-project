@@ -22,11 +22,14 @@
   margin-left: auto;
   margin-right: auto;
   padding: 0.5em;
+
 }
 
 @media (min-width: 400px) {
   .menu-contain {
+
     padding: 0;
+
   }
 }
 
@@ -40,6 +43,7 @@
 
 .menu-wrapper {
   box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2);
+
 }
 
 @media (min-width: 400px) {

@@ -2,19 +2,7 @@
   <div class="menu-contain">
     <div class="menu-wrapper">
       <div class="menu-form">
-        <h1>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="currentColor"
-            class="bi bi-x"
-            viewBox="0 0 16 16"
-          >
-            <path
-              d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"
-            />
-          </svg>
-          <span>Profil</span>
-        </h1>
+        <h1>Profil</h1>
         <form action="">
           <p>
             <label for="">Vorname</label>
@@ -115,10 +103,8 @@ h1 {
   display: flex;
   color: white;
   padding-bottom: 20px;
-}
-h1 > span {
   align-items: center;
-  padding-left: 0.8rem;
+
   font-weight: 400;
   font-size: 1.2rem;
 }
@@ -134,7 +120,6 @@ textarea:focus {
 }
 
 input,
-textarea,
 button {
   width: 100%;
   border: 1px solid var(--bs-log);
@@ -142,13 +127,12 @@ button {
 
 form label {
   display: block;
-  margin-bottom: 0.5rem; /* Add margin to bottom to separate labels from inputs */
 }
 form input {
   background: #d9d9d9;
   border: 2px solid var(--bs-log);
   border-radius: 5px;
-  padding: 0.5rem; /* Add padding to inputs */
+  padding: 0.5rem;
 }
 ::placeholder {
   color: var(--bs-log);
@@ -162,6 +146,7 @@ form {
 }
 form label {
   display: block;
+  margin-bottom: 0.5rem;
 }
 
 form input {
@@ -181,24 +166,27 @@ form p {
 .avatar-upload {
   border-radius: 50%;
   overflow: hidden;
-  grid-row: 1 / span 2;
+  grid-row: 1 / span 3;
+  grid-column: 2 / span 1;
 }
 
 .avatar-upload input[type="file"] {
-  position: absolute;
   z-index: -1;
   opacity: 0;
 }
-
 .avatar-upload label {
+  display: inline-block;
+  vertical-align: top;
+}
+.avatar-upload label img {
+  display: block;
+  border-radius: 50%;
+  width: 120px; /* adjust this to your liking */
+  height: 120px; /* adjust this to your liking */
+  object-fit: cover;
   cursor: pointer;
 }
 
-.avatar-upload img {
-  width: 100%;
-  height: auto;
-  object-fit: cover;
-}
 button,
 input {
   padding: 0.5em;
