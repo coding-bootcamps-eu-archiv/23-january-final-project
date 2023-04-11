@@ -14,7 +14,7 @@
               @click="selectedPanel = selectedPanel === index ? null : index"
             >
               <p class="menu-full-width title-inside text-subtitle">
-                Eintrag<span>
+                Eintrag<span @click="deleteJob(panel)">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="currentColor"
@@ -197,6 +197,7 @@ export default {
     return {
       panels: [
         {
+          id: +new Date(),
           job: "",
           company: "",
           place: "",
@@ -216,6 +217,7 @@ export default {
         alert("This demo version only allows a max of 3 jobs.");
       } else {
         this.panels.push({
+          id: +new Date(),
           job: "",
           company: "",
           place: "",
@@ -226,6 +228,9 @@ export default {
           description: "",
         });
       }
+    },
+    deleteJob(panel) {
+      this.panels = this.panels.filter((item) => item.id !== panel.id);
     },
   },
 };
