@@ -1,7 +1,7 @@
 <template>
   <div class="menu-contain">
     <div class="menu-wrapper">
-      <div class="menu-form">
+      <div class="scroll menu-form">
         <h1>Profil</h1>
         <form action="">
           <p>
@@ -93,6 +93,24 @@ export default {};
 * {
   box-sizing: border-box;
 }
+.scroll {
+  height: 600px;
+  overflow-y: scroll;
+}
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #090c0f;
+  padding: 8rem;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
+}
 
 h1,
 ul {
@@ -147,6 +165,7 @@ form {
 form label {
   display: block;
   margin-bottom: 0.5rem;
+  font-size: 0.8rem;
 }
 
 form input {
@@ -161,6 +180,7 @@ form input {
 form p {
   margin: 0;
   color: #fff;
+  font-size: 0.8rem;
 }
 
 .avatar-upload {
