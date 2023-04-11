@@ -26,7 +26,7 @@
             </button>
           </p>
           <p class="">
-            <button class="menu-print-button">
+            <button class="menu-print-button" @click="$emit('printRequested')">
               Zum Download
               <span
                 ><svg

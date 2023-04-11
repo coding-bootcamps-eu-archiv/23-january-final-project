@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <div class="header">
+    <div class="header no-print">
       <router-link to="/">
         <a href="#" class="logo"
           ><span
@@ -76,7 +76,7 @@
         ></router-link
       >
     </div>
-    <div class="sidebar">
+    <div class="sidebar no-print">
       <a href="#" class="profile-menu" @click="showComponent('MenuProfile')">
         <i class="fas fa-profil"
           ><svg
@@ -190,7 +190,7 @@
       </a>
     </div>
 
-    <section class="menu-sidebar">
+    <section class="menu-sidebar no-print">
       <div class="left">
         <MenuProfile
           v-if="isProfileMenu"
@@ -222,6 +222,7 @@
           @next="showComponent('MenuCheckDL')"
         />
         <MenuCheckDL
+          @printRequested="print"
           v-if="isCheckDLMenu"
           @back="showComponent('MenuTemplate')"
         />
@@ -229,7 +230,7 @@
     </section>
     <section class="cv-layout">
       <div class="right">
-        <div class="top">
+        <div class="top no-print">
           <h2>My Resume- Seite 1/2</h2>
           <button>
             <i class="fas fa-sign-out-print"
@@ -248,22 +249,22 @@
           </button>
         </div>
         <div
-          class="resume"
-          v-show="this.$store.state.userTemplate.CVTemplate === 'CVModern'"
+          class="resume printable"
+          v-if="this.$store.state.userTemplate.CVTemplate === 'CVModern'"
         >
-          <CVModern />
+          <CVModern ref="CVModern" />
         </div>
         <div
-          class="resume"
-          v-show="this.$store.state.userTemplate.CVTemplate === 'CVClassic'"
+          class="resume printable"
+          v-if="this.$store.state.userTemplate.CVTemplate === 'CVClassic'"
         >
-          <CVClassic />
+          <CVClassic ref="CVClassic" />
         </div>
         <div
-          class="resume"
-          v-show="this.$store.state.userTemplate.CVTemplate === 'CVCreative'"
+          class="resume printable"
+          v-if="this.$store.state.userTemplate.CVTemplate === 'CVCreative'"
         >
-          <CVCreative />
+          <CVCreative ref="CVCreative" />
         </div>
       </div>
     </section>
@@ -354,166 +355,175 @@ export default {
           break;
       }
     },
+    print() {
+      window.print({
+        noPrintBorder: true,
+        background: true,
+      });
+    },
   },
 };
 </script>
 
 <style scoped>
-* {
-  font-family: "Roboto";
-  scroll-behavior: smooth;
-  list-style: none;
-  text-decoration: none;
-}
-.container {
-  background: var(--background-color);
-  display: grid;
-  grid-template-columns: 100px 1fr 2fr;
-  grid-template-rows: 50px 1fr;
-  _grid-gap: 20px;
-  height: 100vh;
-  overflow: hidden;
-}
+@media screen {
+  * {
+    font-family: "Roboto";
+    scroll-behavior: smooth;
+    list-style: none;
+    text-decoration: none;
+  }
 
-.header {
-  grid-column: 1 / span 2;
-  background-color: #333;
-  color: #fff;
-  text-align: center;
-  font-size: 20px;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  background: var(--bs-cvgenerator-gradient);
-  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.02);
-  padding: 0.6rem 2%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  z-index: 1000;
-}
-.header .logo {
-  display: flex;
-}
-.logo > p {
-  color: white;
-  padding-top: 0.2rem;
-  font-size: 1.2rem;
-  font-weight: 600;
-  margin-left: 0.5rem;
-}
+  .container {
+    background: var(--background-color);
+    display: grid;
+    grid-template-columns: 100px 1fr 2fr;
+    grid-template-rows: 50px 1fr;
+    _grid-gap: 20px;
+    height: 100vh;
+    overflow: hidden;
+  }
 
-.sidebar {
-  grid-column: 1 / span 1;
-  grid-row: 1 / span 2;
-  display: grid;
-  grid-template-rows: repeat(7, 1fr);
-  grid-gap: 10px;
-  background-color: var(--bs-log);
-  color: #fff;
-  text-align: center;
-  margin-top: 42px;
-  position: sticky;
-}
+  .header {
+    grid-column: 1 / span 2;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    font-size: 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: var(--bs-cvgenerator-gradient);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.02);
+    padding: 0.6rem 2%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 1000;
+  }
+  .header .logo {
+    display: flex;
+  }
+  .logo > p {
+    color: white;
+    padding-top: 0.2rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-left: 0.5rem;
+  }
 
-.sidebar a {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  color: #fff;
-  text-decoration: none;
-}
+  .sidebar {
+    grid-column: 1 / span 1;
+    grid-row: 1 / span 2;
+    display: grid;
+    grid-template-rows: repeat(7, 1fr);
+    grid-gap: 10px;
+    background-color: var(--bs-log);
+    color: #fff;
+    text-align: center;
+    margin-top: 42px;
+    position: sticky;
+  }
 
-.sidebar a:hover {
-  background-color: rgba(255, 255, 255, 0.5);
-  color: var(--bs-log);
-  border-radius: 20px;
-  margin: 10px;
-}
+  .sidebar a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #fff;
+    text-decoration: none;
+  }
 
-.sidebar i {
-  font-size: 1rem;
-  margin-bottom: 5px;
-}
-.sidebar span {
-  font-size: 0.8rem;
-  font-weight: 300;
-}
-.bi {
-  width: 1.2rem;
-  height: auto;
-}
-.profile-menu {
-  margin-top: 20px;
-}
-.print-menu {
-  margin-bottom: 20px;
-}
-section {
-  min-height: 100vh;
-  padding: 0 5%;
-  padding-top: 1.5rem;
-}
+  .sidebar a:hover {
+    background-color: rgba(255, 255, 255, 0.5);
+    color: var(--bs-log);
+    border-radius: 20px;
+    margin: 10px;
+  }
 
-.menu-sidebar {
-  grid-column-start: 2;
-  grid-row-start: 2;
-}
-.cv-layout {
-  grid-column-start: 3;
-  grid-row-start: 2;
-  overflow: auto;
-}
+  .sidebar i {
+    font-size: 1rem;
+    margin-bottom: 5px;
+  }
+  .sidebar span {
+    font-size: 0.8rem;
+    font-weight: 300;
+  }
+  .bi {
+    width: 1.2rem;
+    height: auto;
+  }
+  .profile-menu {
+    margin-top: 20px;
+  }
+  .print-menu {
+    margin-bottom: 20px;
+  }
+  section {
+    min-height: 100vh;
+    padding: 0 5%;
+    padding-top: 1.5rem;
+  }
 
-.left {
-  _height: 200px;
-  _width: 220%;
-  padding-top: 2rem;
-}
+  .menu-sidebar {
+    grid-column-start: 2;
+    grid-row-start: 2;
+  }
+  .cv-layout {
+    grid-column-start: 3;
+    grid-row-start: 2;
+    overflow: auto;
+  }
 
-.right {
-  _background-color: lightgreen;
-  _height: 200px;
-  _margin-left: 50%;
-  _width: 200%;
-}
+  .left {
+    _height: 200px;
+    _width: 220%;
+    padding-top: 2rem;
+  }
 
-.top {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
+  .right {
+    _background-color: lightgreen;
+    _height: 200px;
+    _margin-left: 50%;
+    _width: 200%;
+  }
 
-h2 {
-  font-weight: 600;
-  font-family: "Outfit";
-  margin: 0;
-  font-size: 2rem;
-  color: var(--bs-log);
-  text-shadow: 1px 1px 2px grey;
-}
+  .top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
 
-button {
-  font-size: 1rem;
-  padding: 10px 20px;
-  color: var(--bs-log);
-  border-radius: 30px;
-  text-align: center;
-  background-color: transparent;
-  border: var(--bs-succes) solid;
-  cursor: pointer;
-  transition: all 0.3s linear;
-  text-align: center;
-}
+  h2 {
+    font-weight: 600;
+    font-family: "Outfit";
+    margin: 0;
+    font-size: 2rem;
+    color: var(--bs-log);
+    text-shadow: 1px 1px 2px grey;
+  }
 
-.resume {
-  height: 100vh;
-}
+  button {
+    font-size: 1rem;
+    padding: 10px 20px;
+    color: var(--bs-log);
+    border-radius: 30px;
+    text-align: center;
+    background-color: transparent;
+    border: var(--bs-succes) solid;
+    cursor: pointer;
+    transition: all 0.3s linear;
+    text-align: center;
+  }
 
-.cv-layout {
-  display: flex;
+  .resume {
+    height: 100vh;
+  }
+
+  .cv-layout {
+    display: flex;
+  }
 }
 </style>

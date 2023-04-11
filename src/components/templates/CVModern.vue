@@ -1,5 +1,5 @@
 <template>
-  <div class="a4-container">
+  <div class="a4-container printable">
     <div class="a4-content">
       <header>
         <div class="header">
@@ -166,6 +166,14 @@ export default {
 * {
   font-weight: 400;
   font-family: "Pontano Sans", sans-serif;
+}
+
+@media screen {
+  html,
+  body {
+    transform: scale(1.3);
+    transform-origin: top left;
+  }
 }
 
 h1 {

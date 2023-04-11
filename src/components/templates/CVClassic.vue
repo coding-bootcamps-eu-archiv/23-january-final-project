@@ -1,5 +1,5 @@
 <template>
-  <div class="a4-container">
+  <div class="a4-container printable">
     <div class="a4-content">
       <header>
         <h1>
@@ -204,6 +204,12 @@ h3 {
   position: absolute;
   right: 4.313rem;
   top: 7.313rem;
+}
+
+@media print {
+  .picture img {
+    right: 12.5rem;
+  }
 }
 
 .content-grid {

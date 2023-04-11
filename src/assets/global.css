@@ -4,10 +4,16 @@
   --bs-succes: #00c7c5;
   --bs-text-light: #787878;
   --bs-text-white: white;
-  --bs-info-gradient: linear-gradient(91.9deg,
-      rgba(0, 199, 197, 0.5) 27.8%,
-      rgb(0, 176, 255) 67%);
-  --bs-cvgenerator-gradient: linear-gradient(91.9deg, rgb(0, 176, 255) 27.8%, rgba(0, 199, 197, 0.5) 67%);
+  --bs-info-gradient: linear-gradient(
+    91.9deg,
+    rgba(0, 199, 197, 0.5) 27.8%,
+    rgb(0, 176, 255) 67%
+  );
+  --bs-cvgenerator-gradient: linear-gradient(
+    91.9deg,
+    rgb(0, 176, 255) 27.8%,
+    rgba(0, 199, 197, 0.5) 67%
+  );
   --bs-log: #233143;
   --text-color: black;
   --text-colot-btn: white;
@@ -22,14 +28,11 @@
   margin-left: auto;
   margin-right: auto;
   padding: 0.5em;
-
 }
 
 @media (min-width: 400px) {
   .menu-contain {
-
     padding: 0;
-
   }
 }
 
@@ -43,12 +46,26 @@
 
 .menu-wrapper {
   box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2);
-
 }
 
 @media (min-width: 400px) {
-  .menu-wrapper>* {
+  .menu-wrapper > * {
     padding: 1em 1em;
+  }
+}
+
+* {
+  font-size: 16px;
+}
+
+@media print {
+  .no-print * {
+    display: none;
+  }
+  html,
+  body {
+    transform: scale(1.1);
+    transform-origin: top left;
   }
 }
 
@@ -57,8 +74,6 @@
   opacity: 0.85;
   border-radius: 10px;
 }
-
-
 
 .menu-full-width {
   grid-column: 1 / 3;
