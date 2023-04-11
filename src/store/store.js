@@ -23,10 +23,23 @@ const store = createStore({
       CVColorModern: "black",
       CVElements: "#000000",
     },
+    userJob: {
+      id: 1,
+      job: "test",
+      company: "testing",
+      place: "testhausen",
+      yearStart: "111",
+      monthStart: "12",
+      yearEnd: "111",
+      description: "13",
+    },
   },
   mutations: {
     updateFormData(state, payload) {
       state.userData = { ...state.userData, ...payload };
+    },
+    updateUserJobData(state, payload) {
+      console.log(state, payload);
     },
     setTemplateComponent(state, CVType) {
       state.userTemplate.CVTemplate = CVType;
