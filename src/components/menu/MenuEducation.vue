@@ -1,10 +1,8 @@
 <template>
   <div class="menu-contain">
     <div class="menu-wrapper">
-      <div class="menu-form">
-        <h1>
-          <span>Ausbildung</span>
-        </h1>
+      <div class="scroll menu-form">
+        <h1>Ausbildung</h1>
         <div
           class="border-around"
           v-for="properties in entriesEducation"
@@ -33,8 +31,21 @@
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="currentColor"
+                class="bi bi-chevron-down"
+                viewBox="0 0 16 16"
+                v-show="!properties.collapsed"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"
+                />
+              </svg>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="currentColor"
                 class="bi bi-chevron-up"
                 viewBox="0 0 16 16"
+                v-show="properties.collapsed"
               >
                 <path
                   fill-rule="evenodd"
@@ -175,13 +186,11 @@ h1 {
   display: flex;
   color: white;
   padding-bottom: 20px;
-}
-h1 > span {
   align-items: center;
-  padding-left: 0.8rem;
   font-weight: 400;
   font-size: 1.2rem;
 }
+
 .title-inside {
   display: flex;
   align-items: center;
@@ -205,12 +214,14 @@ button {
 form {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-gap: 20px;
+  grid-gap: 10px;
   align-items: center;
+  margin-top: 5rem;
 }
 .menu-time {
   display: flex;
   grid-column: 1 / span 2;
+  grid-gap: 8px;
 }
 .menu-checkbox {
   display: flex;
@@ -238,7 +249,7 @@ form input {
   background: #d9d9d9;
   border: 2px solid var(--bs-log);
   border-radius: 5px;
-  padding: 0.5rem; /* Add padding to inputs */
+  padding: 0.5rem;
 }
 ::placeholder {
   color: var(--bs-log);
@@ -297,7 +308,7 @@ textarea {
   border-radius: 10px;
   cursor: pointer;
   transition: all 0.3s linear;
-  margin-bottom: 10rem;
+  margin-bottom: 4rem;
 }
 .bi-chevron-up {
   position: relative;
@@ -306,5 +317,31 @@ textarea {
   margin-right: 10px;
   width: 20px;
   height: 20px;
+}
+.bi-chevron-down {
+  position: relative;
+  left: 11rem;
+  float: right;
+  margin-right: 10px;
+  width: 20px;
+  height: 20px;
+}
+.scroll {
+  height: 600px;
+  overflow-y: scroll;
+}
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #090c0f;
+  padding: 8rem;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
 }
 </style>
