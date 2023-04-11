@@ -49,7 +49,7 @@
             >
               <label for="">Berufsbezeichnung</label>
               <v-text-field
-                class="text-input"
+                class="custom-input"
                 v-model="panel.job"
                 placeholder="Front-End Developer"
                 dense
@@ -298,8 +298,27 @@ form input {
   background: #d9d9d9;
   border: 2px solid var(--bs-log);
   border-radius: 5px;
+  height: 30px;
 }
-::placeholder {
+.text-input::v-deep .v-input__control input::placeholder {
+  color: var(--bs-log);
+  opacity: 0.8;
+}
+.custom-input::v-deep .v-text-field__slot {
+  padding: 4px 2px;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #333;
+  background-color: red;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.custom-input .v-text-field__slot::placeholder {
+  color: #999;
+  opacity: 1;
+}
+/*::placeholder {
   color: var(--bs-log);
   opacity: 0.8;
 }
@@ -373,5 +392,5 @@ textarea {
 }
 .v-expansion-panel {
   background: none;
-}
+}  */
 </style>
