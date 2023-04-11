@@ -189,7 +189,7 @@ button {
 form {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-gap: 20px;
+  grid-gap: 5px;
   align-items: center; /* Align menu-form items vertically center */
 }
 
@@ -314,7 +314,7 @@ input {
   border-radius: 10px;
   cursor: pointer;
   transition: all 0.3s linear;
-  margin-bottom: 20rem;
+  margin-bottom: 12rem;
 }
 .container-languages {
   display: flex;

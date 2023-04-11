@@ -240,7 +240,7 @@ input {
   margin-bottom: 2em;
 }
 .container-decription {
-  margin-bottom: 6em;
+  margin-bottom: 2em;
 }
 .description-text {
   font-size: 0.8rem;

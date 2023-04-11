@@ -129,6 +129,6 @@ input {
   font-size: 0.8em;
   font-weight: 300;
   text-align: left;
-  padding-bottom: 25em;
+  padding-bottom: 17em;
 }
 </style>

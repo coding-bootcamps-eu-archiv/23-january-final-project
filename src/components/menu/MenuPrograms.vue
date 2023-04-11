@@ -455,7 +455,7 @@ input {
   border-radius: 10px;
   cursor: pointer;
   transition: all 0.3s linear;
-  margin-bottom: 10rem;
+  margin-bottom: 6rem;
 }
 .container-icons {
   display: grid;
