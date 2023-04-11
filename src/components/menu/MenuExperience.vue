@@ -192,6 +192,7 @@ h1 {
 label {
   color: white;
   font-weight: 400;
+  font-size: 0.8rem;
 }
 
 input:focus,
@@ -316,7 +317,7 @@ textarea {
   border-radius: 10px;
   cursor: pointer;
   transition: all 0.3s linear;
-  margin-bottom: 10rem;
+  margin-bottom: 3rem;
 }
 .bi-chevron-up {
   position: relative;
