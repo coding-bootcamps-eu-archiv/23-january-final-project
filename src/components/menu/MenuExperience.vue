@@ -103,7 +103,7 @@
             </p>
             <p class="menu-full-width">
               <label for="">Was warem Deine Aufgaben?</label>
-              <textarea name="" id="" cols="42" rows="3">-</textarea>
+              <textarea name="" id="" cols="40" rows="3">-</textarea>
             </p>
           </div>
         </div>
@@ -173,6 +173,10 @@ export default {
     deleteJob(id) {
       if (this.entriesJob.length > 1)
         this.entriesJob = this.entriesJob.filter((entry) => entry.id != id);
+      else {
+        // if this is the only entry left, set collapsed to false to prevent it from collapsing
+        this.entriesJob[0].collapsed = false;
+      }
     },
   },
 };
