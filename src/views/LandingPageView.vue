@@ -590,10 +590,11 @@ p > strong {
   text-align: center;
   margin-top: 10px;
 }
-
-.text p {
-  margin: 0;
-  font-size: 14px;
+@media screen {
+  .text p {
+    margin: 0;
+    font-size: 14px;
+  }
 }
 
 .image-wrapper p {

@@ -11,10 +11,3 @@ export default {
   },
 };
 </script>
-
-<style>
-* {
-  font-size: 16px;
-}
-</style>
->

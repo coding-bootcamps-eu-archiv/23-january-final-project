@@ -246,6 +246,21 @@ export default {
   line-height: 1.2rem;
 }
 
+@media print {
+  .a4-content {
+    width: 83.5%;
+  }
+  .cv-username {
+    margin-right: 3.7rem;
+  }
+  .picture {
+    margin-right: 1.2rem;
+  }
+  .adress {
+    padding-right: 2.1rem;
+  }
+}
+
 ul {
   padding: 0;
 }
