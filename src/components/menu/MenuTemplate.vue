@@ -15,6 +15,7 @@
               <img
                 src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/074/869/original/Classic.png?1680470742"
                 alt="Image 1"
+                @click="mountTemplate('CVClassic')"
               />
               <p class="text-cvs">„Classic“</p>
             </div>
@@ -22,6 +23,7 @@
               <img
                 src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/074/871/original/Modern.png?1680470774"
                 alt="Image 2"
+                @click="mountTemplate('CVModern')"
               />
               <p class="text-cvs">„Modern“</p>
             </div>
@@ -29,6 +31,7 @@
               <img
                 src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/074/870/original/Creativ.png?1680470756"
                 alt="Image 3"
+                @click="mountTemplate('CVCreative')"
               />
               <p class="text-cvs">„Kreativ“</p>
             </div>
@@ -39,11 +42,82 @@
         <div>
           <p>
             <label class="container-colors" for="">
-              <input class="box box-red" type="submit" value="" />
-              <input class="box box-blue" type="submit" value="" />
-              <input class="box box-geen" type="submit" value="" />
-              <input class="box box-orange" type="submit" value="" />
-              <input class="box box-grey" type="submit" value="" />
+              <input
+                class="box box-black"
+                type="button"
+                value=""
+                v-show="
+                  this.$store.state.userTemplate.CVTemplate === 'CVModern' ||
+                  this.$store.state.userTemplate.CVTemplate === 'CVClassic'
+                "
+                @click="changeModernColor('#000000')"
+              />
+              <input
+                class="box box-white"
+                type="button"
+                value=""
+                v-show="
+                  this.$store.state.userTemplate.CVTemplate === 'CVModern'
+                "
+                @click="changeModernColor('#FFFFFF')"
+              />
+              <input
+                class="box box-red"
+                type="button"
+                value=""
+                v-show="
+                  this.$store.state.userTemplate.CVTemplate === 'CVCreative' ||
+                  this.$store.state.userTemplate.CVTemplate === 'CVModern'
+                "
+                @click="
+                  changeModernColor('#CB6161'),
+                    changeCreativeColor('#CB6161', '#F5E0E0')
+                "
+              />
+              <input
+                class="box box-blue"
+                type="button"
+                value=""
+                v-show="
+                  this.$store.state.userTemplate.CVTemplate === 'CVCreative' ||
+                  this.$store.state.userTemplate.CVTemplate === 'CVModern'
+                "
+                @click="
+                  changeModernColor('#618CCB'),
+                    changeCreativeColor('#618CCB', '#E0EDF5')
+                "
+              />
+              <input
+                class="box box-geen"
+                type="button"
+                value=""
+                v-show="
+                  this.$store.state.userTemplate.CVTemplate === 'CVCreative' ||
+                  this.$store.state.userTemplate.CVTemplate === 'CVModern'
+                "
+                @click="
+                  changeModernColor('#89CB61');
+                  changeCreativeColor('#89CB61', '#BCE2A5');
+                "
+              />
+              <input
+                class="box box-orange"
+                type="button"
+                value=""
+                v-show="
+                  this.$store.state.userTemplate.CVTemplate === 'CVCreative'
+                "
+                @click="changeCreativeColor('#DBAD57', '#F5E6C9')"
+              />
+              <input
+                class="box box-grey"
+                type="button"
+                value=""
+                v-show="
+                  this.$store.state.userTemplate.CVTemplate === 'CVCreative'
+                "
+                @click="changeCreativeColor('#909192', '#E0E0E0')"
+              />
             </label>
           </p>
         </div>
@@ -74,7 +148,19 @@
   </div>
 </template>
 <script>
-export default {};
+export default {
+  methods: {
+    mountTemplate(CVType) {
+      this.$store.dispatch("mountTemplate", CVType);
+    },
+    changeCreativeColor(color, elementcolor) {
+      this.$store.dispatch("setCVCrColor", { color, elementcolor });
+    },
+    changeModernColor(color) {
+      this.$store.dispatch("setCVMoColor", color);
+    },
+  },
+};
 </script>
 <style scoped>
 * {
@@ -166,6 +252,12 @@ input {
   color: #fff;
   border: 4px solid var(--bs-log);
   border-radius: 10px;
+}
+.box-white {
+  background-color: white;
+}
+.box-black {
+  background-color: black;
 }
 .box-orange {
   background-color: rgb(216, 161, 59);

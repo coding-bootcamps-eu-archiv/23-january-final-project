@@ -247,7 +247,24 @@
             >Speichern
           </button>
         </div>
-        <div class="resume"><CVModern /></div>
+        <div
+          class="resume"
+          v-show="this.$store.state.userTemplate.CVTemplate === 'CVModern'"
+        >
+          <CVModern />
+        </div>
+        <div
+          class="resume"
+          v-show="this.$store.state.userTemplate.CVTemplate === 'CVClassic'"
+        >
+          <CVClassic />
+        </div>
+        <div
+          class="resume"
+          v-show="this.$store.state.userTemplate.CVTemplate === 'CVCreative'"
+        >
+          <CVCreative />
+        </div>
       </div>
     </section>
   </div>
@@ -262,6 +279,8 @@ import MenuPrograms from "@/components/menu/MenuPrograms";
 import MenuTemplate from "@/components/menu/MenuTemplate";
 import MenuCheckDL from "@/components/menu/MenuCheckDL";
 import CVModern from "@/components/templates/CVModern.vue";
+import CVCreative from "@/components/templates/CVCreative.vue";
+import CVClassic from "@/components/templates/CVClassic.vue";
 import { updateFormData } from "@/components/formUtils.js";
 
 export default {
@@ -275,6 +294,8 @@ export default {
     MenuTemplate,
     MenuCheckDL,
     CVModern,
+    CVClassic,
+    CVCreative,
   },
   created() {
     window.addEventListener("input", this.handleInput);
