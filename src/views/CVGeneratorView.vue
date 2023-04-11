@@ -77,7 +77,7 @@
       >
     </div>
     <div class="sidebar">
-      <a href="#" class="profile-menu">
+      <a href="#" class="profile-menu" @click="showComponent('MenuProfile')">
         <i class="fas fa-profil"
           ><svg
             xmlns="http://www.w3.org/2000/svg"
@@ -91,7 +91,7 @@
         ></i>
         <span>Profil</span>
       </a>
-      <a href="#">
+      <a href="#" @click="showComponent('MenuExperience')">
         <i class="fas fa-work"
           ><svg
             xmlns="http://www.w3.org/2000/svg"
@@ -108,7 +108,7 @@
           Werdegang</span
         >
       </a>
-      <a href="#">
+      <a href="#" @click="showComponent('MenuEducation')">
         <i class="fas fa-education"
           ><svg
             class="bi bi-columns"
@@ -124,7 +124,7 @@
         </i>
         <span>Ausbildung</span>
       </a>
-      <a href="#">
+      <a href="#" @click="showComponent('MenuLanguages')">
         <i class="fas fa-languages"
           ><svg
             xmlns="http://www.w3.org/2000/svg"
@@ -141,7 +141,7 @@
         ></i>
         <span>Sprachen</span>
       </a>
-      <a href="#">
+      <a href="#" @click="showComponent('MenuPrograms')">
         <i class="fas fa-programms"
           ><svg
             xmlns="http://www.w3.org/2000/svg"
@@ -155,7 +155,7 @@
         ></i>
         <span>Programme</span>
       </a>
-      <a href="#">
+      <a href="#" @click="showComponent('MenuTemplate')">
         <i class="fas fa-layouts"
           ><svg
             xmlns="http://www.w3.org/2000/svg"
@@ -171,7 +171,7 @@
         ></i>
         <span>Vorlage<br />wechseln</span>
       </a>
-      <a href="#" class="print-menu">
+      <a href="#" class="print-menu" @click="showComponent('MenuCheckDL')">
         <i class="fas fa-sign-out-print"
           ><svg
             xmlns="http://www.w3.org/2000/svg"
