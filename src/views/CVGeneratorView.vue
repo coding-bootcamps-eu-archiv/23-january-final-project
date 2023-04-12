@@ -317,10 +317,10 @@ export default {
   },
   methods: {
     handleInput(event) {
-      const name = event.target.name;
+      const key = event.target.name;
       const value = event.target.value;
       const id = event.target.id;
-      updateFormData({ [name]: value, id }); // update the Vuex store with the input value
+      updateFormData({ [key]: value, id }); // update the Vuex store with the input value
     },
     showComponent(componentName) {
       this.isProfileMenu = false;
