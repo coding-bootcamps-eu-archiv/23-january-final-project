@@ -23,7 +23,8 @@ const store = createStore({
       CVColorModern: "black",
       CVElements: "#000000",
     },
-    userJob: [{}],
+    userJob: [],
+    userEducation: [],
   },
   mutations: {
     updateFormData(state, payload) {
@@ -46,6 +47,22 @@ const store = createStore({
       }
       console.log(state.userJob);
     },
+    updateUserEducationData(state, payload) {
+      const indexID = payload.id;
+      const index = state.userEducation.findIndex((ed) => ed.id === indexID);
+      if (index !== -1) {
+        // eslint-disable-next-line no-unused-vars
+        const { id, ...rest } = payload;
+
+        const updatedJob = {
+          ...state.userEducation[index],
+          ...rest,
+        };
+        state.userEducation.splice(index, 1, updatedJob);
+      } else {
+        state.userEducation.push(payload);
+      }
+    },
     setTemplateComponent(state, CVType) {
       state.userTemplate.CVTemplate = CVType;
     },
@@ -59,6 +76,12 @@ const store = createStore({
       state.userTemplate.CVColorModern = color;
       document.documentElement.style.setProperty("--cv-modern-color", color);
     },
+    deleteJobMutation(state, index) {
+      state.userJob.splice(index, 1);
+    },
+    deleteEducationMutation(state, index) {
+      state.userEducation.splice(index, 1);
+    },
   },
   actions: {
     mountTemplate({ commit }, CVType) {
@@ -69,6 +92,22 @@ const store = createStore({
     },
     setCVMoColor({ commit }, color) {
       commit("setModernColor", color);
+    },
+    deleteJob({ commit, state }, id) {
+      const deleteIndex = id;
+      const index = state.userJob.findIndex((job) => job.id == deleteIndex);
+      if (index !== -1) {
+        console.log("delete", index);
+        commit("deleteJobMutation", index);
+      }
+    },
+    deleteEducation({ commit, state }, id) {
+      const deleteIndex = id;
+      const index = state.userEducation.findIndex((ed) => ed.id == deleteIndex);
+      if (index !== -1) {
+        console.log("delete", index);
+        commit("deleteEducationMutation", index);
+      }
     },
   },
   // plugins: [

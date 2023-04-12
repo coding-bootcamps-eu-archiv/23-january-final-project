@@ -60,7 +60,12 @@
           >
             <p class="menu-full-width">
               <label for="">Abschluss</label>
-              <input type="text" placeholder="Bachelor im Ingenieurwesen" />
+              <input
+                type="text"
+                placeholder="Bachelor im Ingenieurwesen"
+                name="degree"
+                v-bind:id="properties.id"
+              />
             </p>
             <div class="menu-time">
               <p class="">
@@ -68,38 +73,69 @@
                 <input
                   type="email"
                   placeholder="Technische Universität Berlin"
+                  name="school"
+                  v-bind:id="properties.id"
                 />
               </p>
 
               <p class="">
                 <label for="">Ort</label>
-                <input type="text" placeholder="Berlin" />
+                <input
+                  type="text"
+                  placeholder="Berlin"
+                  name="edCity"
+                  v-bind:id="properties.id"
+                />
               </p>
             </div>
             <div class="menu-time">
               <p class="">
                 <label for="">Jahr</label>
-                <input type="text" placeholder="2020" />
+                <input
+                  type="text"
+                  placeholder="2020"
+                  name="edYearStart"
+                  v-bind:id="properties.id"
+                />
               </p>
 
               <p class="">
                 <label for="">Monat</label>
-                <input type="text" placeholder="Januar" />
+                <input
+                  type="text"
+                  placeholder="Januar"
+                  name="edMonthStart"
+                  v-bind:id="properties.id"
+                />
               </p>
 
               <p class="">
                 <label for="">Jahr</label>
-                <input type="text" placeholder="2023" />
+                <input
+                  type="text"
+                  placeholder="2023"
+                  name="edYearEnd"
+                  v-bind:id="properties.id"
+                />
               </p>
 
               <p class="">
                 <label for="">Monat</label>
-                <input type="text" placeholder="Juni" />
+                <input
+                  type="text"
+                  placeholder="Juni"
+                  name="edMonthEnd"
+                  v-bind:id="properties.id"
+                />
               </p>
             </div>
             <p class="menu-full-width">
               <label class="menu-checkbox">
-                <input type="checkbox" placeholder="" />
+                <input
+                  type="checkbox"
+                  placeholder=""
+                  v-bind:id="properties.id"
+                />
                 <span class="menu-today-checkbox">Aktuell</span></label
               >
             </p>
