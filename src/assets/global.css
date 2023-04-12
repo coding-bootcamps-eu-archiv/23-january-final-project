@@ -23,6 +23,12 @@
   --cv-modern-color: black;
 }
 
+.warning {
+  letter-spacing: 0.03em;
+  color: var(--bs-succes) !important;
+  font-weight: bold;
+}
+
 .menu-contain {
   max-width: 350px;
   margin-left: auto;
