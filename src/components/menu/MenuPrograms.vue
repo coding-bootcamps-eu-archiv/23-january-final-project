@@ -1,7 +1,7 @@
 <template>
   <div class="menu-contain">
     <div class="menu-wrapper">
-      <div class="menu-form">
+      <div class="scroll menu-form">
         <h1>
           Programme
           <br />
@@ -267,8 +267,43 @@
         </div>
         <div class="border-around">
           <p class="menu-full-width text-language">
+            Software<span class="text-language"> <br />Software-Name </span>
+            <label class="menu-full-width" for="">
+              <input type="text" v-model="sonstiges" placeholder="Sonstiges" />
+            </label>
+          </p>
+        </div>
+        <div class="menu-add-task-wrapper">
+          <div class="menu-add-task">
+            <button class="menu-add-new" @click="addNewSoftware(sonstiges)">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="12"
+                height="12"
+                fill="currentColor"
+                class="bi-plus-lg"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z"
+                />
+              </svg>
+              Weitere Software hinzufügen
+            </button>
+          </div>
+        </div>
+        <!--This will only appear when the user click 
+  the languages or add a new language to the array, only the this will render on the screen-->
+        <div
+          class="border-around"
+          v-for="software in softwares"
+          v-bind:key="software.name"
+        >
+          <p class="menu-full-width text-language">
             Software<span class="text-language">
               <svg
+                @click="deleteSoftware(software.name)"
                 xmlns="http://www.w3.org/2000/svg"
                 fill="currentColor"
                 class="bi-trash"
@@ -284,30 +319,15 @@
               <br />Software-Name
             </span>
             <label class="menu-full-width" for="">
-              <input type="text" placeholder="Microsoft World" />
+              <input
+                class="remove-focus"
+                type="text"
+                v-model="software.name"
+                style="color: var(--bs-log)"
+                readonly="true"
+              />
             </label>
           </p>
-        </div>
-
-        <div class="menu-add-task-wrapper">
-          <div class="menu-add-task">
-            <button class="menu-add-new">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="12"
-                height="12"
-                fill="currentColor"
-                class="bi-plus-lg"
-                viewBox="0 0 16 16"
-              >
-                <path
-                  fill-rule="evenodd"
-                  d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z"
-                />
-              </svg>
-              Weitere Software hinzüfugen
-            </button>
-          </div>
         </div>
 
         <form action="">
@@ -329,9 +349,32 @@
 </template>
 <script>
 export default {
-  setup() {},
+  data() {
+    return {
+      softwares: [],
+      sonstiges: "",
+    };
+  },
+  methods: {
+    addNewSoftware(software) {
+      let existingSoftware = this.softwares.find(
+        (soft) => soft.name === software
+      );
+
+      if (existingSoftware == null) {
+        this.softwares.push({ name: software });
+      }
+    },
+
+    deleteSoftware(software) {
+      this.softwares = this.softwares.filter(
+        (softwareEntry) => softwareEntry.name != software
+      );
+    },
+  },
 };
 </script>
+
 <style scoped>
 * {
   font-family: "roboto";
@@ -373,7 +416,9 @@ form {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 20px;
-  align-items: center; /* Align menu-form items vertically center */
+  align-items: center;
+  margin-top: 3rem;
+  gap: 10px;
 }
 
 .menu-add-task-wrapper {
@@ -455,7 +500,7 @@ input {
   border-radius: 10px;
   cursor: pointer;
   transition: all 0.3s linear;
-  margin-bottom: 6rem;
+  margin-bottom: 2rem;
 }
 .container-icons {
   display: grid;
@@ -502,5 +547,26 @@ input {
 }
 .border-around {
   margin-top: 10px;
+}
+.scroll {
+  height: 600px;
+  overflow-y: scroll;
+}
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #090c0f;
+  padding: 8rem;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
+}
+.remove-focus:focus {
+  outline: none;
 }
 </style>
