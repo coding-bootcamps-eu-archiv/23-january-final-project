@@ -9,7 +9,11 @@
         <div class="container-icons">
           <div class="row">
             <div class="column">
-              <div class="element">
+              <div
+                class="element"
+                v-bind:class="{ highlight: isMicrosoftSelected }"
+                v-on:click="toggleHighlight('Microsoft')"
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="currentColor"
@@ -23,7 +27,11 @@
               </div>
             </div>
             <div class="column">
-              <div class="element">
+              <div
+                class="element"
+                v-bind:class="{ highlight: isCssSelected }"
+                v-on:click="toggleHighlight('CSS')"
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -58,7 +66,11 @@
               </div>
             </div>
             <div class="column">
-              <div class="element">
+              <div
+                class="element"
+                v-bind:class="{ highlight: isWordPressSelected }"
+                v-on:click="toggleHighlight('WordPress')"
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="currentColor"
@@ -81,7 +93,11 @@
           </div>
           <div class="row">
             <div class="column">
-              <div class="element">
+              <div
+                class="element"
+                v-bind:class="{ highlight: isGitSelected }"
+                v-on:click="toggleHighlight('Git')"
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="currentColor"
@@ -95,7 +111,11 @@
               </div>
             </div>
             <div class="column">
-              <div class="element">
+              <div
+                class="element"
+                v-bind:class="{ highlight: isJavascriptSelected }"
+                v-on:click="toggleHighlight('Javascript')"
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 50 50"
@@ -110,7 +130,11 @@
               </div>
             </div>
             <div class="column">
-              <div class="element">
+              <div
+                class="element"
+                v-bind:class="{ highlight: isIndesignSelected }"
+                v-on:click="toggleHighlight('Indesign')"
+              >
                 <svg
                   width="50px"
                   height="50px"
@@ -127,7 +151,11 @@
           </div>
           <div class="row">
             <div class="column">
-              <div class="element">
+              <div
+                class="element"
+                v-bind:class="{ highlight: isPhotoshopSelected }"
+                v-on:click="toggleHighlight('Photoshop')"
+              >
                 <svg
                   width="40px"
                   height="40px"
@@ -142,7 +170,11 @@
               </div>
             </div>
             <div class="column">
-              <div class="element">
+              <div
+                class="element"
+                v-bind:class="{ highlight: isVueSelected }"
+                v-on:click="toggleHighlight('Vue')"
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -182,7 +214,11 @@
               </div>
             </div>
             <div class="column">
-              <div class="element">
+              <div
+                class="element"
+                v-bind:class="{ highlight: isRevitSelected }"
+                v-on:click="toggleHighlight('Revit')"
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 32 32"
@@ -199,7 +235,11 @@
           </div>
           <div class="row">
             <div class="column">
-              <div class="element">
+              <div
+                class="element"
+                v-bind:class="{ highlight: isFigmaSelected }"
+                v-on:click="toggleHighlight('Figma')"
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"
@@ -214,7 +254,11 @@
               </div>
             </div>
             <div class="column">
-              <div class="element">
+              <div
+                class="element"
+                v-bind:class="{ highlight: isReactSelected }"
+                v-on:click="toggleHighlight('React')"
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 30 30"
@@ -229,7 +273,11 @@
               </div>
             </div>
             <div class="column">
-              <div class="element">
+              <div
+                class="element"
+                v-bind:class="{ highlight: isHtmlSelected }"
+                v-on:click="toggleHighlight('HTML')"
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -297,13 +345,13 @@
   the languages or add a new language to the array, only the this will render on the screen-->
         <div
           class="border-around"
-          v-for="software in softwares"
-          v-bind:key="software.name"
+          v-for="sonstigesSoftware in sonstigesPrograms"
+          v-bind:key="sonstigesSoftware.name"
         >
           <p class="menu-full-width text-language">
             Software<span class="text-language">
               <svg
-                @click="deleteSoftware(software.name)"
+                @click="deleteSoftware(sonstigesSoftware.name)"
                 xmlns="http://www.w3.org/2000/svg"
                 fill="currentColor"
                 class="bi-trash"
@@ -322,7 +370,7 @@
               <input
                 class="remove-focus"
                 type="text"
-                v-model="software.name"
+                v-model="sonstigesSoftware.name"
                 style="color: var(--bs-log)"
                 readonly="true"
               />
@@ -351,25 +399,76 @@
 export default {
   data() {
     return {
-      softwares: [],
-      sonstiges: "",
+      isMicrosoftSelected: false,
+      isCssSelected: false,
+      isWordPressSelected: false,
+      isGitSelected: false,
+      isJavascriptSelected: false,
+      isIndesignSelected: false,
+      isPhotoshopSelected: false,
+      isVueSelected: false,
+      isRevitSelected: false,
+      isFigmaSelected: false,
+      isReactSelected: false,
+      isHtmlSelected: false,
+      sonstigesPrograms: [],
     };
   },
   methods: {
     addNewSoftware(software) {
-      let existingSoftware = this.softwares.find(
+      let existingSoftware = this.sonstigesPrograms.find(
         (soft) => soft.name === software
       );
 
       if (existingSoftware == null) {
-        this.softwares.push({ name: software });
+        this.sonstigesPrograms.push({ name: software });
       }
     },
 
     deleteSoftware(software) {
-      this.softwares = this.softwares.filter(
+      this.sonstigesPrograms = this.sonstigesPrograms.filter(
         (softwareEntry) => softwareEntry.name != software
       );
+    },
+
+    toggleHighlight(software) {
+      switch (software) {
+        case "Microsoft":
+          this.isMicrosoftSelected = !this.isMicrosoftSelected;
+          break;
+        case "CSS":
+          this.isCssSelected = !this.isCssSelected;
+          break;
+        case "WordPress":
+          this.isWordPressSelected = !this.isWordPressSelected;
+          break;
+        case "Git":
+          this.isGitSelected = !this.isGitSelected;
+          break;
+        case "Javascript":
+          this.isJavascriptSelected = !this.isJavascriptSelected;
+          break;
+        case "Indesign":
+          this.isIndesignSelected = !this.isIndesignSelected;
+          break;
+        case "Photoshop":
+          this.isPhotoshopSelected = !this.isPhotoshopSelected;
+          break;
+        case "Vue":
+          this.isVueSelected = !this.isVueSelected;
+          break;
+        case "Revit":
+          this.isRevitSelected = !this.isRevitSelected;
+          break;
+        case "Figma":
+          this.isFigmaSelected = !this.isFigmaSelected;
+          break;
+        case "React":
+          this.isReactSelected = !this.isReactSelected;
+          break;
+        case "HTML":
+          this.isHtmlSelected = !this.isHtmlSelected;
+      }
     },
   },
 };
@@ -568,5 +667,9 @@ input {
 }
 .remove-focus:focus {
   outline: none;
+}
+
+.highlight {
+  border: 6px solid var(--bs-succes);
 }
 </style>
