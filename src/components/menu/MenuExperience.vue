@@ -135,6 +135,7 @@
                   type="checkbox"
                   placeholder=""
                   v-bind:id="properties.id"
+                  v-model="isChecked"
                 />
                 <span class="menu-today-checkbox"
                   >Ich arbeite derzeit hier</span
@@ -218,9 +219,10 @@ export default {
       }
     },
     deleteJob(id) {
-      if (this.entriesJob.length > 1)
+      if (this.entriesJob.length > 1) {
         this.entriesJob = this.entriesJob.filter((entry) => entry.id != id);
-      else {
+        this.$store.dispatch("deleteJob", id);
+      } else {
         // if this is the only entry left, set collapsed to false to prevent it from collapsing
         this.entriesJob[0].collapsed = false;
       }

@@ -33,4 +33,17 @@ export const updateFormData = (payload) => {
   if (userJobKeys.includes(Object.keys(payload)[0])) {
     store.commit("updateUserJobData", payload);
   }
+
+  const userEdKeys = [
+    "degree",
+    "school",
+    "edCity",
+    "edYearStart",
+    "edMonthStart",
+    "edYearEnd",
+    "edMonthEnd",
+  ];
+  if (userEdKeys.includes(Object.keys(payload)[0])) {
+    store.commit("updateUserEducationData", payload);
+  }
 };
