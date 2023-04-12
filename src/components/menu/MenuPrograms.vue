@@ -11,7 +11,9 @@
             <div class="column">
               <div
                 class="element"
-                v-bind:class="{ highlight: isMicrosoftSelected }"
+                v-bind:class="{
+                  highlight: this.$store.state.userPrograms.Microsoft,
+                }"
                 v-on:click="toggleHighlight('Microsoft')"
               >
                 <svg
@@ -29,7 +31,7 @@
             <div class="column">
               <div
                 class="element"
-                v-bind:class="{ highlight: isCssSelected }"
+                v-bind:class="{ highlight: this.$store.state.userPrograms.CSS }"
                 v-on:click="toggleHighlight('CSS')"
               >
                 <svg
@@ -68,7 +70,9 @@
             <div class="column">
               <div
                 class="element"
-                v-bind:class="{ highlight: isWordPressSelected }"
+                v-bind:class="{
+                  highlight: this.$store.state.userPrograms.WordPress,
+                }"
                 v-on:click="toggleHighlight('WordPress')"
               >
                 <svg
@@ -95,7 +99,7 @@
             <div class="column">
               <div
                 class="element"
-                v-bind:class="{ highlight: isGitSelected }"
+                v-bind:class="{ highlight: this.$store.state.userPrograms.Git }"
                 v-on:click="toggleHighlight('Git')"
               >
                 <svg
@@ -113,7 +117,9 @@
             <div class="column">
               <div
                 class="element"
-                v-bind:class="{ highlight: isJavascriptSelected }"
+                v-bind:class="{
+                  highlight: this.$store.state.userPrograms.Javascript,
+                }"
                 v-on:click="toggleHighlight('Javascript')"
               >
                 <svg
@@ -132,8 +138,10 @@
             <div class="column">
               <div
                 class="element"
-                v-bind:class="{ highlight: isIndesignSelected }"
-                v-on:click="toggleHighlight('Indesign')"
+                v-bind:class="{
+                  highlight: this.$store.state.userPrograms.InDesign,
+                }"
+                v-on:click="toggleHighlight('InDesign')"
               >
                 <svg
                   width="50px"
@@ -153,7 +161,9 @@
             <div class="column">
               <div
                 class="element"
-                v-bind:class="{ highlight: isPhotoshopSelected }"
+                v-bind:class="{
+                  highlight: this.$store.state.userPrograms.Photoshop,
+                }"
                 v-on:click="toggleHighlight('Photoshop')"
               >
                 <svg
@@ -172,8 +182,10 @@
             <div class="column">
               <div
                 class="element"
-                v-bind:class="{ highlight: isVueSelected }"
-                v-on:click="toggleHighlight('Vue')"
+                v-bind:class="{
+                  highlight: this.$store.state.userPrograms.VueJS,
+                }"
+                v-on:click="toggleHighlight('VueJS')"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -216,7 +228,9 @@
             <div class="column">
               <div
                 class="element"
-                v-bind:class="{ highlight: isRevitSelected }"
+                v-bind:class="{
+                  highlight: this.$store.state.userPrograms.Revit,
+                }"
                 v-on:click="toggleHighlight('Revit')"
               >
                 <svg
@@ -237,7 +251,9 @@
             <div class="column">
               <div
                 class="element"
-                v-bind:class="{ highlight: isFigmaSelected }"
+                v-bind:class="{
+                  highlight: this.$store.state.userPrograms.Figma,
+                }"
                 v-on:click="toggleHighlight('Figma')"
               >
                 <svg
@@ -256,7 +272,9 @@
             <div class="column">
               <div
                 class="element"
-                v-bind:class="{ highlight: isReactSelected }"
+                v-bind:class="{
+                  highlight: this.$store.state.userPrograms.React,
+                }"
                 v-on:click="toggleHighlight('React')"
               >
                 <svg
@@ -275,7 +293,9 @@
             <div class="column">
               <div
                 class="element"
-                v-bind:class="{ highlight: isHtmlSelected }"
+                v-bind:class="{
+                  highlight: this.$store.state.userPrograms.HTML,
+                }"
                 v-on:click="toggleHighlight('HTML')"
               >
                 <svg
@@ -399,18 +419,6 @@
 export default {
   data() {
     return {
-      isMicrosoftSelected: false,
-      isCssSelected: false,
-      isWordPressSelected: false,
-      isGitSelected: false,
-      isJavascriptSelected: false,
-      isIndesignSelected: false,
-      isPhotoshopSelected: false,
-      isVueSelected: false,
-      isRevitSelected: false,
-      isFigmaSelected: false,
-      isReactSelected: false,
-      isHtmlSelected: false,
       sonstigesPrograms: [],
     };
   },
@@ -431,44 +439,8 @@ export default {
       );
     },
 
-    toggleHighlight(software) {
-      switch (software) {
-        case "Microsoft":
-          this.isMicrosoftSelected = !this.isMicrosoftSelected;
-          break;
-        case "CSS":
-          this.isCssSelected = !this.isCssSelected;
-          break;
-        case "WordPress":
-          this.isWordPressSelected = !this.isWordPressSelected;
-          break;
-        case "Git":
-          this.isGitSelected = !this.isGitSelected;
-          break;
-        case "Javascript":
-          this.isJavascriptSelected = !this.isJavascriptSelected;
-          break;
-        case "Indesign":
-          this.isIndesignSelected = !this.isIndesignSelected;
-          break;
-        case "Photoshop":
-          this.isPhotoshopSelected = !this.isPhotoshopSelected;
-          break;
-        case "Vue":
-          this.isVueSelected = !this.isVueSelected;
-          break;
-        case "Revit":
-          this.isRevitSelected = !this.isRevitSelected;
-          break;
-        case "Figma":
-          this.isFigmaSelected = !this.isFigmaSelected;
-          break;
-        case "React":
-          this.isReactSelected = !this.isReactSelected;
-          break;
-        case "HTML":
-          this.isHtmlSelected = !this.isHtmlSelected;
-      }
+    toggleHighlight(program) {
+      this.$store.dispatch("changeProgramState", program);
     },
   },
 };

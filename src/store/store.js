@@ -1,31 +1,60 @@
 import { createStore } from "vuex";
+import VuexPersistence from "vuex-persist";
+
+const vuexLocal = new VuexPersistence({
+  storage: window.localStorage,
+  key: "CV-Fabrik",
+});
 
 const store = createStore({
-  state: {
-    userData: {
-      firstname: "Maria",
-      lastname: "Mustermann",
-      email: "mariamustermann@email.de",
-      phone: "555-5555",
-      street: "Example Street 12",
-      zipcode: "12345",
-      city: "City",
-      jobtitle: "Frontend Developer",
-      birthdate: "03.03.1993",
-      birthcity: "Othercity",
-      profileurl: "www.portfolio.com",
-      nationality: "deutsch",
-      marriage: "ledig",
-    },
-    userTemplate: {
-      CVTemplate: "CVClassic",
-      CVColor: "#cb6161",
-      CVColorModern: "black",
-      CVElements: "#000000",
-    },
-    userJob: [],
-    userEducation: [],
-    userLanguages: [],
+  state() {
+    return {
+      userData: {
+        firstname: "Maria",
+        lastname: "Mustermann",
+        email: "mariamustermann@email.de",
+        phone: "555-5555",
+        street: "Example Street 12",
+        zipcode: "12345",
+        city: "City",
+        jobtitle: "Frontend Developer",
+        birthdate: "03.03.1993",
+        birthcity: "Othercity",
+        profileurl: "www.portfolio.com",
+        nationality: "deutsch",
+        marriage: "ledig",
+      },
+      userTemplate: {
+        CVTemplate: "CVClassic",
+        CVColor: "#cb6161",
+        CVColorModern: "black",
+        CVElements: "#000000",
+      },
+      userJob: [
+        {
+          id: 1,
+          collapsed: false,
+          job: "",
+        },
+      ],
+      userEducation: [],
+      userLanguages: [],
+      userPrograms: {
+        Microsoft: true,
+        CSS: false,
+        WordPress: false,
+        Git: false,
+        Javascript: false,
+        InDesign: false,
+        Photoshop: false,
+        VueJS: false,
+        Revit: false,
+        Figma: false,
+        React: false,
+        HTML: false,
+        sonstigesPrograms: [],
+      },
+    };
   },
   mutations: {
     updateFormData(state, payload) {
@@ -46,7 +75,6 @@ const store = createStore({
       } else {
         state.userJob.push(payload);
       }
-      console.log(state.userJob);
     },
     updateUserEducationData(state, payload) {
       const indexID = payload.id;
@@ -93,10 +121,12 @@ const store = createStore({
       for (const langObj of state.userLanguages) {
         if (Object.keys(langObj)[0] === language) {
           langObj[language] = level;
-          console.log(state.userLanguages);
           break;
         }
       }
+    },
+    setProgramState(state, program) {
+      state.userPrograms[program] = !state.userPrograms[program];
     },
   },
   actions: {
@@ -136,32 +166,11 @@ const store = createStore({
       );
       commit("deleteLanguageMutation", index);
     },
+    changeProgramState({ commit }, program) {
+      commit("setProgramState", program);
+    },
   },
-  // plugins: [
-  //   (store) => {
-  //     store.subscribe((mutation, state) => {
-  //       localStorage.setItem("CVFabrik-Store", JSON.stringify(state));
-  //     });
-
-  //     const savedState = localStorage.getItem("CVFabrik-Store");
-  //     if (savedState) {
-  //       const parsedState = JSON.parse(savedState);
-  //       store.replaceState(parsedState);
-  //       document.documentElement.style.setProperty(
-  //         "--cv-color",
-  //         parsedState.userTemplate.CVColor // Use parsedState instead of state
-  //       );
-  //       document.documentElement.style.setProperty(
-  //         "--cv-elements",
-  //         parsedState.userTemplate.CVElements
-  //       );
-  //       document.documentElement.style.setProperty(
-  //         "--cv-modern-color",
-  //         parsedState.userTemplate.CVColorModern
-  //       );
-  //     }
-  //   },
-  // ],
+  plugins: [vuexLocal.plugin],
 });
 
 export default store;

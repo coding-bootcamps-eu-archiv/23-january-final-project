@@ -1,11 +1,12 @@
 <template>
+  {{ $store.state.userJob }}
   <div class="menu-contain">
     <div class="menu-wrapper">
       <div class="scroll menu-form">
         <h1>Beruflicher Werdegang</h1>
         <div
           class="border-around"
-          v-for="properties in entriesJob"
+          v-for="properties in this.$state.userJob"
           v-bind:key="properties.id"
         >
           <p
@@ -58,6 +59,7 @@
             v-show="!properties.collapsed"
           >
             <p class="menu-full-width">
+              {{ userJob }}
               <label for="">Berufsbezeichnung</label>
               <input
                 type="text"
@@ -195,10 +197,10 @@
 </template>
 <script>
 export default {
-  data() {
-    return {
-      entriesJob: [{ id: +new Date(), collapsed: false }],
-    };
+  computed: {
+    userJob() {
+      return this.$store.state.userJob;
+    },
   },
   methods: {
     groupCollapsed(id) {

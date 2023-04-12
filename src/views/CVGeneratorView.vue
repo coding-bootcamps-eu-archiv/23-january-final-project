@@ -305,7 +305,6 @@ export default {
       const key = event.target.name;
       const value = event.target.value;
       const id = event.target.id;
-      console.log(key, value, id);
       updateFormData({ [key]: value, id }); // update the Vuex store with the input value
     },
     showComponent(componentName) {

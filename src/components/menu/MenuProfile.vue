@@ -83,7 +83,13 @@
 </template>
 
 <script>
-export default {};
+export default {
+  computed: {
+    userData() {
+      return this.$store.state.userData;
+    },
+  },
+};
 </script>
 
 <style scoped>
