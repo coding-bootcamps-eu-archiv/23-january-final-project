@@ -51,85 +51,50 @@
         <section>
           <h3>Berufserfahrung</h3>
           <div class="content-grid">
-            <p id="jobtitle-01">00-2000 - 01.2000</p>
-            <div>
-              <h4 id="jobtitle-01" class="header-job">
-                Job Titel - Unternehmen
-              </h4>
-              <ul id="jobtitle-01">
-                <li>
-                  Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
-                </li>
-                <li>Aliquam tincidunt mauris eu risus.</li>
-                <li>Vestibulum auctor dapibus neque.</li>
-                <li>Nunc dignissim risus id metus.</li>
-              </ul>
-            </div>
-
-            <p id="jobtitle-02">00-2000 - 01.2000</p>
-            <div>
-              <h4 id="jobtitle-02" class="header-job">
-                Job Titel - Unternehmen
-              </h4>
-              <ul id="jobtitle-02">
-                <li>
-                  Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
-                </li>
-                <li>Aliquam tincidunt mauris eu risus.</li>
-                <li>Vestibulum auctor dapibus neque.</li>
-                <li>Nunc dignissim risus id metus.</li>
-              </ul>
-            </div>
-            <p id="jobtitle-03">00-2000 - 01.2000</p>
-            <div>
-              <h4 id="jobtitle-03" class="header-job">
-                Job Titel - Unternehmen
-              </h4>
-              <ul id="jobtitle-03">
-                <li>
-                  Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
-                </li>
-                <li>Aliquam tincidunt mauris eu risus.</li>
-                <li>Vestibulum auctor dapibus neque.</li>
-                <li>Nunc dignissim risus id metus.</li>
-              </ul>
-            </div>
+            <template
+              v-for="jobEntry in this.$store.state.userJob"
+              :key="jobEntry.id"
+            >
+              <p id="jobtitle-01">
+                {{ jobEntry.monthStart }}-{{ jobEntry.yearStart }} -
+                {{ jobEntry.monthEnd }}.{{ jobEntry.yearEnd }}
+              </p>
+              <div>
+                <h4 id="jobtitle-01" class="header-job">
+                  {{ jobEntry.job }} - {{ jobEntry.company }}
+                </h4>
+                <ul id="jobtitle-01">
+                  <li>
+                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+                  </li>
+                  <li>Aliquam tincidunt mauris eu risus.</li>
+                  <li>Vestibulum auctor dapibus neque.</li>
+                  <li>Nunc dignissim risus id metus.</li>
+                </ul>
+              </div>
+            </template>
           </div>
         </section>
         <section>
           <h3>Ausbildung</h3>
           <div class="content-grid">
-            <p id="education-01">00-2000 - 01.2000</p>
-            <div>
-              <h4 id="education-01">Horem ipsum dolor sit amet</h4>
-              <ul id="education-01">
-                <li>Nunc dignissim risus id metus.</li>
-              </ul>
-            </div>
-
-            <p id="education-02">00-2000 - 01.2000</p>
-            <div>
-              <h4 id="education-02">Horem ipsum dolor sit amet</h4>
-              <ul id="education-02">
-                <li>Nunc dignissim risus id metus.</li>
-              </ul>
-            </div>
-
-            <p id="education-03">00-2000 - 01.2000</p>
-            <div>
-              <h4 id="education-03">Horem ipsum dolor sit amet</h4>
-              <ul id="education-03">
-                <li>Nunc dignissim risus id metus.</li>
-              </ul>
-            </div>
-
-            <p id="education-03">00-2000 - 01.2000</p>
-            <div>
-              <h4 id="education-03">Horem ipsum dolor sit amet</h4>
-              <ul id="education-03">
-                <li>Nunc dignissim risus id metus.</li>
-              </ul>
-            </div>
+            <template
+              v-for="edEntry in this.$store.state.userEducation"
+              :key="edEntry.id"
+            >
+              <p id="education-01">
+                {{ edEntry.edMonthStart }}-{{ edEntry.edYearStart }} -
+                {{ edEntry.edMonthEnd }}-{{ edEntry.edYearEnd }}
+              </p>
+              <div>
+                <h4 id="education-01">
+                  {{ edEntry.school }} - {{ edEntry.edCity }}
+                </h4>
+                <ul id="education-01">
+                  <li>Nunc dignissim risus id metus.</li>
+                </ul>
+              </div>
+            </template>
           </div>
         </section>
       </main>

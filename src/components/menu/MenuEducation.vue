@@ -5,12 +5,12 @@
         <h1>Ausbildung</h1>
         <div
           class="border-around"
-          v-for="properties in entriesEducation"
-          v-bind:key="properties.id"
+          v-for="(properties, index) in this.$store.state.userEducation"
+          v-bind:key="userEducation[index].id"
         >
           <p
             class="menu-full-width title-inside"
-            @click="groupCollapsed(properties.id)"
+            @click="groupCollapsed(userEducation[index].id)"
           >
             Eintrag
             <span>
@@ -19,7 +19,7 @@
                 fill="currentColor"
                 class="bi bi-trash"
                 viewBox="0 0 16 16"
-                @click="deleteJob(properties.id)"
+                @click.stop="deleteEducation(userEducation[index].id)"
               >
                 <path
                   d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6Z"
@@ -33,7 +33,7 @@
                 fill="currentColor"
                 class="bi bi-chevron-down"
                 viewBox="0 0 16 16"
-                v-show="!properties.collapsed"
+                v-show="!userEducation[index].collapsed"
               >
                 <path
                   fill-rule="evenodd"
@@ -45,7 +45,7 @@
                 fill="currentColor"
                 class="bi bi-chevron-up"
                 viewBox="0 0 16 16"
-                v-show="properties.collapsed"
+                v-show="userEducation[index].collapsed"
               >
                 <path
                   fill-rule="evenodd"
@@ -56,7 +56,7 @@
           </p>
           <div
             class="collaped-menu menu-full-width"
-            v-show="!properties.collapsed"
+            v-show="!userEducation[index].collapsed"
           >
             <p class="menu-full-width">
               <label for="">Abschluss</label>
@@ -64,7 +64,8 @@
                 type="text"
                 placeholder="Bachelor im Ingenieurwesen"
                 name="degree"
-                v-bind:id="properties.id"
+                :value="userEducation[index].degree"
+                @input="syncField($event, userEducation[index].id)"
               />
             </p>
             <div class="menu-time">
@@ -74,7 +75,8 @@
                   type="email"
                   placeholder="Technische Universität Berlin"
                   name="school"
-                  v-bind:id="properties.id"
+                  :value="userEducation[index].school"
+                  @input="syncField($event, userEducation[index].id)"
                 />
               </p>
 
@@ -84,7 +86,8 @@
                   type="text"
                   placeholder="Berlin"
                   name="edCity"
-                  v-bind:id="properties.id"
+                  :value="userEducation[index].edCity"
+                  @input="syncField($event, userEducation[index].id)"
                 />
               </p>
             </div>
@@ -95,7 +98,8 @@
                   type="text"
                   placeholder="2020"
                   name="edYearStart"
-                  v-bind:id="properties.id"
+                  :value="userEducation[index].edYearStart"
+                  @input="syncField($event, userEducation[index].id)"
                 />
               </p>
 
@@ -105,7 +109,8 @@
                   type="text"
                   placeholder="Januar"
                   name="edMonthStart"
-                  v-bind:id="properties.id"
+                  :value="userEducation[index].edMonthStart"
+                  @input="syncField($event, userEducation[index].id)"
                 />
               </p>
 
@@ -115,7 +120,8 @@
                   type="text"
                   placeholder="2023"
                   name="edYearEnd"
-                  v-bind:id="properties.id"
+                  :value="userEducation[index].edYearEnd"
+                  @input="syncField($event, userEducation[index].id)"
                 />
               </p>
 
@@ -125,17 +131,14 @@
                   type="text"
                   placeholder="Juni"
                   name="edMonthEnd"
-                  v-bind:id="properties.id"
+                  :value="userEducation[index].edMonthEnd"
+                  @input="syncField($event, userEducation[index].id)"
                 />
               </p>
             </div>
             <p class="menu-full-width">
               <label class="menu-checkbox">
-                <input
-                  type="checkbox"
-                  placeholder=""
-                  v-bind:id="properties.id"
-                />
+                <input type="checkbox" placeholder="" />
                 <span class="menu-today-checkbox">Aktuell</span></label
               >
             </p>
@@ -143,7 +146,7 @@
         </div>
         <div class="menu-add-task-wrapper">
           <div class="menu-add-task">
-            <button class="menu-add-new" @click="addNewJob">
+            <button class="menu-add-new" @click="addNewEducation">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="12"
@@ -180,35 +183,48 @@
 </template>
 
 <script>
+import { updateFormData } from "@/components/formUtils.js";
+
 export default {
-  data() {
-    return {
-      entriesEducation: [{ id: +new Date(), collapsed: false }],
-    };
+  computed: {
+    userEducation() {
+      return this.$store.state.userEducation;
+    },
   },
   methods: {
+    syncField(event, id) {
+      const key = event.target.name;
+      const value = event.target.value;
+      updateFormData({ [key]: value, id }); // update the Vuex store with the input value
+    },
     groupCollapsed(id) {
-      this.entriesEducation.forEach((entry) => (entry.collapsed = true));
-      let entry = this.entriesEducation.find(
+      this.userEducation.forEach((entry) => (entry.collapsed = true));
+      let entry = this.userEducation.find(
         (currentEntry) => currentEntry.id === id
       );
       if (entry != null) {
         entry.collapsed = !entry.collapsed;
       }
     },
-    addNewJob() {
-      if (this.entriesEducation.length == 3) {
-        alert("You can only add a maximum of 3 Education");
+    addNewEducation() {
+      if (this.userEducation.length == 3) {
+        alert("You can only add a maximum of 3 Educations");
       } else {
-        this.entriesEducation.forEach((entry) => (entry.collapsed = true));
-        this.entriesEducation.push({ id: +new Date(), collapsed: false });
+        this.userEducation.forEach((entry) => (entry.collapsed = true));
+        this.$store.state.userEducation.push({
+          id: +new Date(),
+          collapsed: false,
+          degree: "",
+        });
       }
     },
-    deleteJob(id) {
-      if (this.entriesEducation.length > 1)
-        this.entriesEducation = this.entriesEducation.filter(
-          (entry) => entry.id != id
-        );
+    deleteEducation(id) {
+      if (this.userEducation.length > 1) {
+        this.$store.dispatch("deleteEducation", id);
+      } else {
+        // if this is the only entry left, set collapsed to false to prevent it from collapsing
+        this.$store.state.userEducation[0].collapsed = false;
+      }
     },
   },
 };

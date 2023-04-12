@@ -283,12 +283,6 @@ export default {
     CVClassic,
     CVCreative,
   },
-  created() {
-    window.addEventListener("input", this.handleInput);
-  },
-  unmounted() {
-    window.removeEventListener("input", this.handleInput);
-  },
   data() {
     return {
       isProfileMenu: true,

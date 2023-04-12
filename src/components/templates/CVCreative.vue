@@ -82,61 +82,30 @@
                 <h3 class="white-box-headline">Erfahrung</h3>
               </div>
               <div class="white-box">
-                <p id="jobtitle-01" class="content-date">00-2000 - 01.2000</p>
-                <div>
-                  <h4 id="jobtitle-01" class="header-job">
-                    Job Titel : Unternehmen
-                  </h4>
-                  <p>
-                    Vorem ipsum dolor sit amet, consectetur adipiscing elit.
+                <template
+                  v-for="jobEntry in this.$store.state.userJob"
+                  :key="jobEntry.id"
+                >
+                  <p id="jobtitle-01" class="content-date">
+                    {{ jobEntry.monthStart }}-{{ jobEntry.yearStart }} -
+                    {{ jobEntry.monthEnd }}.{{ jobEntry.yearEnd }}
                   </p>
-                  <ul id="jobtitle-01">
-                    <li>
-                      Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
-                    </li>
-                    <li>
-                      Class aptent taciti sociosqu ad litora torquent per
-                      conubia nostra, per inceptos himenaeos.
-                    </li>
-                  </ul>
-                </div>
-
-                <p id="jobtitle-02" class="content-date">00-2000 - 01.2000</p>
-                <div>
-                  <h4 id="jobtitle-02" class="header-job">
-                    Job Titel : Unternehmen
-                  </h4>
-                  <p>
-                    Vorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  </p>
-                  <ul id="jobtitle-02">
-                    <li>
-                      Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
-                    </li>
-                    <li>
-                      Class aptent taciti sociosqu ad litora torquent per
-                      conubia nostra, per inceptos himenaeos.
-                    </li>
-                  </ul>
-                </div>
-                <p id="jobtitle-03" class="content-date">00-2000 - 01.2000</p>
-                <div>
-                  <h4 id="jobtitle-03" class="header-job">
-                    Job Titel : Unternehmen
-                  </h4>
-                  <p>
-                    Vorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  </p>
-                  <ul id="jobtitle-03">
-                    <li>
-                      Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
-                    </li>
-                    <li>
-                      Class aptent taciti sociosqu ad litora torquent per
-                      conubia nostra, per inceptos himenaeos.
-                    </li>
-                  </ul>
-                </div>
+                  <div>
+                    <h4 id="jobtitle-01" class="header-job">
+                      {{ jobEntry.job }} : {{ jobEntry.company }}
+                    </h4>
+                    <ul id="jobtitle-01">
+                      <li>
+                        Lorem ipsum dolor sit amet, consectetuer adipiscing
+                        elit.
+                      </li>
+                      <li>
+                        Class aptent taciti sociosqu ad litora torquent per
+                        conubia nostra, per inceptos himenaeos.
+                      </li>
+                    </ul>
+                  </div>
+                </template>
               </div>
             </div>
           </section>
@@ -164,43 +133,23 @@
               <h3 class="white-box-headline">Ausbildung</h3>
             </div>
             <div class="content-grid white-box">
-              <p id="education-01" class="content-date">00-2000 - 01.2000</p>
-              <div>
-                <h4 id="education-01">Abschluss : Ort</h4>
-                <ul id="education-01">
-                  <li>Nunc dignissim risus id metus.</li>
-                </ul>
-              </div>
-
-              <p id="education-02" class="content-date education-date">
-                00-2000 - 01.2000
-              </p>
-              <div>
-                <h4 id="education-02">Abschluss : Ort</h4>
-                <ul id="education-02">
-                  <li>Nunc dignissim risus id metus.</li>
-                </ul>
-              </div>
-
-              <p id="education-03" class="content-date education-date">
-                00-2000 - 01.2000
-              </p>
-              <div>
-                <h4 id="education-03">Abschluss : Ort</h4>
-                <ul id="education-03">
-                  <li>Nunc dignissim risus id metus.</li>
-                </ul>
-              </div>
-
-              <p id="education-03" class="content-date education-date">
-                00-2000 - 01.2000
-              </p>
-              <div>
-                <h4 id="education-03">Abschluss : Ort</h4>
-                <ul id="education-03">
-                  <li>Nunc dignissim risus id metus.</li>
-                </ul>
-              </div>
+              <template
+                v-for="edEntry in this.$store.state.userEducation"
+                :key="edEntry.id"
+              >
+                <p id="education-01" class="content-date">
+                  {{ edEntry.edMonthStart }}-{{ edEntry.edYearStart }} -
+                  {{ edEntry.edMonthEnd }}-{{ edEntry.edYearEnd }}
+                </p>
+                <div>
+                  <h4 id="education-01">
+                    {{ edEntry.school }} : {{ edEntry.edCity }}
+                  </h4>
+                  <ul id="education-01">
+                    <li>Nunc dignissim risus id metus.</li>
+                  </ul>
+                </div>
+              </template>
             </div>
           </section>
 
