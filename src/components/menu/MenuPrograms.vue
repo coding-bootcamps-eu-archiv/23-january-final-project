@@ -1,7 +1,7 @@
 <template>
   <div class="menu-contain">
     <div class="menu-wrapper">
-      <div class="menu-form">
+      <div class="scroll menu-form">
         <h1>
           Programme
           <br />
@@ -9,7 +9,11 @@
         <div class="container-icons">
           <div class="row">
             <div class="column">
-              <div class="element">
+              <div
+                class="element"
+                v-bind:class="{ highlight: isMicrosoftSelected }"
+                v-on:click="toggleHighlight('Microsoft')"
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="currentColor"
@@ -23,7 +27,11 @@
               </div>
             </div>
             <div class="column">
-              <div class="element">
+              <div
+                class="element"
+                v-bind:class="{ highlight: isCssSelected }"
+                v-on:click="toggleHighlight('CSS')"
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -58,7 +66,11 @@
               </div>
             </div>
             <div class="column">
-              <div class="element">
+              <div
+                class="element"
+                v-bind:class="{ highlight: isWordPressSelected }"
+                v-on:click="toggleHighlight('WordPress')"
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="currentColor"
@@ -81,7 +93,11 @@
           </div>
           <div class="row">
             <div class="column">
-              <div class="element">
+              <div
+                class="element"
+                v-bind:class="{ highlight: isGitSelected }"
+                v-on:click="toggleHighlight('Git')"
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="currentColor"
@@ -95,7 +111,11 @@
               </div>
             </div>
             <div class="column">
-              <div class="element">
+              <div
+                class="element"
+                v-bind:class="{ highlight: isJavascriptSelected }"
+                v-on:click="toggleHighlight('Javascript')"
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 50 50"
@@ -110,7 +130,11 @@
               </div>
             </div>
             <div class="column">
-              <div class="element">
+              <div
+                class="element"
+                v-bind:class="{ highlight: isIndesignSelected }"
+                v-on:click="toggleHighlight('Indesign')"
+              >
                 <svg
                   width="50px"
                   height="50px"
@@ -127,7 +151,11 @@
           </div>
           <div class="row">
             <div class="column">
-              <div class="element">
+              <div
+                class="element"
+                v-bind:class="{ highlight: isPhotoshopSelected }"
+                v-on:click="toggleHighlight('Photoshop')"
+              >
                 <svg
                   width="40px"
                   height="40px"
@@ -142,7 +170,11 @@
               </div>
             </div>
             <div class="column">
-              <div class="element">
+              <div
+                class="element"
+                v-bind:class="{ highlight: isVueSelected }"
+                v-on:click="toggleHighlight('Vue')"
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -182,7 +214,11 @@
               </div>
             </div>
             <div class="column">
-              <div class="element">
+              <div
+                class="element"
+                v-bind:class="{ highlight: isRevitSelected }"
+                v-on:click="toggleHighlight('Revit')"
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 32 32"
@@ -199,7 +235,11 @@
           </div>
           <div class="row">
             <div class="column">
-              <div class="element">
+              <div
+                class="element"
+                v-bind:class="{ highlight: isFigmaSelected }"
+                v-on:click="toggleHighlight('Figma')"
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"
@@ -214,7 +254,11 @@
               </div>
             </div>
             <div class="column">
-              <div class="element">
+              <div
+                class="element"
+                v-bind:class="{ highlight: isReactSelected }"
+                v-on:click="toggleHighlight('React')"
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 30 30"
@@ -229,7 +273,11 @@
               </div>
             </div>
             <div class="column">
-              <div class="element">
+              <div
+                class="element"
+                v-bind:class="{ highlight: isHtmlSelected }"
+                v-on:click="toggleHighlight('HTML')"
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -267,8 +315,43 @@
         </div>
         <div class="border-around">
           <p class="menu-full-width text-language">
+            Software<span class="text-language"> <br />Software-Name </span>
+            <label class="menu-full-width" for="">
+              <input type="text" v-model="sonstiges" placeholder="Sonstiges" />
+            </label>
+          </p>
+        </div>
+        <div class="menu-add-task-wrapper">
+          <div class="menu-add-task">
+            <button class="menu-add-new" @click="addNewSoftware(sonstiges)">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="12"
+                height="12"
+                fill="currentColor"
+                class="bi-plus-lg"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z"
+                />
+              </svg>
+              Weitere Software hinzufügen
+            </button>
+          </div>
+        </div>
+        <!--This will only appear when the user click 
+  the languages or add a new language to the array, only the this will render on the screen-->
+        <div
+          class="border-around"
+          v-for="sonstigesSoftware in sonstigesPrograms"
+          v-bind:key="sonstigesSoftware.name"
+        >
+          <p class="menu-full-width text-language">
             Software<span class="text-language">
               <svg
+                @click="deleteSoftware(sonstigesSoftware.name)"
                 xmlns="http://www.w3.org/2000/svg"
                 fill="currentColor"
                 class="bi-trash"
@@ -284,30 +367,15 @@
               <br />Software-Name
             </span>
             <label class="menu-full-width" for="">
-              <input type="text" placeholder="Microsoft World" />
+              <input
+                class="remove-focus"
+                type="text"
+                v-model="sonstigesSoftware.name"
+                style="color: var(--bs-log)"
+                readonly="true"
+              />
             </label>
           </p>
-        </div>
-
-        <div class="menu-add-task-wrapper">
-          <div class="menu-add-task">
-            <button class="menu-add-new">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="12"
-                height="12"
-                fill="currentColor"
-                class="bi-plus-lg"
-                viewBox="0 0 16 16"
-              >
-                <path
-                  fill-rule="evenodd"
-                  d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z"
-                />
-              </svg>
-              Weitere Software hinzüfugen
-            </button>
-          </div>
         </div>
 
         <form action="">
@@ -329,9 +397,83 @@
 </template>
 <script>
 export default {
-  setup() {},
+  data() {
+    return {
+      isMicrosoftSelected: false,
+      isCssSelected: false,
+      isWordPressSelected: false,
+      isGitSelected: false,
+      isJavascriptSelected: false,
+      isIndesignSelected: false,
+      isPhotoshopSelected: false,
+      isVueSelected: false,
+      isRevitSelected: false,
+      isFigmaSelected: false,
+      isReactSelected: false,
+      isHtmlSelected: false,
+      sonstigesPrograms: [],
+    };
+  },
+  methods: {
+    addNewSoftware(software) {
+      let existingSoftware = this.sonstigesPrograms.find(
+        (soft) => soft.name === software
+      );
+
+      if (existingSoftware == null) {
+        this.sonstigesPrograms.push({ name: software });
+      }
+    },
+
+    deleteSoftware(software) {
+      this.sonstigesPrograms = this.sonstigesPrograms.filter(
+        (softwareEntry) => softwareEntry.name != software
+      );
+    },
+
+    toggleHighlight(software) {
+      switch (software) {
+        case "Microsoft":
+          this.isMicrosoftSelected = !this.isMicrosoftSelected;
+          break;
+        case "CSS":
+          this.isCssSelected = !this.isCssSelected;
+          break;
+        case "WordPress":
+          this.isWordPressSelected = !this.isWordPressSelected;
+          break;
+        case "Git":
+          this.isGitSelected = !this.isGitSelected;
+          break;
+        case "Javascript":
+          this.isJavascriptSelected = !this.isJavascriptSelected;
+          break;
+        case "Indesign":
+          this.isIndesignSelected = !this.isIndesignSelected;
+          break;
+        case "Photoshop":
+          this.isPhotoshopSelected = !this.isPhotoshopSelected;
+          break;
+        case "Vue":
+          this.isVueSelected = !this.isVueSelected;
+          break;
+        case "Revit":
+          this.isRevitSelected = !this.isRevitSelected;
+          break;
+        case "Figma":
+          this.isFigmaSelected = !this.isFigmaSelected;
+          break;
+        case "React":
+          this.isReactSelected = !this.isReactSelected;
+          break;
+        case "HTML":
+          this.isHtmlSelected = !this.isHtmlSelected;
+      }
+    },
+  },
 };
 </script>
+
 <style scoped>
 * {
   font-family: "roboto";
@@ -373,7 +515,9 @@ form {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 20px;
-  align-items: center; /* Align menu-form items vertically center */
+  align-items: center;
+  margin-top: 3rem;
+  gap: 10px;
 }
 
 .menu-add-task-wrapper {
@@ -455,7 +599,7 @@ input {
   border-radius: 10px;
   cursor: pointer;
   transition: all 0.3s linear;
-  margin-bottom: 6rem;
+  margin-bottom: 2rem;
 }
 .container-icons {
   display: grid;
@@ -502,5 +646,30 @@ input {
 }
 .border-around {
   margin-top: 10px;
+}
+.scroll {
+  height: 600px;
+  overflow-y: scroll;
+}
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #090c0f;
+  padding: 8rem;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
+}
+.remove-focus:focus {
+  outline: none;
+}
+
+.highlight {
+  border: 6px solid var(--bs-succes);
 }
 </style>

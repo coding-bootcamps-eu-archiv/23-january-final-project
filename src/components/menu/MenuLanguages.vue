@@ -104,7 +104,7 @@
                   d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z"
                 />
               </svg>
-              neue Sprache hinzufügen
+              neue Sonstige Sprache hinzufügen
             </button>
           </div>
         </div>
@@ -135,7 +135,7 @@
             </span>
             <label class="container-language-add" for="">
               <input
-                class="box bigger"
+                class="box bigger remove-focus"
                 type="text"
                 v-model="language.name"
                 style="color: var(--bs-log)"
@@ -209,7 +209,6 @@ export default {
       let existingLanguage = this.languages.find(
         (lang) => lang.name === language
       );
-      console.log("existingLanguage:", existingLanguage);
       if (existingLanguage == null) {
         this.languages.push({ name: language });
         this.$store.dispatch("addLanguage", language);
@@ -446,5 +445,8 @@ input {
 ::-webkit-scrollbar-thumb {
   background: #888;
   border-radius: 10px;
+}
+.remove-focus:focus {
+  outline: none;
 }
 </style>
