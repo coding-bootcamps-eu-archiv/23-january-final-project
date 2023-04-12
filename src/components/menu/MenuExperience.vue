@@ -145,7 +145,16 @@
             </p>
             <p class="menu-full-width">
               <label for="">Was waren Deine Aufgaben?</label>
-              <textarea name="description" cols="40" rows="3">-</textarea>
+              <textarea
+                name="description"
+                cols="40"
+                rows="3"
+                :value="userJob[index].description"
+                @input="syncField($event, userJob[index].id)"
+                @keydown.enter="jobDescription(userJob[index].description)"
+              >
+-</textarea
+              >
             </p>
           </div>
         </div>
@@ -230,7 +239,7 @@ export default {
       }
     },
     jobDescription() {
-      let tasksArray = this.inputText.split("\n");
+      let tasksArray = description.split("\n");
       for (let i in tasksArray) {
         tasksArray[i] = tasksArray[i].trim();
       }
