@@ -9,12 +9,15 @@
             <input type="text" placeholder="Maria" name="firstname" />
           </p>
           <div class="avatar-upload">
-            <input type="file" id="avatar-input" />
             <label for="avatar-input">
-              <img
-                src="https://di262mgurvkjm.cloudfront.net/42228752-4801-45bd-b22c-b9ad2e2cc0b5/2020_Bon_Cadeau_Photographe_Lausanne_Studio_Photo-3_uxga.jpg"
-                alt="Avatar"
+              <input
+                type="file"
+                id="avatar-input"
+                accept="image/png, image/jpeg"
+                ref="image"
+                @change="saveAvatar()"
               />
+              <img :src="imageSrc" alt="Avatar" />
             </label>
           </div>
 
@@ -83,7 +86,32 @@
 </template>
 
 <script>
-export default {};
+const convertBase64 = (file) => {
+  return new Promise((resolve, reject) => {
+    const fileReader = new FileReader();
+    fileReader.readAsDataURL(file);
+    fileReader.onload = () => {
+      resolve(fileReader.result);
+    };
+    fileReader.onerror = (error) => {
+      reject(error);
+    };
+  });
+};
+export default {
+  data() {
+    return {
+      imageSrc:
+        "https://di262mgurvkjm.cloudfront.net/42228752-4801-45bd-b22c-b9ad2e2cc0b5/2020_Bon_Cadeau_Photographe_Lausanne_Studio_Photo-3_uxga.jpg",
+    };
+  },
+  methods: {
+    async saveAvatar() {
+      let imageFile = this.$refs.image.files[0];
+      this.imageSrc = await convertBase64(imageFile);
+    },
+  },
+};
 </script>
 
 <style scoped>
