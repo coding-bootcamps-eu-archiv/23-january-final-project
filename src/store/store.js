@@ -25,6 +25,7 @@ const store = createStore({
     },
     userJob: [],
     userEducation: [],
+    userLanguages: [],
   },
   mutations: {
     updateFormData(state, payload) {
@@ -82,6 +83,21 @@ const store = createStore({
     deleteEducationMutation(state, index) {
       state.userEducation.splice(index, 1);
     },
+    deleteLanguageMutation(state, index) {
+      state.userLanguages.splice(index, 1);
+    },
+    setLanguage(state, language) {
+      state.userLanguages.push({ [language]: "" });
+    },
+    setLanguageLevel(state, { language, level }) {
+      for (const langObj of state.userLanguages) {
+        if (Object.keys(langObj)[0] === language) {
+          langObj[language] = level;
+          console.log(state.userLanguages);
+          break;
+        }
+      }
+    },
   },
   actions: {
     mountTemplate({ commit }, CVType) {
@@ -97,7 +113,6 @@ const store = createStore({
       const deleteIndex = id;
       const index = state.userJob.findIndex((job) => job.id == deleteIndex);
       if (index !== -1) {
-        console.log("delete", index);
         commit("deleteJobMutation", index);
       }
     },
@@ -105,9 +120,21 @@ const store = createStore({
       const deleteIndex = id;
       const index = state.userEducation.findIndex((ed) => ed.id == deleteIndex);
       if (index !== -1) {
-        console.log("delete", index);
         commit("deleteEducationMutation", index);
       }
+    },
+    addLanguage({ commit }, language) {
+      commit("setLanguage", language);
+    },
+    addLanguageLevel({ commit }, { language, level }) {
+      commit("setLanguageLevel", { language, level });
+    },
+    deleteLanguage({ commit, state }, language) {
+      const toDelete = language;
+      const index = state.userLanguages.findIndex(
+        (lang) => Object.keys(lang)[0] == toDelete
+      );
+      commit("deleteLanguageMutation", index);
     },
   },
   // plugins: [
