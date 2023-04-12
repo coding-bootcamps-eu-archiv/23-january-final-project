@@ -387,7 +387,6 @@ export default {
   }
   .logo > p {
     color: white;
-    padding-top: 0.2rem;
     font-size: 1.2rem;
     font-weight: 600;
     margin-left: 0.5rem;
