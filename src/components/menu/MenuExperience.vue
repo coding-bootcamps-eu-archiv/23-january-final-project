@@ -5,12 +5,12 @@
         <h1>Beruflicher Werdegang</h1>
         <div
           class="border-around"
-          v-for="properties in entriesJob"
-          v-bind:key="properties.id"
+          v-for="(properties, index) in this.$store.state.userJob"
+          v-bind:key="userJob[index].id"
         >
           <p
             class="menu-full-width title-inside"
-            @click="groupCollapsed(properties.id)"
+            @click="groupCollapsed(userJob[index].id)"
           >
             Eintrag<span>
               <svg
@@ -18,7 +18,7 @@
                 fill="currentColor"
                 class="bi bi-trash"
                 viewBox="0 0 16 16"
-                @click="deleteJob(properties.id)"
+                @click.stop="deleteJob(userJob[index].id)"
               >
                 <path
                   d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6Z"
@@ -32,7 +32,7 @@
                 fill="currentColor"
                 class="bi bi-chevron-down"
                 viewBox="0 0 16 16"
-                v-show="!properties.collapsed"
+                v-show="!userJob[index].collapsed"
               >
                 <path
                   fill-rule="evenodd"
@@ -44,7 +44,7 @@
                 fill="currentColor"
                 class="bi bi-chevron-up"
                 viewBox="0 0 16 16"
-                v-show="properties.collapsed"
+                v-show="userJob[index].collapsed"
               >
                 <path
                   fill-rule="evenodd"
@@ -55,16 +55,16 @@
           </p>
           <div
             class="collaped-menu menu-full-width"
-            v-show="!properties.collapsed"
+            v-show="!userJob[index].collapsed"
           >
             <p class="menu-full-width">
               <label for="">Berufsbezeichnung</label>
               <input
                 type="text"
                 placeholder="Front-End Developer"
-                v-bind:id="properties.id"
                 name="job"
-                data-storeElement="userjob"
+                :value="userJob[index].job"
+                @input="syncField($event, userJob[index].id)"
               />
             </p>
             <div class="menu-time">
@@ -73,8 +73,9 @@
                 <input
                   type="text"
                   placeholder="Google"
-                  v-bind:id="properties.id"
                   name="company"
+                  :value="userJob[index].company"
+                  @input="syncField($event, userJob[index].id)"
                 />
               </p>
 
@@ -83,8 +84,9 @@
                 <input
                   type="text"
                   placeholder="Berlin"
-                  v-bind:id="properties.id"
                   name="place"
+                  :value="userJob[index].place"
+                  @input="syncField($event, userJob[index].id)"
                 />
               </p>
             </div>
@@ -94,8 +96,9 @@
                 <input
                   type="text"
                   placeholder="2023"
-                  v-bind:id="properties.id"
                   name="yearStart"
+                  :value="userJob[index].yearStart"
+                  @input="syncField($event, userJob[index].id)"
                 />
               </p>
 
@@ -104,8 +107,9 @@
                 <input
                   type="text"
                   placeholder="Januar"
-                  v-bind:id="properties.id"
                   name="monthStart"
+                  :value="userJob[index].monthStart"
+                  @input="syncField($event, userJob[index].id)"
                 />
               </p>
 
@@ -114,8 +118,9 @@
                 <input
                   type="text"
                   placeholder="2023"
-                  v-bind:id="properties.id"
                   name="yearEnd"
+                  :value="userJob[index].yearEnd"
+                  @input="syncField($event, userJob[index].id)"
                 />
               </p>
 
@@ -124,19 +129,15 @@
                 <input
                   type="text"
                   placeholder="Juni"
-                  v-bind:id="properties.id"
                   name="monthEnd"
+                  :value="userJob[index].monthEnd"
+                  @input="syncField($event, userJob[index].id)"
                 />
               </p>
             </div>
             <p class="menu-full-width">
               <label class="menu-checkbox">
-                <input
-                  type="checkbox"
-                  placeholder=""
-                  v-bind:id="properties.id"
-                  v-model="isChecked"
-                />
+                <input type="checkbox" placeholder="" />
                 <span class="menu-today-checkbox"
                   >Ich arbeite derzeit hier</span
                 ></label
@@ -144,14 +145,7 @@
             </p>
             <p class="menu-full-width">
               <label for="">Was waren Deine Aufgaben?</label>
-              <textarea
-                name="description"
-                v-bind:id="properties.id"
-                cols="40"
-                rows="3"
-              >
--</textarea
-              >
+              <textarea name="description" cols="40" rows="3">-</textarea>
             </p>
           </div>
         </div>
@@ -194,37 +188,45 @@
   </div>
 </template>
 <script>
+import { updateFormData } from "@/components/formUtils.js";
+
 export default {
-  data() {
-    return {
-      entriesJob: [{ id: +new Date(), collapsed: false }],
-    };
+  computed: {
+    userJob() {
+      return this.$store.state.userJob;
+    },
   },
   methods: {
+    syncField(event, id) {
+      const key = event.target.name;
+      const value = event.target.value;
+      updateFormData({ [key]: value, id }); // update the Vuex store with the input value
+    },
     groupCollapsed(id) {
-      this.entriesJob.forEach((entry) => (entry.collapsed = true));
-      let entry = this.entriesJob.find(
-        (currentEntry) => currentEntry.id === id
-      );
+      this.userJob.forEach((entry) => (entry.collapsed = true));
+      let entry = this.userJob.find((currentEntry) => currentEntry.id === id);
       if (entry != null) {
         entry.collapsed = !entry.collapsed;
       }
     },
     addNewJob() {
-      if (this.entriesJob.length == 3) {
+      if (this.userJob.length == 3) {
         alert("You can only add a maximum of 3 jobs");
       } else {
-        this.entriesJob.forEach((entry) => (entry.collapsed = true));
-        this.entriesJob.push({ id: +new Date(), collapsed: false });
+        this.userJob.forEach((entry) => (entry.collapsed = true));
+        this.$store.state.userJob.push({
+          id: +new Date(),
+          collapsed: false,
+          job: "",
+        });
       }
     },
     deleteJob(id) {
-      if (this.entriesJob.length > 1) {
-        this.entriesJob = this.entriesJob.filter((entry) => entry.id != id);
+      if (this.userJob.length > 1) {
         this.$store.dispatch("deleteJob", id);
       } else {
         // if this is the only entry left, set collapsed to false to prevent it from collapsing
-        this.entriesJob[0].collapsed = false;
+        this.$store.state.userJob[0].collapsed = false;
       }
     },
   },

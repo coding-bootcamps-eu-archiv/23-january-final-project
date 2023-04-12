@@ -1,19 +1,26 @@
 import { createStore } from "vuex";
+import VuexPersistence from "vuex-persist";
+
+const vuexLocal = new VuexPersistence({
+  storage: window.localStorage,
+  key: "CV-Fabrik",
+});
 
 const store = createStore({
   state: {
     userData: {
       firstname: "Maria",
       lastname: "Mustermann",
-      email: "mariamustermann@email.de",
-      phone: "555-5555",
-      street: "Example Street 12",
-      zipcode: "12345",
-      city: "City",
-      jobtitle: "Frontend Developer",
-      birthdate: "03.03.1993",
-      birthcity: "Othercity",
-      profileurl: "www.portfolio.com",
+      email: "maria@mail.de",
+      phone: "111",
+      street: "straße",
+      streetnr: "1",
+      zipcode: "1234",
+      city: "Stadt",
+      jobtitle: "",
+      birthdate: "01.01.1991",
+      birthcity: "",
+      profileurl: "",
       nationality: "deutsch",
       marriage: "ledig",
     },
@@ -23,8 +30,20 @@ const store = createStore({
       CVColorModern: "black",
       CVElements: "#000000",
     },
-    userJob: [],
-    userEducation: [],
+    userJob: [
+      {
+        id: 1,
+        collapsed: false,
+        job: "Google Hacker",
+      },
+    ],
+    userEducation: [
+      {
+        id: 1,
+        collapsed: false,
+        degree: "",
+      },
+    ],
     userLanguages: [],
   },
   mutations: {
@@ -137,31 +156,7 @@ const store = createStore({
       commit("deleteLanguageMutation", index);
     },
   },
-  // plugins: [
-  //   (store) => {
-  //     store.subscribe((mutation, state) => {
-  //       localStorage.setItem("CVFabrik-Store", JSON.stringify(state));
-  //     });
-
-  //     const savedState = localStorage.getItem("CVFabrik-Store");
-  //     if (savedState) {
-  //       const parsedState = JSON.parse(savedState);
-  //       store.replaceState(parsedState);
-  //       document.documentElement.style.setProperty(
-  //         "--cv-color",
-  //         parsedState.userTemplate.CVColor // Use parsedState instead of state
-  //       );
-  //       document.documentElement.style.setProperty(
-  //         "--cv-elements",
-  //         parsedState.userTemplate.CVElements
-  //       );
-  //       document.documentElement.style.setProperty(
-  //         "--cv-modern-color",
-  //         parsedState.userTemplate.CVColorModern
-  //       );
-  //     }
-  //   },
-  // ],
+  plugins: [vuexLocal.plugin],
 });
 
 export default store;

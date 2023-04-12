@@ -6,7 +6,13 @@
         <form action="">
           <p>
             <label for="">Vorname</label>
-            <input type="text" placeholder="Maria" name="firstname" />
+            <input
+              type="text"
+              placeholder="Maria"
+              name="firstname"
+              :value="userData.firstname"
+              @input="syncField"
+            />
           </p>
           <div class="avatar-upload">
             <label for="avatar-input">
@@ -23,7 +29,13 @@
 
           <p>
             <label for="">Nachname</label>
-            <input type="text" placeholder="Mustermann" name="lastname" />
+            <input
+              type="text"
+              placeholder="Mustermann"
+              name="lastname"
+              :value="userData.lastname"
+              @input="syncField"
+            />
           </p>
           <p class="menu-full-width">
             <label for="">Berufsbezeichnung</label>
@@ -31,6 +43,8 @@
               type="text"
               placeholder="Frontend Developer"
               name="jobtitle"
+              :value="userData.jobtitle"
+              @input="syncField"
             />
           </p>
 
@@ -40,6 +54,8 @@
               type="email"
               placeholder="mariamustermann@email.de"
               name="email"
+              :value="userData.email"
+              @input="syncField"
             />
           </p>
 
@@ -49,31 +65,63 @@
               type="text"
               placeholder="www.meinportfolio.de"
               name="profileurl"
+              :value="userData.profileurl"
+              @input="syncField"
             />
           </p>
           <p class="menu-full-width">Adresse</p>
           <p class="">
             <label for="">Straße</label>
-            <input type="text" placeholder="Musterstraße" name="street" />
+            <input
+              type="text"
+              placeholder="Musterstraße"
+              name="street"
+              :value="userData.street"
+              @input="syncField"
+            />
           </p>
           <p class="">
             <label for="">Nr.</label>
-            <input type="text" placeholder="12" name="nr" />
+            <input
+              type="text"
+              placeholder="12"
+              name="nr"
+              :value="userData.streetnr"
+              @input="syncField"
+            />
           </p>
 
           <p class="">
             <label for="">PLZ</label>
-            <input type="text" placeholder="12345" name="zipcode" />
+            <input
+              type="text"
+              placeholder="12345"
+              name="zipcode"
+              :value="userData.zipcode"
+              @input="syncField"
+            />
           </p>
 
           <p class="">
             <label for="">Ort</label>
-            <input type="text" placeholder="Musterstadt" name="city" />
+            <input
+              type="text"
+              placeholder="Musterstadt"
+              name="city"
+              :value="userData.city"
+              @input="syncField"
+            />
           </p>
 
           <p class="menu-full-width">
             <label for="">Telefon</label>
-            <input type="text" placeholder="01234-5678900" name="phone" />
+            <input
+              type="text"
+              placeholder="01234-5678900"
+              name="phone"
+              :value="userData.phone"
+              @input="syncField"
+            />
           </p>
 
           <p class="menu-full-width">
@@ -86,6 +134,7 @@
 </template>
 
 <script>
+import { updateFormData } from "@/components/formUtils.js";
 const convertBase64 = (file) => {
   return new Promise((resolve, reject) => {
     const fileReader = new FileReader();
@@ -105,10 +154,21 @@ export default {
         "https://di262mgurvkjm.cloudfront.net/42228752-4801-45bd-b22c-b9ad2e2cc0b5/2020_Bon_Cadeau_Photographe_Lausanne_Studio_Photo-3_uxga.jpg",
     };
   },
+  computed: {
+    userData() {
+      return this.$store.state.userData;
+    },
+  },
   methods: {
     async saveAvatar() {
       let imageFile = this.$refs.image.files[0];
       this.imageSrc = await convertBase64(imageFile);
+    },
+    syncField(event) {
+      const key = event.target.name;
+      const value = event.target.value;
+      const id = event.target.id;
+      updateFormData({ [key]: value, id }); // update the Vuex store with the input value
     },
   },
 };
