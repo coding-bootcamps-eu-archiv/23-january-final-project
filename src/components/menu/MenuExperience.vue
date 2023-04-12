@@ -229,6 +229,14 @@ export default {
         this.$store.state.userJob[0].collapsed = false;
       }
     },
+    jobDescription() {
+      let tasksArray = this.inputText.split("\n");
+      for (let i in tasksArray) {
+        tasksArray[i] = tasksArray[i].trim();
+      }
+
+      return tasksArray;
+    },
   },
 };
 </script>
