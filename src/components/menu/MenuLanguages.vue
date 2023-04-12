@@ -140,12 +140,42 @@
                 v-model="language.name"
                 style="color: var(--bs-log)"
                 readonly="true" />
-              <input class="box" type="button" value="A1" placeholder="A1" />
-              <input class="box" type="button" value="A2" placeholder="A2" />
-              <input class="box" type="button" value="B1" placeholder="B1" />
-              <input class="box" type="button" value="B2" placeholder="B2" />
-              <input class="box" type="button" value="C1" placeholder="C1" />
-              <input class="box" type="button" value="C2" placeholder="C2"
+              <input
+                class="box"
+                type="button"
+                value="A1"
+                placeholder="A1"
+                @click="addLanguageLevel(language.name, 'A1')" />
+              <input
+                class="box"
+                type="button"
+                value="A2"
+                placeholder="A2"
+                @click="addLanguageLevel(language.name, 'A2')" />
+              <input
+                class="box"
+                type="button"
+                value="B1"
+                placeholder="B1"
+                @click="addLanguageLevel(language.name, 'B1')" />
+              <input
+                class="box"
+                type="button"
+                value="B2"
+                placeholder="B2"
+                @click="addLanguageLevel(language.name, 'B2')" />
+              <input
+                class="box"
+                type="button"
+                value="C1"
+                placeholder="C1"
+                @click="addLanguageLevel(language.name, 'C1')" />
+              <input
+                class="box"
+                type="button"
+                value="C2"
+                placeholder="C2"
+                @click="addLanguageLevel(language.name, 'C2')"
             /></label>
           </p>
         </div>
@@ -182,14 +212,19 @@ export default {
       console.log("existingLanguage:", existingLanguage);
       if (existingLanguage == null) {
         this.languages.push({ name: language });
+        this.$store.dispatch("addLanguage", language);
       }
-      console.log(this.languages);
     },
 
     deleteLanguage(language) {
       this.languages = this.languages.filter(
         (langEntry) => langEntry.name != language
       );
+      this.$store.dispatch("deleteLanguage", language);
+    },
+
+    addLanguageLevel(language, level) {
+      this.$store.dispatch("addLanguageLevel", { language, level });
     },
   },
 };
