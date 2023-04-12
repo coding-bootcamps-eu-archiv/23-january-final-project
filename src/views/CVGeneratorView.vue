@@ -284,10 +284,10 @@ export default {
     CVCreative,
   },
   created() {
-    window.addEventListener("input", this.handleInput);
+    // window.addEventListener("input", this.handleInput);
   },
   unmounted() {
-    window.removeEventListener("input", this.handleInput);
+    // window.removeEventListener("input", this.handleInput);
   },
   data() {
     return {

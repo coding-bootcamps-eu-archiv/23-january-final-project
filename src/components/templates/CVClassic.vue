@@ -51,20 +51,26 @@
         <section>
           <h3>Berufserfahrung</h3>
           <div class="content-grid">
-            <p id="jobtitle-01">00-2000 - 01.2000</p>
-            <div>
-              <h4 id="jobtitle-01" class="header-job">
-                Job Titel - Unternehmen
-              </h4>
-              <ul id="jobtitle-01">
-                <li>
-                  Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
-                </li>
-                <li>Aliquam tincidunt mauris eu risus.</li>
-                <li>Vestibulum auctor dapibus neque.</li>
-                <li>Nunc dignissim risus id metus.</li>
-              </ul>
-            </div>
+            <template
+              v-for="jobEntry in this.$store.state.userJob"
+              :key="jobEntry.id"
+            >
+              <p id="jobtitle-01">00-2000 - 01.2000</p>
+              <div>
+                <h4 id="jobtitle-01" class="header-job">
+                  {{ jobEntry.job }} - Unternehmen
+                </h4>
+                <ul id="jobtitle-01">
+                  <li v-for="line of dummy" :key="line">{{ line }}</li>
+                  <!--<li>
+                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+                  </li>
+                  <li>Aliquam tincidunt mauris eu risus.</li>
+                  <li>Vestibulum auctor dapibus neque.</li>
+                  <li>Nunc dignissim risus id metus.</li>-->
+                </ul>
+              </div>
+            </template>
 
             <p id="jobtitle-02">00-2000 - 01.2000</p>
             <div>
@@ -144,6 +150,18 @@ export default {
     userData: {
       type: Object,
       required: false,
+    },
+  },
+  computed: {
+    dummy() {
+      const test = `
+        Hello
+        World
+        My 
+        Friend
+      `;
+
+      return test.split("\n");
     },
   },
 };

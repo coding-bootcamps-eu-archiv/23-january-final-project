@@ -6,7 +6,13 @@
         <form action="">
           <p>
             <label for="">Vorname</label>
-            <input type="text" placeholder="Maria" name="firstname" />
+            <input
+              type="text"
+              placeholder="Maria"
+              name="firstname"
+              :value="userData.firstname"
+              @input="syncField"
+            />
           </p>
           <div class="avatar-upload">
             <input type="file" id="avatar-input" />
@@ -83,10 +89,20 @@
 </template>
 
 <script>
+import { updateFormData } from "@/components/formUtils.js";
+
 export default {
   computed: {
     userData() {
       return this.$store.state.userData;
+    },
+  },
+  methods: {
+    syncField(event) {
+      const key = event.target.name;
+      const value = event.target.value;
+      const id = event.target.id;
+      updateFormData({ [key]: value, id }); // update the Vuex store with the input value
     },
   },
 };

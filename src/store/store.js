@@ -34,7 +34,7 @@ const store = createStore({
         {
           id: 1,
           collapsed: false,
-          job: "",
+          job: "Google Hacker",
         },
       ],
       userEducation: [],
