@@ -23,10 +23,28 @@ const store = createStore({
       CVColorModern: "black",
       CVElements: "#000000",
     },
+    userJob: [{}],
   },
   mutations: {
     updateFormData(state, payload) {
       state.userData = { ...state.userData, ...payload };
+    },
+    updateUserJobData(state, payload) {
+      const indexID = payload.id;
+      const index = state.userJob.findIndex((job) => job.id === indexID);
+      if (index !== -1) {
+        // eslint-disable-next-line no-unused-vars
+        const { id, ...rest } = payload;
+
+        const updatedJob = {
+          ...state.userJob[index],
+          ...rest,
+        };
+        state.userJob.splice(index, 1, updatedJob);
+      } else {
+        state.userJob.push(payload);
+      }
+      console.log(state.userJob);
     },
     setTemplateComponent(state, CVType) {
       state.userTemplate.CVTemplate = CVType;
@@ -53,31 +71,31 @@ const store = createStore({
       commit("setModernColor", color);
     },
   },
-  plugins: [
-    (store) => {
-      store.subscribe((mutation, state) => {
-        localStorage.setItem("CVFabrik-Store", JSON.stringify(state));
-      });
+  // plugins: [
+  //   (store) => {
+  //     store.subscribe((mutation, state) => {
+  //       localStorage.setItem("CVFabrik-Store", JSON.stringify(state));
+  //     });
 
-      const savedState = localStorage.getItem("CVFabrik-Store");
-      if (savedState) {
-        const parsedState = JSON.parse(savedState);
-        store.replaceState(parsedState);
-        document.documentElement.style.setProperty(
-          "--cv-color",
-          parsedState.userTemplate.CVColor // Use parsedState instead of state
-        );
-        document.documentElement.style.setProperty(
-          "--cv-elements",
-          parsedState.userTemplate.CVElements
-        );
-        document.documentElement.style.setProperty(
-          "--cv-modern-color",
-          parsedState.userTemplate.CVColorModern
-        );
-      }
-    },
-  ],
+  //     const savedState = localStorage.getItem("CVFabrik-Store");
+  //     if (savedState) {
+  //       const parsedState = JSON.parse(savedState);
+  //       store.replaceState(parsedState);
+  //       document.documentElement.style.setProperty(
+  //         "--cv-color",
+  //         parsedState.userTemplate.CVColor // Use parsedState instead of state
+  //       );
+  //       document.documentElement.style.setProperty(
+  //         "--cv-elements",
+  //         parsedState.userTemplate.CVElements
+  //       );
+  //       document.documentElement.style.setProperty(
+  //         "--cv-modern-color",
+  //         parsedState.userTemplate.CVColorModern
+  //       );
+  //     }
+  //   },
+  // ],
 });
 
 export default store;

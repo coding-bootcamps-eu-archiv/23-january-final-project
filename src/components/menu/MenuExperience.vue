@@ -59,43 +59,83 @@
           >
             <p class="menu-full-width">
               <label for="">Berufsbezeichnung</label>
-              <input type="text" placeholder="Front-End Developer" />
+              <input
+                type="text"
+                placeholder="Front-End Developer"
+                v-bind:id="properties.id"
+                name="job"
+                data-storeElement="userjob"
+              />
             </p>
             <div class="menu-time">
               <p class="">
                 <label for="">Arbeitgeber</label>
-                <input type="text" placeholder="Google" />
+                <input
+                  type="text"
+                  placeholder="Google"
+                  v-bind:id="properties.id"
+                  name="company"
+                />
               </p>
 
               <p class="">
                 <label for="">Ort</label>
-                <input type="text" placeholder="Berlin" />
+                <input
+                  type="text"
+                  placeholder="Berlin"
+                  v-bind:id="properties.id"
+                  name="place"
+                />
               </p>
             </div>
             <div class="menu-time">
               <p class="">
                 <label for="">Jahr</label>
-                <input type="text" placeholder="2023" />
+                <input
+                  type="text"
+                  placeholder="2023"
+                  v-bind:id="properties.id"
+                  name="yearStart"
+                />
               </p>
 
               <p class="">
                 <label for="">Monat</label>
-                <input type="text" placeholder="Januar" />
+                <input
+                  type="text"
+                  placeholder="Januar"
+                  v-bind:id="properties.id"
+                  name="monthStart"
+                />
               </p>
 
               <p class="">
                 <label for="">Jahr</label>
-                <input type="text" placeholder="2023" />
+                <input
+                  type="text"
+                  placeholder="2023"
+                  v-bind:id="properties.id"
+                  name="yearEnd"
+                />
               </p>
 
               <p class="">
                 <label for="">Monat</label>
-                <input type="text" placeholder="Juni" />
+                <input
+                  type="text"
+                  placeholder="Juni"
+                  v-bind:id="properties.id"
+                  name="monthEnd"
+                />
               </p>
             </div>
             <p class="menu-full-width">
               <label class="menu-checkbox">
-                <input type="checkbox" placeholder="" />
+                <input
+                  type="checkbox"
+                  placeholder=""
+                  v-bind:id="properties.id"
+                />
                 <span class="menu-today-checkbox"
                   >Ich arbeite derzeit hier</span
                 ></label
@@ -103,7 +143,14 @@
             </p>
             <p class="menu-full-width">
               <label for="">Was warem Deine Aufgaben?</label>
-              <textarea name="" id="" cols="40" rows="3">-</textarea>
+              <textarea
+                name="description"
+                v-bind:id="properties.id"
+                cols="40"
+                rows="3"
+              >
+-</textarea
+              >
             </p>
           </div>
         </div>
