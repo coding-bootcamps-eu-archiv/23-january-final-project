@@ -2,6 +2,7 @@
   <div class="menu-contain">
     <div class="menu-wrapper">
       <div class="scroll menu-form">
+        <p class="warning">TO BE IMPLEMENTED | DEMO ONLY</p>
         <h1>Sprachen</h1>
         <p class="menu-full-width text-language">Die beliebtesten Sprachen</p>
         <p class="sub-text"></p>

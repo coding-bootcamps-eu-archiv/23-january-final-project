@@ -65,8 +65,8 @@ const store = createStore({
       } else {
         state.userJob.push(payload);
       }
-      console.log(state.userJob);
     },
+
     updateUserEducationData(state, payload) {
       const indexID = payload.id;
       const index = state.userEducation.findIndex((ed) => ed.id === indexID);
@@ -154,6 +154,11 @@ const store = createStore({
         (lang) => Object.keys(lang)[0] == toDelete
       );
       commit("deleteLanguageMutation", index);
+    },
+  },
+  getters: {
+    jobDescription(state) {
+      return state.job.description;
     },
   },
   plugins: [vuexLocal.plugin],

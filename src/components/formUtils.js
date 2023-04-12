@@ -42,6 +42,7 @@ export const updateFormData = (payload) => {
     "edMonthStart",
     "edYearEnd",
     "edMonthEnd",
+    "description",
   ];
   if (userEdKeys.includes(Object.keys(payload)[0])) {
     store.commit("updateUserEducationData", payload);
