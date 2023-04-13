@@ -151,7 +151,7 @@ export default {
   data() {
     return {
       imageSrc:
-        "https://di262mgurvkjm.cloudfront.net/42228752-4801-45bd-b22c-b9ad2e2cc0b5/2020_Bon_Cadeau_Photographe_Lausanne_Studio_Photo-3_uxga.jpg",
+        "https://s3.amazonaws.com/shecodesio-production/uploads/files/000/076/821/original/8025287921598811056-512.png?1681380400",
     };
   },
   computed: {
