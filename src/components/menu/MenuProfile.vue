@@ -151,7 +151,7 @@ export default {
   data() {
     return {
       imageSrc:
-        "https://pics.freeicons.io/uploads/icons/png/8025287921598811056-512.png",
+        "https://s3.amazonaws.com/shecodesio-production/uploads/files/000/076/821/original/8025287921598811056-512.png?1681380400",
     };
   },
   computed: {
